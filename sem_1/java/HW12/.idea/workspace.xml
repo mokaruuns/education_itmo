@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="20ac1961-a990-42e3-8dcd-d3933a8ff2f3" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1XZ1twlQvFvIo9IEtzv2CkjETaS" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="create.test.in.the.same.root" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/expression" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/expression" />
+      <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$/src/parser" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="expression" />
+    </key>
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="expression" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.ParserShiftsTest">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="expression.Main" />
+      <module name="HW12" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="expression.Operator" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ParserShiftsTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="parser.ParserShiftsTest" />
+      <module name="HW12" />
+      <option name="PROGRAM_PARAMETERS" value="easy" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="parser.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ParserTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="parser.ParserTest" />
+      <module name="HW12" />
+      <option name="PROGRAM_PARAMETERS" value="easy" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="parser.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ParserTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="parser.ParserTest" />
+      <module name="HW12" />
+      <option name="PROGRAM_PARAMETERS" value="easy" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="parser.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ParserTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="parser.ParserTest" />
+      <module name="HW12" />
+      <option name="PROGRAM_PARAMETERS" value="easy" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="parser.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ParserTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="parser.ParserTest" />
+      <module name="HW12" />
+      <option name="PROGRAM_PARAMETERS" value="easy" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="parser.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.Main" />
+      <item itemvalue="Application.ParserShiftsTest" />
+      <item itemvalue="Application.ParserTest" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.ParserShiftsTest" />
+        <item itemvalue="Application.ParserTest" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.ParserTest" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="20ac1961-a990-42e3-8dcd-d3933a8ff2f3" name="Default Changelist" comment="" />
+      <created>1581239020179</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1581239020179</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="263" y="113" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1581409409452">
+      <screen x="0" y="28" width="1600" height="872" />
+    </state>
+    <state x="263" y="113" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.28.1600.872@0.28.1600.872" timestamp="1581409409452" />
+    <state x="612" y="167" key="#com.intellij.ide.util.MemberChooser" timestamp="1581275297329">
+      <screen x="0" y="28" width="1600" height="872" />
+    </state>
+    <state x="612" y="167" key="#com.intellij.ide.util.MemberChooser/0.28.1600.872@0.28.1600.872" timestamp="1581275297329" />
+    <state x="592" y="342" width="415" height="230" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1581243726882">
+      <screen x="0" y="28" width="1600" height="872" />
+    </state>
+    <state x="592" y="342" width="415" height="230" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.28.1600.872@0.28.1600.872" timestamp="1581243726882" />
+    <state x="563" y="327" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1581247032899">
+      <screen x="0" y="28" width="1600" height="872" />
+    </state>
+    <state x="563" y="327" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.28.1600.872@0.28.1600.872" timestamp="1581247032899" />
+    <state width="1554" height="292" key="GridCell.Tab.0.bottom" timestamp="1581508681381">
+      <screen x="0" y="28" width="1600" height="872" />
+    </state>
+    <state width="1554" height="292" key="GridCell.Tab.0.bottom/0.28.1600.872@0.28.1600.872" timestamp="1581508681381" />
+    <state width="1554" height="292" key="GridCell.Tab.0.center" timestamp="1581508681381">
+      <screen x="0" y="28" width="1600" height="872" />
+    </state>
+    <state width="1554" height="292" key="GridCell.Tab.0.center/0.28.1600.872@0.28.1600.872" timestamp="1581508681381" />
+    <state width="1554" height="292" key="GridCell.Tab.0.left" timestamp="1581508681380">
+      <screen x="0" y="28" width="1600" height="872" />
+    </state>
+    <state width="1554" height="292" key="GridCell.Tab.0.left/0.28.1600.872@0.28.1600.872" timestamp="1581508681380" />
+    <state width="1554" height="292" key="GridCell.Tab.0.right" timestamp="1581508681381">
+      <screen x="0" y="28" width="1600" height="872" />
+    </state>
+    <state width="1554" height="292" key="GridCell.Tab.0.right/0.28.1600.872@0.28.1600.872" timestamp="1581508681381" />
+    <state width="1554" height="292" key="GridCell.Tab.1.bottom" timestamp="1581508681382">
+      <screen x="0" y="28" width="1600" height="872" />
+    </state>
+    <state width="1554" height="292" key="GridCell.Tab.1.bottom/0.28.1600.872@0.28.1600.872" timestamp="1581508681382" />
+    <state width="1554" height="292" key="GridCell.Tab.1.center" timestamp="1581508681381">
+      <screen x="0" y="28" width="1600" height="872" />
+    </state>
+    <state width="1554" height="292" key="GridCell.Tab.1.center/0.28.1600.872@0.28.1600.872" timestamp="1581508681381" />
+    <state width="1554" height="292" key="GridCell.Tab.1.left" timestamp="1581508681381">
+      <screen x="0" y="28" width="1600" height="872" />
+    </state>
+    <state width="1554" height="292" key="GridCell.Tab.1.left/0.28.1600.872@0.28.1600.872" timestamp="1581508681381" />
+    <state width="1554" height="292" key="GridCell.Tab.1.right" timestamp="1581508681382">
+      <screen x="0" y="28" width="1600" height="872" />
+    </state>
+    <state width="1554" height="292" key="GridCell.Tab.1.right/0.28.1600.872@0.28.1600.872" timestamp="1581508681382" />
+    <state x="308" y="60" key="SettingsEditor" timestamp="1581376400723">
+      <screen x="0" y="28" width="1600" height="872" />
+    </state>
+    <state x="308" y="60" key="SettingsEditor/0.28.1600.872@0.28.1600.872" timestamp="1581376400723" />
+    <state x="578" y="160" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1581244008753">
+      <screen x="0" y="28" width="1600" height="872" />
+    </state>
+    <state x="578" y="160" key="com.intellij.testIntegration.createTest.CreateTestDialog/0.28.1600.872@0.28.1600.872" timestamp="1581244008753" />
+    <state x="800" y="28" width="800" height="872" key="dock-window-1" timestamp="1581274946428">
+      <screen x="0" y="28" width="1600" height="872" />
+    </state>
+    <state x="800" y="28" width="800" height="872" key="dock-window-1/0.28.1600.872@0.28.1600.872" timestamp="1581274946428" />
+    <state x="450" y="68" width="700" height="769" key="new project wizard" timestamp="1581519458195">
+      <screen x="0" y="28" width="1600" height="872" />
+    </state>
+    <state x="450" y="68" width="700" height="769" key="new project wizard/0.28.1600.872@0.28.1600.872" timestamp="1581519458195" />
+    <state x="549" y="85" key="refactoring.ChangeSignatureDialog" timestamp="1581374269053">
+      <screen x="0" y="28" width="1600" height="872" />
+    </state>
+    <state x="549" y="85" key="refactoring.ChangeSignatureDialog/0.28.1600.872@0.28.1600.872" timestamp="1581374269053" />
+    <state x="463" y="204" key="run.anything.popup" timestamp="1581424905134">
+      <screen x="0" y="28" width="1600" height="872" />
+    </state>
+    <state x="463" y="204" key="run.anything.popup/0.28.1600.872@0.28.1600.872" timestamp="1581424905134" />
+    <state x="463" y="197" width="672" height="678" key="search.everywhere.popup" timestamp="1581251210930">
+      <screen x="0" y="28" width="1600" height="872" />
+    </state>
+    <state x="463" y="197" width="672" height="678" key="search.everywhere.popup/0.28.1600.872@0.28.1600.872" timestamp="1581251210930" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/parser/ParserTest.java</url>
+          <line>65</line>
+          <option name="timeStamp" value="98" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/parser/ParserTest.java</url>
+          <line>102</line>
+          <option name="timeStamp" value="99" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/parser/ParserTest.java</url>
+          <line>104</line>
+          <option name="timeStamp" value="101" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/parser/ParserTest.java</url>
+          <line>103</line>
+          <option name="timeStamp" value="102" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/parser/ParserTest.java</url>
+          <line>105</line>
+          <option name="timeStamp" value="103" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/parser/ParserTest.java</url>
+          <line>107</line>
+          <option name="timeStamp" value="105" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/parser/ParserTest.java</url>
+          <line>106</line>
+          <option name="timeStamp" value="106" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/parser/ParserTest.java</url>
+          <line>96</line>
+          <option name="timeStamp" value="107" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/parser/ParserTest.java</url>
+          <line>97</line>
+          <option name="timeStamp" value="108" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/parser/ParserTest.java</url>
+          <line>99</line>
+          <option name="timeStamp" value="110" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/parser/ParserTest.java</url>
+          <line>98</line>
+          <option name="timeStamp" value="111" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/parser/ParserTest.java</url>
+          <line>100</line>
+          <option name="timeStamp" value="112" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/parser/ParserTest.java</url>
+          <line>101</line>
+          <option name="timeStamp" value="113" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/HW12$Main.ic" NAME="Main Coverage Results" MODIFIED="1581376570484" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>expression.*</FILTER>
+    </SUITE>
+  </component>
+</project>

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="ae130543-9e7b-4fc2-b5ed-d4305fef0a3d" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ProjectId" id="1YJbNJ0b7Wizs0BfSNBj7pDsabW" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../HW3" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$/src/queue" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.ArrayQueueToStrTest">
+    <configuration name="ArrayQueueTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="queue.ArrayQueueTest" />
+      <module name="hw3_2" />
+      <option name="PROGRAM_PARAMETERS" value="easy" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="queue.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ArrayQueueToStrTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="queue.ArrayQueueToStrTest" />
+      <module name="hw3_2" />
+      <option name="PROGRAM_PARAMETERS" value="easy" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="queue.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.ArrayQueueTest" />
+      <item itemvalue="Application.ArrayQueueToStrTest" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.ArrayQueueToStrTest" />
+        <item itemvalue="Application.ArrayQueueTest" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ae130543-9e7b-4fc2-b5ed-d4305fef0a3d" name="Default Changelist" comment="" />
+      <created>1582663602983</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1582663602983</updated>
+      <workItem from="1585819192050" duration="131000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="399" y="113" key="#Project_Structure" timestamp="1582663614488">
+      <screen x="0" y="28" width="1600" height="872" />
+    </state>
+    <state x="399" y="113" key="#Project_Structure/0.28.1600.872@0.28.1600.872" timestamp="1582663614488" />
+    <state x="263" y="110" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1582670993348">
+      <screen x="0" y="28" width="1600" height="872" />
+    </state>
+    <state x="263" y="110" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.28.1600.872@0.28.1600.872" timestamp="1582670993348" />
+    <state x="583" y="223" width="424" height="487" key="FileChooserDialogImpl" timestamp="1585819253603">
+      <screen x="0" y="30" width="1600" height="870" />
+    </state>
+    <state x="583" y="223" width="424" height="487" key="FileChooserDialogImpl/0.30.1600.870@0.30.1600.870" timestamp="1585819253603" />
+    <state width="1554" height="217" key="GridCell.Tab.0.bottom" timestamp="1585819324128">
+      <screen x="0" y="30" width="1600" height="870" />
+    </state>
+    <state width="1554" height="324" key="GridCell.Tab.0.bottom/0.28.1600.872@0.28.1600.872" timestamp="1583690458127" />
+    <state width="1554" height="217" key="GridCell.Tab.0.bottom/0.30.1600.870@0.30.1600.870" timestamp="1585819324128" />
+    <state width="1554" height="217" key="GridCell.Tab.0.center" timestamp="1585819324128">
+      <screen x="0" y="30" width="1600" height="870" />
+    </state>
+    <state width="1554" height="324" key="GridCell.Tab.0.center/0.28.1600.872@0.28.1600.872" timestamp="1583690458126" />
+    <state width="1554" height="217" key="GridCell.Tab.0.center/0.30.1600.870@0.30.1600.870" timestamp="1585819324128" />
+    <state width="1554" height="217" key="GridCell.Tab.0.left" timestamp="1585819324127">
+      <screen x="0" y="30" width="1600" height="870" />
+    </state>
+    <state width="1554" height="324" key="GridCell.Tab.0.left/0.28.1600.872@0.28.1600.872" timestamp="1583690458126" />
+    <state width="1554" height="217" key="GridCell.Tab.0.left/0.30.1600.870@0.30.1600.870" timestamp="1585819324127" />
+    <state width="1554" height="217" key="GridCell.Tab.0.right" timestamp="1585819324128">
+      <screen x="0" y="30" width="1600" height="870" />
+    </state>
+    <state width="1554" height="324" key="GridCell.Tab.0.right/0.28.1600.872@0.28.1600.872" timestamp="1583690458127" />
+    <state width="1554" height="217" key="GridCell.Tab.0.right/0.30.1600.870@0.30.1600.870" timestamp="1585819324128" />
+    <state x="446" y="64" width="700" height="772" key="new project wizard" timestamp="1583922955019">
+      <screen x="0" y="28" width="1600" height="872" />
+    </state>
+    <state x="446" y="64" width="700" height="772" key="new project wizard/0.28.1600.872@0.28.1600.872" timestamp="1583922955019" />
+  </component>
+</project>
