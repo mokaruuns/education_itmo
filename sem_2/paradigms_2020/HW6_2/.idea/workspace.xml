@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="a90879b6-cd81-4f26-b03c-427c1d06f960" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ProjectId" id="1aFsf2o7jCR49lsC5w3DBjg5xFo" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/javascript" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/javascript" />
+      <recent name="$PROJECT_DIR$/src" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.FunctionalCubeTest">
+    <configuration name="FunctionalCubeTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="javascript.jstest.functional.FunctionalCubeTest" />
+      <module name="HW6_2" />
+      <option name="PROGRAM_PARAMETERS" value="easy" />
+      <option name="VM_PARAMETERS" value="-ea --module-path=$PROJECT_DIR$/src/javascript/graal" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="javascript.jstest.functional.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FunctionalExpressionTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="javascript.jstest.functional.FunctionalExpressionTest" />
+      <module name="HW6_2" />
+      <option name="PROGRAM_PARAMETERS" value="easy" />
+      <option name="VM_PARAMETERS" value="-ea --module-path=$PROJECT_DIR$/src/javascript/graal" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="javascript.jstest.functional.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ClojureREPL" factoryName="Local" activateToolWindowBeforeRun="false">
+      <setting name="replType" value="NREPL" />
+      <setting name="execution" value="LEININGEN" />
+      <setting name="jvmArgs" value="" />
+      <setting name="parameters" value="" />
+      <setting name="workingDir" value="" />
+      <setting name="profiles" value="" />
+      <setting name="aliases" value="" />
+      <setting name="fixLineNumbers" value="false" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="ClojureREPL" factoryName="Remote" activateToolWindowBeforeRun="false">
+      <setting name="host" value="" />
+      <setting name="port" value="0" />
+      <setting name="replType" value="SOCKET" />
+      <setting name="configType" value="SPECIFY" />
+      <setting name="fixLineNumbers" value="false" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Application.FunctionalCubeTest" />
+      <item itemvalue="Application.FunctionalExpressionTest" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.FunctionalCubeTest" />
+        <item itemvalue="Application.FunctionalExpressionTest" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a90879b6-cd81-4f26-b03c-427c1d06f960" name="Default Changelist" comment="" />
+      <created>1586342775726</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1586342775726</updated>
+      <workItem from="1586342779426" duration="1475000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="436" y="125" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1586343171463">
+      <screen x="0" y="30" width="1600" height="870" />
+    </state>
+    <state x="436" y="125" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.30.1600.870@0.30.1600.870" timestamp="1586343171463" />
+    <state width="1554" height="269" key="GridCell.Tab.0.bottom" timestamp="1586345328108">
+      <screen x="0" y="30" width="1600" height="870" />
+    </state>
+    <state width="1554" height="269" key="GridCell.Tab.0.bottom/0.30.1600.870@0.30.1600.870" timestamp="1586345328108" />
+    <state width="1554" height="269" key="GridCell.Tab.0.center" timestamp="1586345328107">
+      <screen x="0" y="30" width="1600" height="870" />
+    </state>
+    <state width="1554" height="269" key="GridCell.Tab.0.center/0.30.1600.870@0.30.1600.870" timestamp="1586345328107" />
+    <state width="1554" height="269" key="GridCell.Tab.0.left" timestamp="1586345328107">
+      <screen x="0" y="30" width="1600" height="870" />
+    </state>
+    <state width="1554" height="269" key="GridCell.Tab.0.left/0.30.1600.870@0.30.1600.870" timestamp="1586345328107" />
+    <state width="1554" height="269" key="GridCell.Tab.0.right" timestamp="1586345328108">
+      <screen x="0" y="30" width="1600" height="870" />
+    </state>
+    <state width="1554" height="269" key="GridCell.Tab.0.right/0.30.1600.870@0.30.1600.870" timestamp="1586345328108" />
+    <state width="1554" height="269" key="GridCell.Tab.1.bottom" timestamp="1586345328109">
+      <screen x="0" y="30" width="1600" height="870" />
+    </state>
+    <state width="1554" height="269" key="GridCell.Tab.1.bottom/0.30.1600.870@0.30.1600.870" timestamp="1586345328109" />
+    <state width="1554" height="269" key="GridCell.Tab.1.center" timestamp="1586345328109">
+      <screen x="0" y="30" width="1600" height="870" />
+    </state>
+    <state width="1554" height="269" key="GridCell.Tab.1.center/0.30.1600.870@0.30.1600.870" timestamp="1586345328108" />
+    <state width="1554" height="269" key="GridCell.Tab.1.left" timestamp="1586345328108">
+      <screen x="0" y="30" width="1600" height="870" />
+    </state>
+    <state width="1554" height="269" key="GridCell.Tab.1.left/0.30.1600.870@0.30.1600.870" timestamp="1586345328108" />
+    <state width="1554" height="269" key="GridCell.Tab.1.right" timestamp="1586345328109">
+      <screen x="0" y="30" width="1600" height="870" />
+    </state>
+    <state width="1554" height="269" key="GridCell.Tab.1.right/0.30.1600.870@0.30.1600.870" timestamp="1586345328109" />
+  </component>
+</project>

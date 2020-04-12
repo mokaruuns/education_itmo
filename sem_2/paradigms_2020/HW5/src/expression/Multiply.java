@@ -1,5 +1,6 @@
 package expression;
 
+import expression.generic.TripleExpression;
 import expression.operations.NumberException;
 import expression.operations.Operation;
 

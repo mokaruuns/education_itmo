@@ -1,6 +1,7 @@
 package expression;
 
 import expression.exceptions.ParserException;
+import expression.generic.TripleExpression;
 import expression.operations.NumberException;
 import expression.operations.Operation;
 

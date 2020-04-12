@@ -24,11 +24,11 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../HW5_3" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../HW1" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -39,7 +39,7 @@
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.ObjectMinMaxTest">
+  <component name="RunManager" selected="Application.ObjectExpressionTest">
     <configuration name="ObjectExpressionTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="javascript.jstest.object.ObjectExpressionTest" />
       <module name="HW7" />
@@ -70,6 +70,25 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="ClojureREPL" factoryName="Local" activateToolWindowBeforeRun="false">
+      <setting name="replType" value="NREPL" />
+      <setting name="execution" value="LEININGEN" />
+      <setting name="jvmArgs" value="" />
+      <setting name="parameters" value="" />
+      <setting name="workingDir" value="" />
+      <setting name="profiles" value="" />
+      <setting name="aliases" value="" />
+      <setting name="fixLineNumbers" value="false" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="ClojureREPL" factoryName="Remote" activateToolWindowBeforeRun="false">
+      <setting name="host" value="" />
+      <setting name="port" value="0" />
+      <setting name="replType" value="SOCKET" />
+      <setting name="configType" value="SPECIFY" />
+      <setting name="fixLineNumbers" value="false" />
+      <method v="2" />
+    </configuration>
     <configuration name="tset.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/src/javascript/tset.js" working-dir="$PROJECT_DIR$/src/javascript">
       <method v="2" />
     </configuration>
@@ -80,8 +99,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.ObjectMinMaxTest" />
         <item itemvalue="Application.ObjectExpressionTest" />
+        <item itemvalue="Application.ObjectMinMaxTest" />
         <item itemvalue="Node.js.tset.js" />
       </list>
     </recent_temporary>
@@ -108,6 +127,10 @@
       <workItem from="1585662365764" duration="1734000" />
       <workItem from="1585766178744" duration="13000" />
       <workItem from="1585774487406" duration="639000" />
+      <workItem from="1586187324038" duration="166000" />
+      <workItem from="1586282622396" duration="177000" />
+      <workItem from="1586282827537" duration="3315000" />
+      <workItem from="1586341506835" duration="8021000" />
     </task>
     <servers />
   </component>
@@ -119,38 +142,39 @@
       <screen x="0" y="28" width="1600" height="872" />
     </state>
     <state x="396" y="113" width="868" height="678" key="#Project_Structure/0.28.1600.872@0.28.1600.872" timestamp="1585140488695" />
-    <state x="498" y="159" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1585141211854">
-      <screen x="0" y="28" width="1600" height="872" />
+    <state x="498" y="161" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1586295233038">
+      <screen x="0" y="30" width="1600" height="870" />
     </state>
     <state x="498" y="159" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.28.1600.872@0.28.1600.872" timestamp="1585141211854" />
+    <state x="498" y="161" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.30.1600.870@0.30.1600.870" timestamp="1586295233038" />
     <state x="534" y="199" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog" timestamp="1585140685958">
       <screen x="0" y="28" width="1600" height="872" />
     </state>
     <state x="534" y="199" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/0.28.1600.872@0.28.1600.872" timestamp="1585140685958" />
-    <state x="583" y="223" width="424" height="487" key="FileChooserDialogImpl" timestamp="1585775124682">
+    <state x="583" y="223" width="424" height="487" key="FileChooserDialogImpl" timestamp="1586363423088">
       <screen x="0" y="30" width="1600" height="870" />
     </state>
-    <state x="583" y="223" width="424" height="487" key="FileChooserDialogImpl/0.30.1600.870@0.30.1600.870" timestamp="1585775124682" />
-    <state width="1554" height="217" key="GridCell.Tab.0.bottom" timestamp="1585775126059">
+    <state x="583" y="223" width="424" height="487" key="FileChooserDialogImpl/0.30.1600.870@0.30.1600.870" timestamp="1586363423088" />
+    <state width="1554" height="217" key="GridCell.Tab.0.bottom" timestamp="1586363609818">
       <screen x="0" y="30" width="1600" height="870" />
     </state>
     <state width="1550" height="235" key="GridCell.Tab.0.bottom/0.28.1600.872@0.28.1600.872" timestamp="1585148749686" />
-    <state width="1554" height="217" key="GridCell.Tab.0.bottom/0.30.1600.870@0.30.1600.870" timestamp="1585775126059" />
-    <state width="1554" height="217" key="GridCell.Tab.0.center" timestamp="1585775126058">
+    <state width="1554" height="217" key="GridCell.Tab.0.bottom/0.30.1600.870@0.30.1600.870" timestamp="1586363609818" />
+    <state width="1554" height="217" key="GridCell.Tab.0.center" timestamp="1586363609817">
       <screen x="0" y="30" width="1600" height="870" />
     </state>
     <state width="1550" height="235" key="GridCell.Tab.0.center/0.28.1600.872@0.28.1600.872" timestamp="1585148749685" />
-    <state width="1554" height="217" key="GridCell.Tab.0.center/0.30.1600.870@0.30.1600.870" timestamp="1585775126058" />
-    <state width="1554" height="217" key="GridCell.Tab.0.left" timestamp="1585775126058">
+    <state width="1554" height="217" key="GridCell.Tab.0.center/0.30.1600.870@0.30.1600.870" timestamp="1586363609817" />
+    <state width="1554" height="217" key="GridCell.Tab.0.left" timestamp="1586363609817">
       <screen x="0" y="30" width="1600" height="870" />
     </state>
     <state width="1550" height="235" key="GridCell.Tab.0.left/0.28.1600.872@0.28.1600.872" timestamp="1585148749684" />
-    <state width="1554" height="217" key="GridCell.Tab.0.left/0.30.1600.870@0.30.1600.870" timestamp="1585775126058" />
-    <state width="1554" height="217" key="GridCell.Tab.0.right" timestamp="1585775126059">
+    <state width="1554" height="217" key="GridCell.Tab.0.left/0.30.1600.870@0.30.1600.870" timestamp="1586363609817" />
+    <state width="1554" height="217" key="GridCell.Tab.0.right" timestamp="1586363609818">
       <screen x="0" y="30" width="1600" height="870" />
     </state>
     <state width="1550" height="235" key="GridCell.Tab.0.right/0.28.1600.872@0.28.1600.872" timestamp="1585148749685" />
-    <state width="1554" height="217" key="GridCell.Tab.0.right/0.30.1600.870@0.30.1600.870" timestamp="1585775126059" />
+    <state width="1554" height="217" key="GridCell.Tab.0.right/0.30.1600.870@0.30.1600.870" timestamp="1586363609818" />
     <state width="1550" height="290" key="GridCell.Tab.1.bottom" timestamp="1585146573555">
       <screen x="0" y="28" width="1600" height="872" />
     </state>
@@ -167,14 +191,16 @@
       <screen x="0" y="28" width="1600" height="872" />
     </state>
     <state width="1550" height="290" key="GridCell.Tab.1.right/0.28.1600.872@0.28.1600.872" timestamp="1585146573555" />
-    <state x="282" y="87" key="SettingsEditor" timestamp="1585141944270">
-      <screen x="0" y="28" width="1600" height="872" />
+    <state x="282" y="89" width="992" height="733" key="SettingsEditor" timestamp="1586282799846">
+      <screen x="0" y="30" width="1600" height="870" />
     </state>
     <state x="282" y="87" key="SettingsEditor/0.28.1600.872@0.28.1600.872" timestamp="1585141944270" />
-    <state x="98" y="28" key="new project wizard" timestamp="1585140479571">
-      <screen x="0" y="28" width="1600" height="872" />
+    <state x="282" y="89" width="992" height="733" key="SettingsEditor/0.30.1600.870@0.30.1600.870" timestamp="1586282799846" />
+    <state x="98" y="30" width="1222" height="777" key="new project wizard" timestamp="1586283455497">
+      <screen x="0" y="30" width="1600" height="870" />
     </state>
     <state x="98" y="28" key="new project wizard/0.28.1600.872@0.28.1600.872" timestamp="1585140479571" />
+    <state x="98" y="30" width="1222" height="777" key="new project wizard/0.30.1600.870@0.30.1600.870" timestamp="1586283455497" />
     <state x="460" y="203" key="run.anything.popup" timestamp="1585144591261">
       <screen x="0" y="28" width="1600" height="872" />
     </state>

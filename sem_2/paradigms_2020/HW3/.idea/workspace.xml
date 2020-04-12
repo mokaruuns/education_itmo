@@ -17,7 +17,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../HW3" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -81,6 +81,9 @@
       <option name="presentableId" value="Default" />
       <updated>1582663602983</updated>
       <workItem from="1585819192050" duration="131000" />
+      <workItem from="1585912153149" duration="54000" />
+      <workItem from="1586187211333" duration="283000" />
+      <workItem from="1586282577926" duration="42000" />
     </task>
     <servers />
   </component>

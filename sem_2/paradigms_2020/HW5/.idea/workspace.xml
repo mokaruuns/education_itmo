@@ -24,7 +24,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../hw3_2" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -90,6 +90,25 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="ClojureREPL" factoryName="Local" activateToolWindowBeforeRun="false">
+      <setting name="replType" value="NREPL" />
+      <setting name="execution" value="LEININGEN" />
+      <setting name="jvmArgs" value="" />
+      <setting name="parameters" value="" />
+      <setting name="workingDir" value="" />
+      <setting name="profiles" value="" />
+      <setting name="aliases" value="" />
+      <setting name="fixLineNumbers" value="false" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="ClojureREPL" factoryName="Remote" activateToolWindowBeforeRun="false">
+      <setting name="host" value="" />
+      <setting name="port" value="0" />
+      <setting name="replType" value="SOCKET" />
+      <setting name="configType" value="SPECIFY" />
+      <setting name="fixLineNumbers" value="false" />
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Application.GenericTest" />
       <item itemvalue="Application.Main" />
@@ -122,6 +141,7 @@
       <workItem from="1585775127816" duration="646000" />
       <workItem from="1585781571447" duration="14000" />
       <workItem from="1585819172735" duration="17000" />
+      <workItem from="1586340753547" duration="2953000" />
     </task>
     <servers />
   </component>
@@ -150,22 +170,26 @@
     </state>
     <state x="584" y="221" key="FileChooserDialogImpl/0.28.1600.872@0.28.1600.872" timestamp="1584997323187" />
     <state x="584" y="223" width="424" height="487" key="FileChooserDialogImpl/0.30.1600.870@0.30.1600.870" timestamp="1585819187684" />
-    <state width="1550" height="211" key="GridCell.Tab.0.bottom" timestamp="1585136909719">
-      <screen x="0" y="28" width="1600" height="872" />
+    <state width="1554" height="217" key="GridCell.Tab.0.bottom" timestamp="1586345332985">
+      <screen x="0" y="30" width="1600" height="870" />
     </state>
     <state width="1550" height="211" key="GridCell.Tab.0.bottom/0.28.1600.872@0.28.1600.872" timestamp="1585136909719" />
-    <state width="1550" height="211" key="GridCell.Tab.0.center" timestamp="1585136909717">
-      <screen x="0" y="28" width="1600" height="872" />
+    <state width="1554" height="217" key="GridCell.Tab.0.bottom/0.30.1600.870@0.30.1600.870" timestamp="1586345332985" />
+    <state width="1554" height="217" key="GridCell.Tab.0.center" timestamp="1586345332984">
+      <screen x="0" y="30" width="1600" height="870" />
     </state>
     <state width="1550" height="211" key="GridCell.Tab.0.center/0.28.1600.872@0.28.1600.872" timestamp="1585136909717" />
-    <state width="1550" height="211" key="GridCell.Tab.0.left" timestamp="1585136909717">
-      <screen x="0" y="28" width="1600" height="872" />
+    <state width="1554" height="217" key="GridCell.Tab.0.center/0.30.1600.870@0.30.1600.870" timestamp="1586345332984" />
+    <state width="1554" height="217" key="GridCell.Tab.0.left" timestamp="1586345332984">
+      <screen x="0" y="30" width="1600" height="870" />
     </state>
     <state width="1550" height="211" key="GridCell.Tab.0.left/0.28.1600.872@0.28.1600.872" timestamp="1585136909717" />
-    <state width="1550" height="211" key="GridCell.Tab.0.right" timestamp="1585136909718">
-      <screen x="0" y="28" width="1600" height="872" />
+    <state width="1554" height="217" key="GridCell.Tab.0.left/0.30.1600.870@0.30.1600.870" timestamp="1586345332984" />
+    <state width="1554" height="217" key="GridCell.Tab.0.right" timestamp="1586345332984">
+      <screen x="0" y="30" width="1600" height="870" />
     </state>
     <state width="1550" height="211" key="GridCell.Tab.0.right/0.28.1600.872@0.28.1600.872" timestamp="1585136909718" />
+    <state width="1554" height="217" key="GridCell.Tab.0.right/0.30.1600.870@0.30.1600.870" timestamp="1586345332984" />
     <state x="282" y="87" key="SettingsEditor" timestamp="1585134014636">
       <screen x="0" y="28" width="1600" height="872" />
     </state>

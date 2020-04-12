@@ -55,7 +55,7 @@
       <option name="MAIN_CLASS_NAME" value="javascript.jstest.functional.FunctionalCubeTest" />
       <module name="HW6_1" />
       <option name="PROGRAM_PARAMETERS" value="easy" />
-      <option name="VM_PARAMETERS" value="-ea --module-path=$PROJECT_DIR$/src/javascript/graal --class-path $PROJECT_DIR$/out/production/HW6_1" />
+      <option name="VM_PARAMETERS" value="-ea --module-path=$PROJECT_DIR$/src/javascript/graal --class-path $PROJECT_DIR$/out/production/HW6" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="javascript.jstest.functional.*" />
@@ -111,6 +111,25 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="ClojureREPL" factoryName="Local" activateToolWindowBeforeRun="false">
+      <setting name="replType" value="NREPL" />
+      <setting name="execution" value="LEININGEN" />
+      <setting name="jvmArgs" value="" />
+      <setting name="parameters" value="" />
+      <setting name="workingDir" value="" />
+      <setting name="profiles" value="" />
+      <setting name="aliases" value="" />
+      <setting name="fixLineNumbers" value="false" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="ClojureREPL" factoryName="Remote" activateToolWindowBeforeRun="false">
+      <setting name="host" value="" />
+      <setting name="port" value="0" />
+      <setting name="replType" value="SOCKET" />
+      <setting name="configType" value="SPECIFY" />
+      <setting name="fixLineNumbers" value="false" />
+      <method v="2" />
+    </configuration>
     <configuration name="functionalCubeExpression.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/src/javascript/functionalCubeExpression.js" working-dir="$PROJECT_DIR$/src/javascript">
       <method v="2" />
     </configuration>
@@ -159,6 +178,8 @@
       <workItem from="1585136954811" duration="325000" />
       <workItem from="1585146575690" duration="796000" />
       <workItem from="1585774779681" duration="1060000" />
+      <workItem from="1586283284815" duration="825000" />
+      <workItem from="1586342536645" duration="1326000" />
     </task>
     <servers />
   </component>
@@ -173,11 +194,11 @@
       <screen x="0" y="28" width="1600" height="872" />
     </state>
     <state x="399" y="113" key="#Project_Structure/0.28.1600.872@0.28.1600.872" timestamp="1584462236657" />
-    <state x="312" y="151" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1585774899073">
+    <state x="312" y="151" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1586342741665">
       <screen x="0" y="30" width="1600" height="870" />
     </state>
     <state x="312" y="149" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.28.1600.872@0.28.1600.872" timestamp="1584991125982" />
-    <state x="312" y="151" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.30.1600.870@0.30.1600.870" timestamp="1585774899073" />
+    <state x="312" y="151" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.30.1600.870@0.30.1600.870" timestamp="1586342741665" />
     <state x="571" y="257" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1584463363342">
       <screen x="0" y="28" width="1600" height="872" />
     </state>
@@ -190,26 +211,26 @@
       <screen x="0" y="28" width="1600" height="872" />
     </state>
     <state x="591" y="217" key="FileChooserDialogImpl/0.28.1600.872@0.28.1600.872" timestamp="1584515242681" />
-    <state width="1554" height="217" key="GridCell.Tab.0.bottom" timestamp="1585777798354">
+    <state width="1554" height="217" key="GridCell.Tab.0.bottom" timestamp="1586355502884">
       <screen x="0" y="30" width="1600" height="870" />
     </state>
     <state width="1550" height="227" key="GridCell.Tab.0.bottom/0.28.1600.872@0.28.1600.872" timestamp="1585147370921" />
-    <state width="1554" height="217" key="GridCell.Tab.0.bottom/0.30.1600.870@0.30.1600.870" timestamp="1585777798354" />
-    <state width="1554" height="217" key="GridCell.Tab.0.center" timestamp="1585777798353">
+    <state width="1554" height="217" key="GridCell.Tab.0.bottom/0.30.1600.870@0.30.1600.870" timestamp="1586355502884" />
+    <state width="1554" height="217" key="GridCell.Tab.0.center" timestamp="1586355502884">
       <screen x="0" y="30" width="1600" height="870" />
     </state>
     <state width="1550" height="227" key="GridCell.Tab.0.center/0.28.1600.872@0.28.1600.872" timestamp="1585147370921" />
-    <state width="1554" height="217" key="GridCell.Tab.0.center/0.30.1600.870@0.30.1600.870" timestamp="1585777798353" />
-    <state width="1554" height="217" key="GridCell.Tab.0.left" timestamp="1585777798353">
+    <state width="1554" height="217" key="GridCell.Tab.0.center/0.30.1600.870@0.30.1600.870" timestamp="1586355502883" />
+    <state width="1554" height="217" key="GridCell.Tab.0.left" timestamp="1586355502883">
       <screen x="0" y="30" width="1600" height="870" />
     </state>
     <state width="1550" height="227" key="GridCell.Tab.0.left/0.28.1600.872@0.28.1600.872" timestamp="1585147370920" />
-    <state width="1554" height="217" key="GridCell.Tab.0.left/0.30.1600.870@0.30.1600.870" timestamp="1585777798353" />
-    <state width="1554" height="217" key="GridCell.Tab.0.right" timestamp="1585777798353">
+    <state width="1554" height="217" key="GridCell.Tab.0.left/0.30.1600.870@0.30.1600.870" timestamp="1586355502883" />
+    <state width="1554" height="217" key="GridCell.Tab.0.right" timestamp="1586355502884">
       <screen x="0" y="30" width="1600" height="870" />
     </state>
     <state width="1550" height="227" key="GridCell.Tab.0.right/0.28.1600.872@0.28.1600.872" timestamp="1585147370921" />
-    <state width="1554" height="217" key="GridCell.Tab.0.right/0.30.1600.870@0.30.1600.870" timestamp="1585777798353" />
+    <state width="1554" height="217" key="GridCell.Tab.0.right/0.30.1600.870@0.30.1600.870" timestamp="1586355502884" />
     <state width="1550" height="290" key="GridCell.Tab.1.bottom" timestamp="1584562984365">
       <screen x="0" y="28" width="1600" height="872" />
     </state>
@@ -270,10 +291,11 @@
       <screen x="0" y="28" width="1600" height="872" />
     </state>
     <state x="539" y="117" key="com.intellij.javaee.MapExternalResourceDialog/0.28.1600.872@0.28.1600.872" timestamp="1584467007093" />
-    <state x="98" y="32" key="new project wizard" timestamp="1585137288229">
-      <screen x="0" y="28" width="1600" height="872" />
+    <state x="98" y="34" width="1222" height="777" key="new project wizard" timestamp="1586342775616">
+      <screen x="0" y="30" width="1600" height="870" />
     </state>
     <state x="98" y="32" key="new project wizard/0.28.1600.872@0.28.1600.872" timestamp="1585137288229" />
+    <state x="98" y="34" width="1222" height="777" key="new project wizard/0.30.1600.870@0.30.1600.870" timestamp="1586342775616" />
     <state x="463" y="203" key="run.anything.popup" timestamp="1584514981063">
       <screen x="0" y="28" width="1600" height="872" />
     </state>

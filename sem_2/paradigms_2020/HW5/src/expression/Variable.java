@@ -1,5 +1,7 @@
 package expression;
 
+import expression.generic.TripleExpression;
+
 public class Variable<T> implements TripleExpression<T> {
     private String string;
 

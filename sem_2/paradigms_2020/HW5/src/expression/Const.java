@@ -1,5 +1,7 @@
 package expression;
 
+import expression.generic.TripleExpression;
+
 public class Const<T> implements TripleExpression<T> {
     private T value;
 

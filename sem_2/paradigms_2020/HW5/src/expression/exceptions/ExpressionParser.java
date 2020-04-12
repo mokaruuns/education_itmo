@@ -1,6 +1,7 @@
 package expression.exceptions;
 
 import expression.*;
+import expression.generic.TripleExpression;
 import expression.operations.Operation;
 
 import java.util.List;
