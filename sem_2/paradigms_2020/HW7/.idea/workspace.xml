@@ -2,35 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="97437705-9645-45d4-87ab-8a3442ff8dda" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../HW6_2/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HW6_2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../HW6_2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HW6_2/src/expression/AbstractOperator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HW6_2/src/expression/Add.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HW6_2/src/expression/BaseTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HW6_2/src/expression/Const.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HW6_2/src/expression/Divide.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HW6_2/src/expression/Multiply.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HW6_2/src/expression/Negate.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HW6_2/src/expression/Subtract.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HW6_2/src/expression/TripleExpression.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HW6_2/src/expression/Variable.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HW6_2/src/expression/exceptions/BaseParser.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HW6_2/src/expression/exceptions/ExpressionParser.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HW6_2/src/expression/exceptions/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HW6_2/src/expression/exceptions/ParserException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HW6_2/src/expression/exceptions/Source.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HW6_2/src/expression/exceptions/StringSource.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HW6_2/src/expression/generic/GenericLsTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HW6_2/src/expression/generic/GenericTabulator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HW6_2/src/expression/generic/GenericTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HW6_2/src/expression/generic/Tabulator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HW6_2/src/expression/operations/BigIntegerOperation.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HW6_2/src/expression/operations/DoubleOperation.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HW6_2/src/expression/operations/IntegerOperation.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HW6_2/src/expression/operations/LongOperation.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HW6_2/src/expression/operations/NumberException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HW6_2/src/expression/operations/Operation.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HW6_2/src/expression/operations/ShortOperation.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/javascript/jstest/object/ObjectExpressionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/javascript/jstest/object/ObjectExpressionTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/javascript/objectExpression.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/javascript/objectExpression.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,7 +52,7 @@
       <option name="MAIN_CLASS_NAME" value="javascript.jstest.object.ObjectExpressionTest" />
       <module name="HW7" />
       <option name="PROGRAM_PARAMETERS" value="easy" />
-      <option name="VM_PARAMETERS" value="-ea --module-path=$PROJECT_DIR$/src/javascript/graal --class-path $PROJECT_DIR$/out/production/HW7" />
+      <option name="VM_PARAMETERS" value="-ea --module-path=$PROJECT_DIR$/src/javascript/graal" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="javascript.jstest.object.*" />
@@ -168,6 +142,7 @@
       <workItem from="1586810734637" duration="492000" />
       <workItem from="1586834503771" duration="105000" />
       <workItem from="1586886027694" duration="192000" />
+      <workItem from="1586935008166" duration="367000" />
     </task>
     <servers />
   </component>
@@ -179,10 +154,10 @@
       <screen x="0" y="28" width="1600" height="872" />
     </state>
     <state x="396" y="113" width="868" height="678" key="#Project_Structure/0.28.1600.872@0.28.1600.872" timestamp="1585140488695" />
-    <state x="498" y="161" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1586295233038">
-      <screen x="0" y="30" width="1600" height="870" />
+    <state x="330" y="188" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1586935174251">
+      <screen x="0" y="28" width="1600" height="872" />
     </state>
-    <state x="498" y="159" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.28.1600.872@0.28.1600.872" timestamp="1585141211854" />
+    <state x="330" y="188" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.28.1600.872@0.28.1600.872" timestamp="1586935174251" />
     <state x="498" y="161" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.30.1600.870@0.30.1600.870" timestamp="1586295233038" />
     <state x="534" y="199" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog" timestamp="1585140685958">
       <screen x="0" y="28" width="1600" height="872" />
@@ -192,25 +167,25 @@
       <screen x="0" y="30" width="1600" height="870" />
     </state>
     <state x="583" y="223" width="424" height="487" key="FileChooserDialogImpl/0.30.1600.870@0.30.1600.870" timestamp="1586363423088" />
-    <state width="1554" height="217" key="GridCell.Tab.0.bottom" timestamp="1586363609818">
-      <screen x="0" y="30" width="1600" height="870" />
+    <state width="1554" height="236" key="GridCell.Tab.0.bottom" timestamp="1586935218138">
+      <screen x="0" y="28" width="1600" height="872" />
     </state>
-    <state width="1550" height="235" key="GridCell.Tab.0.bottom/0.28.1600.872@0.28.1600.872" timestamp="1585148749686" />
+    <state width="1554" height="236" key="GridCell.Tab.0.bottom/0.28.1600.872@0.28.1600.872" timestamp="1586935218138" />
     <state width="1554" height="217" key="GridCell.Tab.0.bottom/0.30.1600.870@0.30.1600.870" timestamp="1586363609818" />
-    <state width="1554" height="217" key="GridCell.Tab.0.center" timestamp="1586363609817">
-      <screen x="0" y="30" width="1600" height="870" />
+    <state width="1554" height="236" key="GridCell.Tab.0.center" timestamp="1586935218137">
+      <screen x="0" y="28" width="1600" height="872" />
     </state>
-    <state width="1550" height="235" key="GridCell.Tab.0.center/0.28.1600.872@0.28.1600.872" timestamp="1585148749685" />
+    <state width="1554" height="236" key="GridCell.Tab.0.center/0.28.1600.872@0.28.1600.872" timestamp="1586935218137" />
     <state width="1554" height="217" key="GridCell.Tab.0.center/0.30.1600.870@0.30.1600.870" timestamp="1586363609817" />
-    <state width="1554" height="217" key="GridCell.Tab.0.left" timestamp="1586363609817">
-      <screen x="0" y="30" width="1600" height="870" />
+    <state width="1554" height="236" key="GridCell.Tab.0.left" timestamp="1586935218136">
+      <screen x="0" y="28" width="1600" height="872" />
     </state>
-    <state width="1550" height="235" key="GridCell.Tab.0.left/0.28.1600.872@0.28.1600.872" timestamp="1585148749684" />
+    <state width="1554" height="236" key="GridCell.Tab.0.left/0.28.1600.872@0.28.1600.872" timestamp="1586935218136" />
     <state width="1554" height="217" key="GridCell.Tab.0.left/0.30.1600.870@0.30.1600.870" timestamp="1586363609817" />
-    <state width="1554" height="217" key="GridCell.Tab.0.right" timestamp="1586363609818">
-      <screen x="0" y="30" width="1600" height="870" />
+    <state width="1554" height="236" key="GridCell.Tab.0.right" timestamp="1586935218137">
+      <screen x="0" y="28" width="1600" height="872" />
     </state>
-    <state width="1550" height="235" key="GridCell.Tab.0.right/0.28.1600.872@0.28.1600.872" timestamp="1585148749685" />
+    <state width="1554" height="236" key="GridCell.Tab.0.right/0.28.1600.872@0.28.1600.872" timestamp="1586935218137" />
     <state width="1554" height="217" key="GridCell.Tab.0.right/0.30.1600.870@0.30.1600.870" timestamp="1586363609818" />
     <state width="1550" height="290" key="GridCell.Tab.1.bottom" timestamp="1585146573555">
       <screen x="0" y="28" width="1600" height="872" />
