@@ -1,6 +1,5 @@
 package clojure.cljtest.linear;
 
-
 import clojure.cljtest.ClojureScript;
 import clojure.lang.IPersistentVector;
 import expression.BaseTest;

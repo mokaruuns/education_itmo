@@ -3,30 +3,38 @@ const BRACKET = ["(", ")"];
 
 const Variable = function (name) {
     this.name = name;
-    this.evaluate = (...values) => values[VARIABLES.indexOf(this.name)];
-    this.prefix = this.toString;
+};
+Variable.prototype.evaluate = function (...values) {
+    return values[VARIABLES.indexOf(this.name)];
 };
 Variable.prototype.toString = function () {
     return this.name;
 };
+Variable.prototype.prefix = Variable.prototype.toString;
+
 const Const = function (value) {
     this.value = value;
-    this.evaluate = () => this.value;
-    this.prefix = this.toString;
+};
+Const.prototype.evaluate = function () {
+    return this.value;
 };
 Const.prototype.toString = function () {
     return this.value.toString()
 };
+Const.prototype.prefix  = Const.prototype.toString
+
 const Operation = function (...operands) {
     this.getOperands = () => operands;
     this.evaluate = (...values) => {
         const result = operands.map((operand) => operand.evaluate(...values));
         return this.procedure(...result);
     };
-    this.toString = () => operands.join(" ") + " " + this.symbol;
-
-    this.prefix = () => "(" + this.symbol + " " + this.getOperands().map((operand) => operand.prefix()).join(" ") + ")";
+    this.toString = function (){return operands.join(" ") + " " + this.symbol;}
 };
+
+Operation.prototype.prefix = function () {
+    return "(" + this.symbol + " " + this.getOperands().map((operand) => operand.prefix()).join(" ") + ")";
+}
 
 const makeOp = function (procedure, symbol) {
     const result = function (...operands) {

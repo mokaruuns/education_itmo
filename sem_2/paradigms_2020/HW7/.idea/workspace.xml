@@ -2,7 +2,35 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="97437705-9645-45d4-87ab-8a3442ff8dda" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HW6_2/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HW6_2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../HW6_2/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HW6_2/src/expression/AbstractOperator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HW6_2/src/expression/Add.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HW6_2/src/expression/BaseTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HW6_2/src/expression/Const.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HW6_2/src/expression/Divide.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HW6_2/src/expression/Multiply.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HW6_2/src/expression/Negate.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HW6_2/src/expression/Subtract.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HW6_2/src/expression/TripleExpression.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HW6_2/src/expression/Variable.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HW6_2/src/expression/exceptions/BaseParser.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HW6_2/src/expression/exceptions/ExpressionParser.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HW6_2/src/expression/exceptions/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HW6_2/src/expression/exceptions/ParserException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HW6_2/src/expression/exceptions/Source.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HW6_2/src/expression/exceptions/StringSource.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HW6_2/src/expression/generic/GenericLsTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HW6_2/src/expression/generic/GenericTabulator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HW6_2/src/expression/generic/GenericTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HW6_2/src/expression/generic/Tabulator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HW6_2/src/expression/operations/BigIntegerOperation.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HW6_2/src/expression/operations/DoubleOperation.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HW6_2/src/expression/operations/IntegerOperation.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HW6_2/src/expression/operations/LongOperation.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HW6_2/src/expression/operations/NumberException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HW6_2/src/expression/operations/Operation.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HW6_2/src/expression/operations/ShortOperation.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -139,6 +167,7 @@
       <workItem from="1586341506835" duration="8021000" />
       <workItem from="1586810734637" duration="492000" />
       <workItem from="1586834503771" duration="105000" />
+      <workItem from="1586886027694" duration="192000" />
     </task>
     <servers />
   </component>

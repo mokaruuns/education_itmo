@@ -1,23 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="a90879b6-cd81-4f26-b03c-427c1d06f960" name="Default Changelist" comment="" />
+    <list default="true" id="a90879b6-cd81-4f26-b03c-427c1d06f960" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/expression/AbstractOperator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/expression/Add.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/expression/BaseTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/expression/Const.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/expression/Divide.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/expression/Multiply.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/expression/Negate.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/expression/Subtract.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/expression/TripleExpression.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/expression/Variable.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/expression/exceptions/BaseParser.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/expression/exceptions/ExpressionParser.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/expression/exceptions/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/expression/exceptions/ParserException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/expression/exceptions/Source.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/expression/exceptions/StringSource.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/expression/generic/GenericLsTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/expression/generic/GenericTabulator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/expression/generic/GenericTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/expression/generic/Tabulator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/expression/operations/BigIntegerOperation.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/expression/operations/DoubleOperation.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/expression/operations/IntegerOperation.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/expression/operations/LongOperation.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/expression/operations/NumberException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/expression/operations/Operation.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/expression/operations/ShortOperation.java" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
   <component name="ProjectId" id="1aFsf2o7jCR49lsC5w3DBjg5xFo" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/javascript" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -97,11 +151,23 @@
       <option name="presentableId" value="Default" />
       <updated>1586342775726</updated>
       <workItem from="1586342779426" duration="1475000" />
+      <workItem from="1586883247769" duration="861000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="2" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="WindowStateProjectService">
     <state x="436" y="125" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1586343171463">
