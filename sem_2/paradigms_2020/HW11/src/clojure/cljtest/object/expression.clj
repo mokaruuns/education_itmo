@@ -1,48 +1,65 @@
-(definterface expression_interface
-  (Evaluate [vars])
-  (Diff [var])
-  (toString []))
+(definterface IExpression
+  (evaluate [vars])
+  (toStr [])
+  (diff [var]))
+
+(declare ZERO)
+(declare ONE)
+(declare TWO)
 
 (deftype Const [value]
-  expression_interface
-  (Evaluate [_ _] value)
-  (Diff [_ _] (Const. 0))
-  (toString [this] (format "%.1f" (double (.value this)))))
-
-(deftype Var [name]
-  expression_interface
-  (Evaluate [_ vars] (vars name))
-  (Diff [_ var] (if (= name var) (Const. 1) (Const. 0)))
-  (toString [_] (str name)))
-
-(deftype absrtact_unary_operation [f diff c a]
-  expression_interface
-  (Evaluate [_ vars] (f (.Evaluate a vars)))
-  (toString [_] (str "(" c " " (.toString a) ")"))
-  (Diff [_ var] (diff var)))
-
-
-(deftype absrtact_operation [f diff c x y]
-    expression_interface
-    (Evaluate [_ vars] (apply f (map #(.Evaluate % vars) [x y])))
-    (toString [_] (str "(" c " " (.toString x) " " (.toString y)")"))
-    (Diff [_ var] (diff var))
-)
-
-(defn evaluate [obj vars] (.Evaluate obj vars))
-(defn toString [obj] (.toString obj))
-(defn diff [expr var] (.Diff expr var))
-
+  IExpression
+  (evaluate [_ _] value)
+  (toStr [_] (format "%.1f" (double value)))
+  (diff [_ _] ZERO))
 (defn Constant [value] (Const. value))
-(defn Variable [name] (Var. name))
-(defn Add [x y] (absrtact_operation. + (fn [var] (Add (diff x var) (diff y var))) '+ x y))
-(defn Subtract [x y] (absrtact_operation. - (fn [var] (Subtract (diff x var) (diff y var))) '- x y))
-(defn Multiply [x y] (absrtact_operation. * (fn [var] (Add (Multiply (diff x var) y) (Multiply (diff y var) x))) '* x y))
-(defn Square [x] (absrtact_unary_operation. #(* % %) (fn [var] (Multiply (Multiply (Const. 2) x) (diff x var))) 'square x))
-(defn Divide [x y] (absrtact_operation. #(/ (double %1) (double %2)) (fn [var] (Divide (Subtract (Multiply (diff x var) y) (Multiply (diff y var) x)) (Square y))) '/ x y))
-(defn Negate [x] (absrtact_unary_operation. - #(Negate (diff x %)) 'negate x))
-(defn Exp [x] (absrtact_unary_operation. #(Math/exp %) (fn [var] (Multiply (Exp x) (diff x var))) 'exp x))
-(defn Ln [x] (absrtact_unary_operation. #(Math/log (Math/abs %)) (fn [var] (Divide (diff x var) x)) 'ln x))
+
+(deftype Var [varName]
+  IExpression
+  (evaluate [_ vars] (vars varName))
+  (toStr [_] (str varName))
+  (diff [_ var] (if (= var varName) ONE ZERO)))
+(defn Variable [varName] (Var. varName))
+
+(def ZERO (Constant 0))
+(def ONE (Constant 1))
+(def TWO (Constant 2))
+
+(defn evaluate [obj vars] (.evaluate obj vars))
+(defn toString [obj] (.toStr obj))
+(defn diff [expr var] (.diff expr var))
+
+(deftype abstractOperation [f op args diff_f]
+  IExpression
+  (evaluate [_ vars] (apply f (map #(evaluate % vars) args)))
+  (toStr [_] (str "(" op " " (clojure.string/join " " (map toString args)) ")"))
+  (diff [_ var] (apply diff_f (concat args (map #(diff % var) args)))))
+
+(declare oper)
+
+(defn Add [x y] (abstractOperation. + '+ [x y] (oper "+")))
+(defn Subtract [x y] (abstractOperation. - '- [x y] (oper "-")))
+(defn Multiply [x y] (abstractOperation. * '* [x y] (oper "*")))
+(defn Divide [x y] (abstractOperation. #(/ %1 (double %2)) '/ [x y] (oper "/")))
+(defn Negate [x] (abstractOperation. - 'negate [x] (oper "negate")))
+(defn Square [x] (abstractOperation. #(* % %) 'square [x] (oper "square")))
+(defn Sqrt [x] (abstractOperation. #(Math/sqrt (Math/abs ^double %)) 'sqrt [x] (oper "sqrt")))
+(defn Exp [x] (abstractOperation. #(Math/exp %) 'exp [x] (oper "exp")))
+(defn Ln [x] (abstractOperation. #(Math/log (Math/abs %)) 'ln [x] (oper "ln")))
+
+(defn oper [c]
+  (case c
+    "+" (fn [_ _ dx dy] (Add dx dy))
+    "-" (fn [_ _ dx dy] (Subtract dx dy))
+    "*" (fn [x y dx dy] (Add (Multiply dx y) (Multiply x dy)))
+    "/" (fn [x y dx dy] (Divide (Subtract (Multiply dx y) (Multiply x dy)) (Multiply y y)))
+    "negate" (fn [_ dx] (Negate dx))
+    "square" (fn [x dx] (Multiply (Multiply TWO x) dx))
+    "sqrt" (fn [x dx] (Divide (Multiply x dx) (Multiply TWO (Sqrt (Multiply (Square x) x)))))
+    "exp" (fn [x dx] (Multiply (Exp x) dx))
+    "ln" (fn [x dx] (Divide dx x))
+    )
+  )
 
 (def operations {
                  '+      Add
@@ -51,8 +68,8 @@
                  '/      Divide
                  'negate Negate
                  'square Square
-                 'exp Exp
-                 'ln Ln
+                 'ln     Ln
+                 'exp    Exp
                  })
 
 (defn parse [expr]
