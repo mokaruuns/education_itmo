@@ -9,6 +9,9 @@
 .idea/**/dictionaries
 .idea/**/shelf
 
+# vscode files
+**/tasks.json
+
 # Generated files
 .idea/**/contentModel.xml
 
