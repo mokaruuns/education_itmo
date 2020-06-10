@@ -15,7 +15,7 @@ import java.util.TreeMap;
  * @author Georgiy Korneev (kgeorgiy@kgeorgiy.info)
  */
 public class PrologTreeTest extends PrologMapTest {
-    public static String SOLUTION = "tree-map.pl";
+    public static String SOLUTION = "/home/mokaruuns/git/education_itmo/sem_2/paradigms_2020/HW12/src/prolog/prtest/tree/tree-map.pl";
 
     public PrologTreeTest(final boolean updates, final String file) {
         super(updates, file);
@@ -26,7 +26,7 @@ public class PrologTreeTest extends PrologMapTest {
     }
 
     @Override
-    protected MapTest<?> test(final Settings settings) {
+    protected PrologMapTest.MapTest<?> test(final Settings settings) {
         return new TreeTest(settings);
     }
 

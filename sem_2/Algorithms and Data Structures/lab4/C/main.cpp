@@ -1,63 +1,47 @@
 #include <bits/stdc++.h>
 
 #define fori(start, finish) for (int i = start; i < finish; i++)
+#define forj(start, finish) for (int j = start; j < finish; j++)
 #define forn(finish) for (int i = 0; i < finish; i++)
 
 using namespace std;
 
 void open_file_rw() {
-  char *in = "printing.in";
-  char *out = "printing.out";
-  freopen(in, "r", stdin);
-  freopen(out, "w", stdout);
+    char *in = "printing.in";
+    char *out = "printing.out";
+    freopen(in, "r", stdin);
+    freopen(out, "w", stdout);
 }
 
-struct List {
-  int lists;
-  int cost;
-  double w_cost;
-};
-
-bool comp(List A, List B) { return A.w_cost < B.w_cost; }
-
 int main() {
-  open_file_rw();
-  vector<List> vL;
-  int n;
-  cin >> n;
-  forn(7) {
-    int cost;
-    cin >> cost;
-    int count = pow(10, i);
-    vL.push_back({count, (int)cost, (double) cost / count});
-  }
-  sort(vL.begin(), vL.end(), comp);
-  vector<List> vL2;
-  vL2.push_back(vL.front());
-  for (auto i : vL) {
-    if (i.w_cost > vL2.back().w_cost) {
-      vL2.push_back(i);
+    open_file_rw();
+    vector<int> vi(7, INT32_MAX);
+    int count;
+    cin >> count;
+    int order = 1;
+    forn(7) {
+        int cost;
+        cin >> cost;
+        int order_to = order;
+        forj(i, 7) {
+            vi[j] = min(order_to * cost, vi[j]);
+            // cout << vi[j] << " ";
+            order_to *= 10;
+        }
+        // cout << endl;
     }
-  }
-  int i = 0;
-  int min_sum = INT32_MAX;
-  while (i < vL2.size()) {
-    if (vL2[i].lists >= n) {
-      min_sum = min(min_sum, vL2[i].cost);
-      i++;
-    } else {
-      int count = 0;
-      int min_s = 0;
-      while (i < vL2.size() && count < n) {
-        int x = (n - count) / vL2[i].lists;
-        count += vL2[i].lists * x;
-        min_s += vL2[i].cost * x;
-        i++;
-      }
-      if (count >= n) {
-        min_sum = min(min_sum, min_s);
-      }
+    int min_sum_one = INT32_MAX;
+    int min_sum_many = 0;
+    int c1 = count;
+    for (int i = 6; i >= 0; i--) {
+        if (pow(10, i) >= count) {
+            min_sum_one = min(min_sum_one, vi[i]);
+        }
+        if (c1 > 0) {
+            int k = c1 / pow(10, i);
+            min_sum_many += k * vi[i];
+            c1 -= pow(10, i) * k;
+        }
     }
-  }
-  cout << min_sum;
+    cout << min(min_sum_many, min_sum_one);
 }
