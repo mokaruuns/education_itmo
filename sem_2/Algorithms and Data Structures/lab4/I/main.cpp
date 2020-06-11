@@ -20,8 +20,8 @@ vector<vector<int>> num_to_matrix(int num) {
         int x = i / 4;
         int y = i % 4;
         matrix2[x][y] = get_m(num, i);
-        cout << matrix2[x][y] << " ";
-        cout << x << " " << y << endl;
+        // cout << matrix2[x][y] << " ";
+        // cout << x << " " << y << endl;
     }
     return matrix2;
 }
@@ -30,13 +30,25 @@ vector<vector<int>> mul(vector<vector<int>> A, vector<vector<int>> B) {
     vector<vector<int>> C(4, vector<int>(4));
     for (int i = 0; i < 4; ++i) {
         for (int j = 0; j < 4; ++j) {
-            C[i * 4][j] = 0;
+            C[i][j] = 0;
             for (int k = 0; k < 4; ++k)
-                C[i * 4][j] += A[i * 4][k] * B[k * 4][j];
+                C[i][j] = (C[i][j] + (A[i][k] * B[k][j]) % 2) % 2;
         }
     }
     return C;
 }
+
+bool check(vector<vector<int>> A, vector<vector<int>> B) {
+    fori(0, 4) {
+        forj(0, 4) {
+            if (A[i][j] != B[i][j]) {
+                return false;
+            }
+        }
+    }
+    return true;
+}
+
 int main() {
     open_file_rw();
     vector<vector<int>> matrix(4, vector<int>(4));
@@ -48,10 +60,16 @@ int main() {
         }
     }
 
-    vector<vector<int>> matrix_res =
-        mul(num_to_matrix(1), num_to_matrix(1));
-    fori(0, 4) {
-        forj(0, 4) { cout << matrix_res[i][j] << " "; }
-        cout << "\n";
+    for (int k = 0; k < (1 << 16); k++) {
+        vector<vector<int>> matrix_sqrt = num_to_matrix(k);
+        vector<vector<int>> matrix_res = mul(matrix_sqrt, matrix_sqrt);
+        if (check(matrix_res, matrix)) {
+            fori(0, 4) {
+                forj(0, 4) { cout << matrix_sqrt[i][j] << " "; }
+                cout << "\n";
+            }
+            return 0;
+        }
     }
+    cout << "NO SOLUTION";
 }
