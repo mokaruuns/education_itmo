@@ -18,29 +18,20 @@ int main() {
     vector<int> vi(7, INT32_MAX);
     int count;
     cin >> count;
-    int order = 1;
     forn(7) {
         int cost;
         cin >> cost;
-        int order_to = order;
-        forj(i, 7) {
-            vi[j] = min(order_to * cost, vi[j]);
-            // cout << vi[j] << " ";
-            order_to *= 10;
-        }
-        // cout << endl;
+        forj(i, 7) { vi[j] = min((int)pow(10, j - i) * cost, vi[j]); }
     }
     int min_sum_one = INT32_MAX;
     int min_sum_many = 0;
     int c1 = count;
     for (int i = 6; i >= 0; i--) {
-        if (pow(10, i) >= count) {
-            min_sum_one = min(min_sum_one, vi[i]);
-        }
+        int k = c1 / pow(10, i);
+        min_sum_many += vi[i] * k;
+        c1 -= pow(10, i) * k;
         if (c1 > 0) {
-            int k = c1 / pow(10, i);
-            min_sum_many += k * vi[i];
-            c1 -= pow(10, i) * k;
+            min_sum_one = min(min_sum_one, min_sum_many + vi[i]);
         }
     }
     cout << min(min_sum_many, min_sum_one);
