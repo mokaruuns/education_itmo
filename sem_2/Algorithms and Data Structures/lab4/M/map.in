@@ -1,0 +1,10 @@
+put a b
+put b c
+put c d
+put d e
+get a
+get 2
+delete 2
+get 2
+put 2 e
+get 2
