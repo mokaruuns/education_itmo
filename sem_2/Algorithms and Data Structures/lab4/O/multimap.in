@@ -1,0 +1,9 @@
+put a a
+put a b
+put a c
+get a
+delete a b
+delete a c
+get a
+deleteall a
+get a
