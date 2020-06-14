@@ -19,6 +19,7 @@ void open_file_rw() {
 }
 
 map<char, vector<pair<char, char>>> mp;
+
 string word;
 
 bool is_right_word();

@@ -1,54 +1,72 @@
+init(MAX_N):-
+    fill_table(MAX_N).
 
-while(I, N, MAX, R, R1) :-
-    not(0 is mod(N, I)),
-    I2 is I + 1,
-    fori(I2, N, MAX, R, R1), !.
+forj(J, _, N):-
+    J > N.
 
-while(I, N, MAX, R, R1) :-
-    0 is mod(N, I),
-    N2 is div(N, I),
-    while(I, N2, MAX, R, R2),
-    append(R2, [I], R1),!.
+forj(J, I, N):-
+    J =< N,
+    assert(unprime_table(J, I)),
+    J1 is J + I,
+    forj(J1, I, N). % тут огромная бага( с !
 
-fori(I, N, MAX, R, R1):-
-    I * I > MAX,
-    N > 1,
-    append(R, [N], R1), !.
-
-fori(I, N, MAX, _, _):-
-    I * I > MAX,
-    N = 1, !.
-
-fori(I, N, MAX, R, R1):-
+fori(I, N):-
     I2 is I * I,
-    (<(I2, MAX); =(I2, MAX)),
-    while(I, N, MAX, R, R1), !.
+    I2 > N.
 
-prime_divisors(N, R):-
-    number(N),
-    fori(2, N, N, [], R1),
-   	reverse(R1, R), !.
+fori(I, N):-
+    I2 is I * I,
+    I2 =< N,
+    ((not(unprime_table(I, R)),
+    forj(I2, I, N)) ;
+    unprime_table(I, R)),
+    I1 is I + 1,
+    fori(I1, N).
+
+forn(I, N):-
+    I > N.
+
+forn(I, N):-
+    I =< N,
+    I1 is I + 2,
+    forn(I1, N).
+
+fill_table(N):-
+    assert(unprime_table(1, 1)),
+    fori(2, N).
+
+prime(N):-
+    not(unprime_table(N, _)).
+
+composite(N):-
+    unprime_table(N, _).
+
+get_new_m(1, R):-!.
+get_new_m(N, R):-
+    not(unprime_table(N, _)),
+    append([], [N], R).
+
+get_new_m(N, R):-
+    unprime_table(N, D),
+    N1 is N / D,
+    get_new_m(N1, R1),
+    append(R1, [D], R), !.
 
 mul_list(1, []).
 mul_list(M, [H | T]):-
     mul_list(M1, T),
     M is H * M1.
 
+prime_divisors(1, []):-!.
 prime_divisors(N, R):-
     var(N),
     mul_list(N, R),
-    prime_divisors(N, R),
-    !.
+    prime_divisors(N, R).
 
-prime(N):-
-    prime_divisors(N, [N]),
-    !.
-
-composite(N):-
-    not(prime_divisors(N, [N])), !.
-
-unique_prime_divisors(1, V):-
-    V = [], !.
+prime_divisors(N, V):-
+    nonvar(N),
+    get_new_m(N, V1),
+    reverse(V1, V).
 
 
 remove_duplicates([],[]).
@@ -58,7 +76,7 @@ remove_duplicates([H | T], List) :-
 remove_duplicates([H | T], [H | T1]) :-
      not (member(H, T)),
      remove_duplicates(T, T1).
-
+unique_prime_divisors(1, []):-!.
 unique_prime_divisors(N, R):-
     var(R),
     prime_divisors(N, R1),

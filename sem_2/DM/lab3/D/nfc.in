@@ -1,5 +1,6 @@
 4 S
 S -> AB
-A ->
+S -> AA
+A -> a
 B -> a
-B ->
+aa
