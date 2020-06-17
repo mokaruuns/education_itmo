@@ -1,9 +1,6 @@
-8 S
-S -> KL
-K -> ABM
-K -> l
-L -> m
+5 S
+S -> AB
 S -> C
 A -> a
-B -> b
+A -> c
 T -> c

@@ -30,7 +30,7 @@ ll get_hash_string(string str) {
     for (char c : str) {
         h = 33 * h ^ c;
     }
-    return h % M;
+    return h % M;   
 }
 
 void my_insert(string key, string value, ll h) {

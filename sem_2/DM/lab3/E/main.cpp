@@ -1,27 +1,13 @@
 #include <bits/stdc++.h>
 
-// ---------------------------------------------------------------------------------
-//                                                       defines
-// ---------------------------------------------------------------------------------
-
 #define fori(start, finish) for (int i = start; i < finish; i++)
 #define forj(start, finish) for (int j = start; j < finish; j++)
 #define forn(finish) for (int i = 0; i < finish; i++)
+#define forc(finish) for (int c = 0; c < finish; c++)
 typedef long long ll;
 typedef unsigned long long ull;
 
 using namespace std;
-
-// ---------------------------------------------------------------------------------
-//                                                       variables
-// ---------------------------------------------------------------------------------
-string word;
-int m;
-int n;
-
-// ---------------------------------------------------------------------------------
-//                                                       system methods
-// ---------------------------------------------------------------------------------
 
 void open_file_rw() {
     char *in = "cf.in";
@@ -33,7 +19,7 @@ void open_file_rw() {
     cout.tie(0);
 }
 
-bool is_ned(char c) { return 'A' <= c && c <= 'Z'; }
+bool is_term(char c) { return 'a' <= c && c <= 'z'; }
 
 pair<string, string> readFS() {
     vector<string> vs;
@@ -45,7 +31,7 @@ pair<string, string> readFS() {
         return make_pair(s1, s2);
     } else {
         if (s.size() == 4) {
-            s2 = "";
+            s2 = "_";
         } else {
             s2 = s.substr(5);
         }
@@ -53,105 +39,79 @@ pair<string, string> readFS() {
     }
 }
 
-// ---------------------------------------------------------------------------------
-//                                                KS to CNF
-// ---------------------------------------------------------------------------------
+char Start;
+map<char, bool[101][101]> my_d;
+map<pair<char, string>, bool[101][101][101]> h;
 
-map<string, set<pair<string, string>>>
-remove_long_rules(map<string, set<string>> mp) {
-    int global_number_value = 0;
-    map<string, set<pair<string, string>>> new_mp;
-    for (auto st : mp) {
-        for (string rule : st.second) {
-            if (rule.size() > 2) {
-                string current_st = st.first;
-                forn(rule.size() - 1) {
-                    string new_st = "X" + to_string(global_number_value++);
-                    string tmp_str(1, rule[i]);
-                    new_mp[current_st].insert(make_pair(tmp_str, new_st));
-                    current_st = new_st;
-                }
-                string tmp_str1(1, rule[rule.size() - 1]);
-                string tmp_str2(1, rule[rule.size() - 2]);
-                new_mp[current_st].insert(make_pair(tmp_str1, tmp_str2));
-            }
-        }
-    }
-    for (auto st: new_mp) {
-        for (auto rules : st.second) {
-            cout << st.first << " -> " << rules.first << " " << rules.second << endl;
-        }
-    }
-}
-void remove_eps_rules() {}
-void remove_chain_rules() {}
-void remove_uselles_rules() {}
-void remove_many_terminals() {}
-
-void ks_to_cnf(map<string, set<string>> mp) {
-    remove_long_rules(mp);
-    remove_eps_rules();
-    remove_chain_rules();
-    remove_uselles_rules();
-    remove_many_terminals();
-}
-
-// ---------------------------------------------------------------------------------
-//                                                count
-// ---------------------------------------------------------------------------------
-
-void get_count(map<string, set<string>> mp) {
-    map<string, ll[101][101]> my_d;
-
+bool cyk_aaa(string word, map<char, set<string>> mp) {
+    int n = word.size();
+    int M = 0;
     for (int i = 0; i < n; i++) {
         for (auto st : mp) {
             string ss(1, word[i]);
-            if (st.second.find(ss) != st.second.end()) {
-                my_d[st.first][i][i] = 1;
+            my_d[st.first][i][i + 1] = (st.second.find(ss) != st.second.end());
+            my_d[st.first][i][i] = (st.second.find("_") != st.second.end());
+            for (auto rule : st.second) {
+                h[make_pair(st.first, rule)][i][i][0] = true;
+                M = max(M, (int) rule.length());
             }
         }
     }
-    // for (int len = 1; len < n; len++) {
-    //     for (int i = 0; i < n - len; i++) {
-    //         for (auto st : mp) {
-    //             for (string s : st.second) {
 
-    //                 if (s.size() == 2) {
-    //                     for (int k = 0; k < len; k++) {
-    //                         my_d[st.first][i][i + len] =
-    //                             (my_d[st.first][i][i + len] +
-    //                              my_d[s[0]][i][i + k] *
-    //                                  my_d[s[1]][i + k + 1][i + len]) %
-    //                             (int)(1e9 + 7);
-    //                     }
-    //                 }
-    //             }
-    //         }
-    //     }
-    // }
+    forc(30){
+        for (int m = 0; m <= n; m++) {
+            for (int i = 0; i < n; i++) {
+                int j = i + m;
+                if (j > n)
+                    break;
+                for (int pos = 1; pos <= M; pos++) {
+                    for (auto st : mp) {
+                        for (auto rule : st.second) {
+                            if (rule.length() < pos)
+                                continue;
+                            for (int key = i; key <= j; key++) {
+                                if (is_term(rule[pos - 1])) {
+                                    h[make_pair(st.first, rule)][i][key][pos] |=
+                                            h[make_pair(st.first, rule)][i][key]
+                                            [pos - 1] &&
+                                            (key == j - 1) &&
+                                            (word[key] == rule[pos - 1]);
+                                } else {
+                                    h[make_pair(st.first, rule)][i][key][pos] |=
+                                            h[make_pair(st.first, rule)][i][key]
+                                            [pos - 1] &&
+                                            (my_d[rule[pos - 1]][key][j]);
+                                }
+                            }
+                        }
+                    }
+                }
+                for (auto st : mp) {
+                    for (auto rule : st.second) {
+                        my_d[st.first][i][j] |=
+                                h[make_pair(st.first, rule)][i][j][rule.length()];
+                    }
+                }
+            }
+        }
+    }
+
+    return my_d[Start][0][n];
 }
 
-// ---------------------------------------------------------------------------------
-//                                               main
-// ---------------------------------------------------------------------------------
-
 int main() {
-    map<string, set<string>> mp;
+    map<char, set<string>> mp;
     open_file_rw();
     pair<string, string> tmp = readFS();
-    m = stoi(tmp.first);
-    string start = tmp.second;
+    int m = stoi(tmp.first);
+    Start = tmp.second[0];
     forn(m) {
         pair<string, string> tmp1 = readFS();
-        string c = tmp1.first;
+        char c = tmp1.first[0];
         string s = tmp1.second;
         mp[c].insert(s);
     }
-
-    ks_to_cnf(mp);
-
-    // cin >> word;
-    // n = word.size();
-    // get_count();
-    // cout << my_d[start[0]][0][n - 1];
+    string word;
+    cin >> word;
+    cout << (cyk_aaa(word, mp) ? "yes" : "no");
 }

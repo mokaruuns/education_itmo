@@ -17,22 +17,14 @@ fori(I, N):-
 fori(I, N):-
     I2 is I * I,
     I2 =< N,
-    ((not(unprime_table(I, R)),
+    ((not(unprime_table(I, _)),
     forj(I2, I, N)) ;
-    unprime_table(I, R)),
+    unprime_table(I, _)),
     I1 is I + 1,
     fori(I1, N).
 
-forn(I, N):-
-    I > N.
-
-forn(I, N):-
-    I =< N,
-    I1 is I + 2,
-    forn(I1, N).
-
 fill_table(N):-
-    assert(unprime_table(1, 1)),
+%    assert(unprime_table(1, 1)),
     fori(2, N).
 
 prime(N):-
