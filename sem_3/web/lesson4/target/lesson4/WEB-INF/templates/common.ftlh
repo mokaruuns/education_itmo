@@ -49,9 +49,15 @@
             {"href": "/contests", "name": "Contests"}
             ]/>
             <ul>
+
                 <#list items as item>
                     <li>
-                        <a href="${item.href}">${item.name}</a>
+                        <style>
+                            .title {
+                                border-bottom: 3px solid darkslateblue; ;
+                            }
+                        </style>
+                        <a class="title" href="${item.href}">${item.name}</a>
                     </li>
                 </#list>
             </ul>
@@ -102,9 +108,11 @@
 </#macro>
 
 <#function findBy items key value>
+    <#assign i = 0>
     <#list items as item>
         <#if item[key] == value>
-            <#return item/>
+            <#return i/>
         </#if>
+        <#assign i++>
     </#list>
 </#function>

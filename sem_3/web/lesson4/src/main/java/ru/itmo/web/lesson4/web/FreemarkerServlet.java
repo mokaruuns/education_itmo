@@ -50,7 +50,6 @@ public class FreemarkerServlet extends HttpServlet {
         }
 
         Map<String, Object> data = getData(request);
-
         response.setContentType("text/html");
         try {
             template.process(data, response.getWriter());
@@ -62,13 +61,27 @@ public class FreemarkerServlet extends HttpServlet {
 
     private Map<String, Object> getData(HttpServletRequest request) {
         Map<String, Object> data = new HashMap<>();
-
+        data.put("now_page", request.getRequestURI());
         for (Map.Entry<String, String[]> e : request.getParameterMap().entrySet()) {
             if (e.getValue() != null && e.getValue().length == 1) {
-                data.put(e.getKey(), e.getValue()[0]);
+                if (e.getKey().endsWith("_id") && isNumber(e.getValue()[0])) {
+                    data.put(e.getKey(), Long.parseLong(e.getValue()[0]));
+                } else {
+                    data.put(e.getKey(), e.getValue()[0]);
+                }
+                System.out.println(e.getValue()[0]);
             }
         }
         DataUtil.addData(request, data);
         return data;
+    }
+
+    boolean isNumber(String string) {
+        try {
+            Long.parseLong(string);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
     }
 }

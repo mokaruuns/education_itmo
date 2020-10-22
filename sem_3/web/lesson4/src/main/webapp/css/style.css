@@ -111,3 +111,29 @@ footer {
     border-top: var(--boder);
     text-align: center;
 }
+
+body .middle main .userbox {
+    padding: 0.5rem;
+    border: var(--boder);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+}
+body .middle main .userbox .usertext {
+    display: inline-block;
+}
+body .middle main .userbox .userlink {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+body .middle main .userbox .image {
+    float: right;
+}
+body .middle main .arrows a{
+    font-size: 2rem;
+    text-decoration: none;
+    color: darkblue;
+}
+body .middle main .arrows b {
+    font-size: 2rem;
+    color: gray;
+}

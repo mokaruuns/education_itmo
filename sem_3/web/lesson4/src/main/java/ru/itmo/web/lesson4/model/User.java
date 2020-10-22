@@ -5,6 +5,7 @@ public class User {
     private final String handle;
     private final String name;
 
+
     public User(long id, String handle, String name) {
         this.id = id;
         this.handle = handle;
