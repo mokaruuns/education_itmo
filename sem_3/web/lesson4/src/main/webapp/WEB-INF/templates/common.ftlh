@@ -46,18 +46,17 @@
             <#assign items=[
             {"href": "/index", "name": "Home"},
             {"href": "/misc/help", "name": "Help"},
-            {"href": "/contests", "name": "Contests"}
+            {"href": "/contests", "name": "Contests"},
+            {"href": "/users", "name": "Users"}
             ]/>
             <ul>
-
                 <#list items as item>
                     <li>
-                        <style>
-                            .title {
-                                border-bottom: 3px solid darkslateblue; ;
-                            }
-                        </style>
-                        <a class="title" href="${item.href}">${item.name}</a>
+                        <#if now_page?? && now_page==item.href>
+                            <a class="selected" href="${item.href}">${item.name}</a>
+                        <#else>
+                            <a class="usual" href="${item.href}">${item.name}</a>
+                        </#if>
                     </li>
                 </#list>
             </ul>
@@ -67,33 +66,18 @@
 
 <#macro sidebar>
     <aside>
-        <section>
-            <div class="header">Information</div>
-            <div class="body">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores enim expedita facilis
-                fugiat ipsum iste nobis reprehenderit tempore ut voluptatibus?
-            </div>
-            <div class="footer">
-                <a href="#">View all</a>
-            </div>
-        </section>
-        <section>
-            <div class="header">Information</div>
-            <div class="body">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores enim expedita facilis
-                fugiat ipsum iste nobis reprehenderit tempore ut voluptatibus?
-            </div>
-            <div class="footer">
-                <a href="#">View all</a>
-            </div>
-        </section>
-        <section>
-            <div class="header">Information</div>
-            <div class="body">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores enim expedita facilis
-                fugiat ipsum iste nobis reprehenderit tempore ut voluptatibus?
-            </div>
-            <div class="footer">
-                <a href="#">View all</a>
-            </div>
-        </section>
+        <#list posts?reverse as p>
+            <section>
+                <div class="header">Post #${p.id}</div>
+                <div class="body">
+                    ${p.text[0..*250]}
+                    <#if [250, p.text?length]?min==250>...</#if>
+                </div>
+                <div class="footer">
+                    <a href="/post?post_id=${p.id?c}">View all</a>
+                </div>
+            </section>
+        </#list>
     </aside>
 </#macro>
 
@@ -116,3 +100,37 @@
         <#assign i++>
     </#list>
 </#function>
+
+<#macro article po>
+        <article>
+            <div class="title"><a href="/post?post_id="${po.id}></a>${po.title}</div>
+            <div class="information">By user_${po.id}, 2 days ago, translation</div>
+            <div class="body">
+                <#if now_page?? && now_page=="/index">
+                    ${po.text[0..*250]}
+<#--                    <#if [250, po.text?length]?min==250>...</#if>-->
+                    <#if (po.text?length > 250)>...</#if>
+                <#else>
+                    ${po.text}
+                </#if>
+            </div>
+            <#--                    <ul class="attachment">-->
+            <#--                        <li>Announcement of <a href="#">Codeforces Round #510 (Div. 1)</a></li>-->
+            <#--                        <li>Announcement of <a href="#">Codeforces Round #510 (Div. 2)</a></li>-->
+            <#--                    </ul>-->
+            <div class="footer">
+                <div class="left">
+                    <img src="/img/voteup.png" title="Vote Up" alt="Vote Up"/>
+                    <span class="positive-score">+173</span>
+                    <img src="/img/votedown.png" title="Vote Down" alt="Vote Down"/>
+                </div>
+                <div class="right">
+                    <img src="/img/date_16x16.png" title="Publish Time" alt="Publish Time"/>
+                    2 days ago
+                    <img src="/img/comments_16x16.png" title="Comments" alt="Comments"/>
+                    <a href="#"></a>
+                </div>
+            </div>
+        </article>
+
+</#macro>

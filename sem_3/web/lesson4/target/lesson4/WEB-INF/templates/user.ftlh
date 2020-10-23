@@ -6,10 +6,10 @@
     <#if !userPosition?has_content>
         <#assign userPosition = c.findBy(users, "id", user_id!-1)!/>
     </#if>
-    <#assign userNow = users[userPosition]!/>
-    <#assign userBefore = users[userPosition - 1]!/>
-    <#assign userAfter = users[userPosition + 1]!/>
-    <#if userNow?has_content>
+    <#if userPosition?has_content>
+        <#assign userNow = users[userPosition]!/>
+        <#assign userBefore = users[userPosition - 1]!/>
+        <#assign userAfter = users[userPosition + 1]!/>
         <div>
             <div class="userbox">
                 <div class="usertext">
@@ -20,6 +20,7 @@
                         <li>id: ${userNow.id}</li>
                         <li>handle: ${userNow.handle}</li>
                         <li>name: ${userNow.name}</li>
+                        <li>posts: <a href="/posts?user_id=${userNow.id}">1</a></li>
                     </div>
                 </div>
                 <div class="image">
@@ -29,7 +30,7 @@
             <div class="arrows">
                 <#if userBefore?has_content>
                     <a href="/user?handle=${userBefore.handle}">←</a>
-                    <#else> <b>←</b>
+                <#else> <b>←</b>
                 </#if>
                 <#if userAfter?has_content>
                     <a href="/user?handle=${userAfter.handle}">→</a>

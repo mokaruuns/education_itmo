@@ -40,12 +40,16 @@ public class FreemarkerServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         request.setCharacterEncoding(UTF_8);
         response.setCharacterEncoding(UTF_8);
-
+        if (request.getRequestURI().isEmpty() || request.getRequestURI().equals("/")) {
+            response.setStatus(HttpServletResponse.SC_FOUND);
+            response.sendRedirect("/index");
+        }
         Template template;
         try {
             template = cfg.getTemplate(URLDecoder.decode(request.getRequestURI(), UTF_8) + ".ftlh");
         } catch (TemplateNotFoundException ignored) {
             response.setStatus(HttpServletResponse.SC_NOT_FOUND);
+            response.sendRedirect("/not_found");
             return;
         }
 
@@ -69,7 +73,6 @@ public class FreemarkerServlet extends HttpServlet {
                 } else {
                     data.put(e.getKey(), e.getValue()[0]);
                 }
-                System.out.println(e.getValue()[0]);
             }
         }
         DataUtil.addData(request, data);

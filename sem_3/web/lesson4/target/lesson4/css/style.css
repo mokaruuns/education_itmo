@@ -49,13 +49,17 @@ header nav ul li {
     margin: 0;
 }
 
-header nav ul li a {
+header nav ul li .usual,.selected {
     text-decoration: none;
     font-weight: bold;
     text-transform: uppercase;
     color: black;
     font-family: Arial, sans-serif;
     margin-right: 1rem;
+}
+
+header nav ul li .selected {
+    border-bottom: 3px solid #3B5998;
 }
 
 .middle {
@@ -136,4 +140,104 @@ body .middle main .arrows a{
 body .middle main .arrows b {
     font-size: 2rem;
     color: gray;
+}
+
+main article {
+    padding-bottom: 2rem;
+}
+main article .title {
+    font-size: larger;
+    font-weight: bold;
+    color: var(--caption-color);
+}
+
+main article .information {
+    color: #aca3ab;
+    font-size: 0.8em;
+    padding-top: 0.2em;
+}
+
+main article .body {
+    font-size: 0.85em;
+    border-left: 4px solid #b9b9b9;
+    padding-left: 0.5rem;
+    overflow: hidden; /* Обрезаем содержимое */
+    text-overflow: ellipsis; /* Многоточие */
+}
+
+main article .attachment {
+    list-style-image: url("./../img/paperclip-16x16.png");
+    font-size: 0.7rem;
+    padding-left: calc(17px + 0.3rem);
+}
+
+main ul li {
+    list-style-type:none;
+}
+
+main article .footer {
+    position: relative;
+    margin-top: 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    height: 2.5em;
+    vertical-align: middle;
+}
+
+main article .footer .left {
+    position: absolute;
+    top: 0.45rem;
+    left: 1rem;
+    display: inline;
+    float: left;
+}
+
+
+main article .footer .right {
+    position: absolute;
+    top: 0.6rem;
+    right: 1rem;
+    display: inline;
+    float: right;
+    font-size: 0.8rem;
+}
+
+main article .footer .left .positive-score {
+    position: relative;
+    top:-0.2rem;
+    color: green;
+    font-size: larger;
+    font-weight: bold;
+    margin: 0 5px;
+}
+
+main article .footer .right img {
+    position: relative;
+    top: 0.2rem;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+main .datatable .caption {
+    background: #e1e1e1;
+    border-top-left-radius: var(--border-radius);
+    border-top-right-radius: var(--border-radius);
+    padding: 0.2rem 0.4rem 0.2rem 0.4rem;
+}
+
+main .datatable table {
+    border-collapse: collapse;
+    width: 100%;
+    text-align: center;
+}
+
+main .datatable table thead tr th,
+main .datatable table tbody tr td {
+    border: 1px solid #e1e1e1;
+    padding: 0.4rem;
+    font-size: 0.8rem;
+}
+
+main .datatable table tbody tr:nth-child(odd)  {
+    background: #f8f8f8;
 }

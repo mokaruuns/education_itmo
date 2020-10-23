@@ -6,6 +6,8 @@ public class User {
     private final String name;
 
 
+
+
     public User(long id, String handle, String name) {
         this.id = id;
         this.handle = handle;
@@ -23,4 +25,5 @@ public class User {
     public String getName() {
         return name;
     }
+
 }
