@@ -12,7 +12,6 @@
                            class="tictactoe-cell"
                            name="cell_${row}${col}" value="${state.cells[row][col]!" "}">
                 </form>
-                cell_${row}${col}
             </#list>
         </div>
     </#list>
