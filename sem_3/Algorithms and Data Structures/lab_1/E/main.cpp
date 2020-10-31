@@ -4,49 +4,58 @@ using namespace std;
 
 vector<vector<int>> g(20001);
 int visited[20001];
-int in_time[20001];
-int out_time[20001];
-vector<pair<int, int>> edges;
-stack<pair<int, int>> st_edges;
-map<pair<int, int>, int> colors;
-set<int> c;
+int visited2[20001];
+int time_in[20001];
+int time_out[20001];
+stack<pair<int, int>> st;
+map<int, map<int, int>> colors;
+set<int> ans;
+int now_color = 0;
 int t = 0;
-int color = 0;
-int max_color = 0;
+vector<pair<int, int>> vpii;
 
-void paint(int v, int hint) {
+void dfs(int v, int hint) {
     visited[v] = true;
-    in_time[v] = out_time[v] = t++;
-    for (auto u: g[v]) {
+    time_in[v] = t;
+    time_out[v] = t;
+    t++;
+    int ch = 0;
+    for (int u: g[v]) {
         if (u == hint) continue;
-        if (!visited[u]) {
-            st_edges.push(make_pair(v, u));
-            paint(u, v);
-            if (out_time[u] >= in_time[v]) {
-                color = max_color++;
-                while (st_edges.top() != make_pair(v, u)) {
-                    colors[st_edges.top()] = color;
-                    c.insert(color);
-                    st_edges.pop();
-                }
-                colors[{v, u}] = color;
-                c.insert(color);
-                st_edges.pop();
+        if (visited[u]) time_out[v] = min(time_out[v], time_in[u]);
+        else {
+            dfs(u, v);
+            time_out[v] = min(time_out[v], time_out[u]);
+            if (time_out[u] >= time_in[v] && hint != -1) ans.insert(v);
+            ch++;
+        }
+    }
+    if (hint == -1 && ch > 1) ans.insert(v);
+}
+
+void dfs_paint(int v, int color, int hint) {
+    visited2[v] = true;
+    for (int u: g[v]) {
+        if (u == hint) continue;
+        if (visited2[u]) {
+            if (time_in[u] <= time_in[v]) {
+                colors[v][u] = color;
+                colors[u][v] = color;
             }
-            if (out_time[u] < out_time[v]){
-                out_time[u] = out_time[v];
+        } else {
+            if (time_out[u] >= time_in[v]) {
+                int n_color = ++now_color;
+                colors[v][u] = n_color;
+                colors[u][v] = n_color;
+                dfs_paint(u, n_color, v);
+            } else {
+                colors[v][u] = color;
+                colors[u][v] = color;
+                dfs_paint(u, color, v);
             }
-        } else if (in_time[u] < in_time[v]){
-            st_edges.push({v,u});
-            if (in_time[u] < out_time[v]) {
-                out_time[v] = in_time[u];
-            }
-        } else if (out_time[v] > in_time[u]) {
-            out_time[v] = out_time[u];
         }
     }
 }
-
 
 int main() {
     ios::sync_with_stdio(false);
@@ -59,20 +68,20 @@ int main() {
         cin >> v >> u;
         g[v].push_back(u);
         g[u].push_back(v);
-        edges.emplace_back(v, u);
+        vpii.emplace_back(v, u);
+//        vpii.emplace_back(u, v);
     }
-//    for (int i = 1; i <= n; i++) if (!visited[i]) dfs(i, -1);
-//    memset(visited, false, sizeof(visited));
-    for (int v = 1; v <= n; v++){
-        if (!visited[v]){
-            t = 0;
-            max_color++;
-            paint(v, -1);
+    for (int i = 1; i <= n; i++)
+        if (!visited[i]) {
+            dfs(i, -1);
         }
-    }
-    cout << c.size() << endl;
-    for (auto vu: edges) {
-        cout << colors[vu] << " ";
+    for (int i = 1; i <= n; i++)
+        if (!visited2[i]) {
+            dfs_paint(i, now_color, -1);
+        }
+    cout << now_color << endl;
+    for (auto my_pair : vpii) {
+        cout << colors[my_pair.first][my_pair.second] << " ";
     }
     return 0;
 }
