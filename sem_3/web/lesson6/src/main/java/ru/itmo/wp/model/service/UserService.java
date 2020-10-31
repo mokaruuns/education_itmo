@@ -15,7 +15,7 @@ public class UserService {
     private final UserRepository userRepository = new UserRepositoryImpl();
     private static final String PASSWORD_SALT = "177d4b5f2e4f4edafa7404533973c04c513ac619";
 
-    public void validateRegistration(User user, String password) throws ValidationException {
+    public void validateRegistration(User user, String password, String passwordConfirmation) throws ValidationException {
         if (Strings.isNullOrEmpty(user.getLogin())) {
             throw new ValidationException("Login is required");
         }
@@ -37,6 +37,9 @@ public class UserService {
         }
         if (password.length() > 12) {
             throw new ValidationException("Password can't be longer than 12 characters");
+        }
+        if (!password.equals(passwordConfirmation)){
+            throw new ValidationException("Passwords aren't equals");
         }
     }
 
