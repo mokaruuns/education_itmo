@@ -92,8 +92,28 @@ public class FrontServlet extends HttpServlet {
         for (Class<?> clazz = pageClass; method == null && clazz != null; clazz = clazz.getSuperclass()) {
             Method[] declaredMethods = clazz.getDeclaredMethods();
             for (Method methodNow : declaredMethods) {
+//                List<String> parameterTypes = Arrays.stream(methodNow.getParameterTypes()).map(Class::getSimpleName).collect(Collectors.toList());
                 if (methodNow.getName().equals(route.getAction())) {
-                    method = methodNow;
+                    try {
+                        method = clazz.getDeclaredMethod(route.getAction(), HttpServletRequest.class, Map.class);
+                    } catch (NoSuchMethodException e) {
+                        try {
+                            method = clazz.getDeclaredMethod(route.getAction(), HttpServletRequest.class);
+                        } catch (NoSuchMethodException e1) {
+                            try {
+                                method = clazz.getDeclaredMethod(route.getAction(), Map.class);
+                            } catch (NoSuchMethodException e2) {
+                                try {
+                                    method = clazz.getDeclaredMethod(route.getAction());
+                                } catch (NoSuchMethodException ignored) {
+                                    // No operations.
+                                }
+                            }
+                        }
+                    }
+//                    System.out.println(Arrays.toString(methodNow.getParameterTypes()));
+//                    System.out.println(route.getAction());
+//                    method = methodNow;
                 }
             }
         }
@@ -101,7 +121,6 @@ public class FrontServlet extends HttpServlet {
         if (method == null) {
             throw new NotFoundException();
         }
-
         Object page;
         try {
             page = pageClass.newInstance();
@@ -115,7 +134,7 @@ public class FrontServlet extends HttpServlet {
                 request.getSession().setAttribute("lang", lang);
         }
         view.put("lang", request.getSession().getAttribute("lang"));
-        lang = view.get("lang") == null ? null : view.get("lang").toString();
+        lang = view.get("lang") == null ? "" : view.get("lang").toString();
         method.setAccessible(true);
         try {
             smartInvoke(method, page, request, view);
@@ -131,8 +150,7 @@ public class FrontServlet extends HttpServlet {
                 throw new ServletException("Can't invoke action method [pageClass=" + pageClass + ", method=" + method + "]", cause);
             }
         }
-        boolean langRu = (lang != null) && !lang.equals("en");
-        Template template = newTemplate(pageClass.getSimpleName(), langRu);
+        Template template = newTemplate(pageClass.getSimpleName(), lang);
         response.setContentType("text/html");
         response.setCharacterEncoding(StandardCharsets.UTF_8.name());
         try {
@@ -158,8 +176,9 @@ public class FrontServlet extends HttpServlet {
         }
     }
 
-    private Template newTemplate(String templateName, boolean langRu) throws ServletException {
-        String newTemplateName = templateName + (langRu ? "_ru" : "") + ".ftlh";
+    private Template newTemplate(String templateName, String lang) throws ServletException {
+        String newTemplateName = templateName + (lang.isEmpty() ? "" : "_") + lang + ".ftlh";
+        System.out.println(newTemplateName);
         Template template = null;
         if (sourceConfiguration != null) {
             try {
@@ -182,8 +201,8 @@ public class FrontServlet extends HttpServlet {
         }
 
         if (template == null) {
-            if (langRu) {
-                return newTemplate(templateName, false);
+            if (!lang.equals("")) {
+                return newTemplate(templateName, "");
             } else {
                 throw new ServletException("Can't find template [templateName=" + newTemplateName + "]");
             }

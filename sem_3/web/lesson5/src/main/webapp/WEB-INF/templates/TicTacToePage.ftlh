@@ -1,4 +1,4 @@
-<#-- @ftlvariable name="state" type="ru.itmo.wp.web.page.TicTacToePage.State" -->
+<#-- @ftlvariable name="state" type="ru.itmo.wp.model.State" -->
 <#import "./common.ftlh" as c>
 
 <@c.page>
