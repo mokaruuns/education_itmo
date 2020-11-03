@@ -1,0 +1,6 @@
+[submodule "sem_3/os/intro-mokaruuns"]
+	path = sem_3/os/intro-mokaruuns
+	url = https://github.com/os-ctd-itmo/intro-mokaruuns.git
+[submodule "sem_3/os/alloc-mokaruuns"]
+	path = sem_3/os/alloc-mokaruuns
+	url = https://github.com/os-ctd-itmo/alloc-mokaruuns.git
