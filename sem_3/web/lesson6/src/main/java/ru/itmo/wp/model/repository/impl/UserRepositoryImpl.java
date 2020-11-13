@@ -57,6 +57,35 @@ public class UserRepositoryImpl implements UserRepository {
     }
 
     @Override
+    public User findByEmailAndPasswordSha(String email, String passwordSha) {
+        try (Connection connection = DATA_SOURCE.getConnection()) {
+            try (PreparedStatement statement = connection.prepareStatement("SELECT * FROM User WHERE email=? AND passwordSha=?")) {
+                statement.setString(1, email);
+                statement.setString(2, passwordSha);
+                try (ResultSet resultSet = statement.executeQuery()) {
+                    return toUser(statement.getMetaData(), resultSet);
+                }
+            }
+        } catch (SQLException e) {
+            throw new RepositoryException("Can't find User.", e);
+        }
+    }
+
+    @Override
+    public User findByEmail(String email) {
+        try (Connection connection = DATA_SOURCE.getConnection()) {
+            try (PreparedStatement statement = connection.prepareStatement("SELECT * FROM User WHERE email=?")) {
+                statement.setString(1, email);
+                try (ResultSet resultSet = statement.executeQuery()) {
+                    return toUser(statement.getMetaData(), resultSet);
+                }
+            }
+        } catch (SQLException e) {
+            throw new RepositoryException("Can't find User.", e);
+        }
+    }
+
+    @Override
     public List<User> findAll() {
         List<User> users = new ArrayList<>();
         try (Connection connection = DATA_SOURCE.getConnection()) {
@@ -88,6 +117,9 @@ public class UserRepositoryImpl implements UserRepository {
                 case "login":
                     user.setLogin(resultSet.getString(i));
                     break;
+                case "email":
+                    user.setEmail(resultSet.getString(i));
+                    break;
                 case "creationTime":
                     user.setCreationTime(resultSet.getTimestamp(i));
                     break;
@@ -100,11 +132,12 @@ public class UserRepositoryImpl implements UserRepository {
     }
 
     @Override
-    public void save(User user, String passwordSha) {
+    public void save(User user, String email, String passwordSha) {
         try (Connection connection = DATA_SOURCE.getConnection()) {
-            try (PreparedStatement statement = connection.prepareStatement("INSERT INTO `User` (`login`, `passwordSha`, `creationTime`) VALUES (?, ?, NOW())", Statement.RETURN_GENERATED_KEYS)) {
+            try (PreparedStatement statement = connection.prepareStatement("INSERT INTO `User` (`login`, `email`, `passwordSha`, `creationTime`) VALUES (?, ?, ?, NOW())", Statement.RETURN_GENERATED_KEYS)) {
                 statement.setString(1, user.getLogin());
-                statement.setString(2, passwordSha);
+                statement.setString(2, email);
+                statement.setString(3, passwordSha);
                 if (statement.executeUpdate() != 1) {
                     throw new RepositoryException("Can't save User.");
                 } else {
@@ -120,5 +153,21 @@ public class UserRepositoryImpl implements UserRepository {
         } catch (SQLException e) {
             throw new RepositoryException("Can't save User.", e);
         }
+    }
+
+    @Override
+    public int findCount() {
+        int count = 0;
+        try (Connection connection = DATA_SOURCE.getConnection()) {
+            try (PreparedStatement statement = connection.prepareStatement("SELECT COUNT(*) AS count FROM User")) {
+                try (ResultSet resultSet = statement.executeQuery()) {
+                    resultSet.next();
+                    count = resultSet.getInt("count");
+                }
+            }
+        } catch (SQLException e) {
+            throw new RepositoryException("Can't find User.", e);
+        }
+        return count;
     }
 }

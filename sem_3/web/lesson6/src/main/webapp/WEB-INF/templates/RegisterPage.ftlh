@@ -20,6 +20,14 @@
                 </div>
                 <div class="field">
                     <div class="name">
+                        <label for="email">Email</label>
+                    </div>
+                    <div class="value">
+                        <input id="email" name="email" value="${login!}"/>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="name">
                         <label for="password">Password</label>
                     </div>
                     <div class="value">

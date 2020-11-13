@@ -1,3 +1,4 @@
+<#-- @ftlvariable name="userCount" type="java.lang.Integer" -->
 <#-- @ftlvariable name="user" type="ru.itmo.wp.model.domain.User" -->
 <#-- @ftlvariable name="message" type="java.lang.String" -->
 <#macro page>
@@ -32,7 +33,7 @@
     <nav>
         <ul>
             <li><a href="/index">Home</a></li>
-            <li><a href="/users">Users</a></li>
+            <li><a href="/users">Users ${userCount}</a></li>
         </ul>
     </nav>
 </header>

@@ -6,11 +6,11 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
 
 @SuppressWarnings({"unused", "RedundantSuppression"})
-public class LogoutPage {
-    private void action(HttpServletRequest request, Map<String, Object> view) {
+public class LogoutPage extends Page {
+    public void action(HttpServletRequest request, Map<String, Object> view) {
         request.getSession().removeAttribute("user");
 
-        request.getSession().setAttribute("message", "Good bye. Hope to see you soon!");
+        setMessage("Good bye. Hope to see you soon!");
         throw new RedirectException("/index");
     }
 }

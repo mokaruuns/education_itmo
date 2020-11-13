@@ -122,19 +122,9 @@ public class FrontServlet extends HttpServlet {
             throw new NotFoundException();
         }
 
-        Method method = null;
-        for (Class<?> clazz = pageClass; method == null && clazz != null; clazz = clazz.getSuperclass()) {
-            try {
-                method = pageClass.getDeclaredMethod(route.getAction(), HttpServletRequest.class, Map.class);
-            } catch (NoSuchMethodException ignored) {
-                // No operations.
-            }
-        }
-
-        if (method == null) {
-            throw new NotFoundException();
-        }
-
+        Method method = findMethod(route.getAction(), pageClass);
+        Method methodBefore = findMethod("before", pageClass);
+        Method methodAfter = findMethod("after", pageClass);
         Object page;
         try {
             page = pageClass.newInstance();
@@ -143,11 +133,13 @@ public class FrontServlet extends HttpServlet {
         }
 
         Map<String, Object> view = new HashMap<>();
-        putUser(request, view);
+//        putUser(request, view);
 
         try {
             method.setAccessible(true);
+            methodBefore.invoke(page, request, view);
             method.invoke(page, request, view);
+            methodAfter.invoke(page, request, view);
         } catch (IllegalAccessException e) {
             throw new ServletException("Unable to run action [pageClass=" + pageClass + ", method=" + method + "].", e);
         } catch (InvocationTargetException e) {
@@ -183,12 +175,27 @@ public class FrontServlet extends HttpServlet {
         }
     }
 
-    private void putUser(HttpServletRequest request, Map<String, Object> view) {
-        User user = (User) request.getSession().getAttribute("user");
-        if (user != null) {
-            view.put("user", user);
+    private Method findMethod(String name, Class pageClass) throws NotFoundException {
+        Method method = null;
+        for (Class<?> clazz = pageClass; method == null && clazz != null; clazz = clazz.getSuperclass()) {
+            try {
+                method = clazz.getDeclaredMethod(name, HttpServletRequest.class, Map.class);
+            } catch (NoSuchMethodException ignored) {
+                // No operations.
+            }
         }
+        if (method == null) {
+            throw new NotFoundException();
+        }
+        return method;
     }
+
+//    private void putUser(HttpServletRequest request, Map<String, Object> view) {
+//        User user = (User) request.getSession().getAttribute("user");
+//        if (user != null) {
+//            view.put("user", user);
+//        }
+//    }
 
     private static final class Route {
         private static final String DEFAULT_ACTION = "action";

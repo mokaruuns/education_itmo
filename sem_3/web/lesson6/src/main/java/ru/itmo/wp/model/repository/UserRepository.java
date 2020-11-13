@@ -8,6 +8,10 @@ public interface UserRepository {
     User find(long id);
     User findByLogin(String login);
     User findByLoginAndPasswordSha(String login, String passwordSha);
+    User findByEmailAndPasswordSha(String email, String passwordSha);
     List<User> findAll();
-    void save(User user, String passwordSha);
+    void save(User user, String email, String passwordSha);
+    int findCount();
+
+    User findByEmail(String email);
 }

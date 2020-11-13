@@ -10,12 +10,14 @@ import ru.itmo.wp.model.repository.impl.UserRepositoryImpl;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
 
-/** @noinspection UnstableApiUsage*/
+/**
+ * @noinspection UnstableApiUsage
+ */
 public class UserService {
     private final UserRepository userRepository = new UserRepositoryImpl();
     private static final String PASSWORD_SALT = "177d4b5f2e4f4edafa7404533973c04c513ac619";
 
-    public void validateRegistration(User user, String password, String passwordConfirmation) throws ValidationException {
+    public void validateRegistration(User user, String email, String password, String passwordConfirmation) throws ValidationException {
         if (Strings.isNullOrEmpty(user.getLogin())) {
             throw new ValidationException("Login is required");
         }
@@ -29,6 +31,14 @@ public class UserService {
             throw new ValidationException("Login is already in use");
         }
 
+        if (!email.contains("@")) {
+            throw new ValidationException("Email is required");
+        }
+
+        if (userRepository.findByEmail(email) != null) {
+            throw new ValidationException("Email is already in use");
+        }
+
         if (Strings.isNullOrEmpty(password)) {
             throw new ValidationException("Password is required");
         }
@@ -38,13 +48,13 @@ public class UserService {
         if (password.length() > 12) {
             throw new ValidationException("Password can't be longer than 12 characters");
         }
-        if (!password.equals(passwordConfirmation)){
+        if (!password.equals(passwordConfirmation)) {
             throw new ValidationException("Passwords aren't equals");
         }
     }
 
-    public void register(User user, String password) {
-        userRepository.save(user, getPasswordSha(password));
+    public void register(User user, String email, String password) {
+        userRepository.save(user, email, getPasswordSha(password));
     }
 
     private String getPasswordSha(String password) {
@@ -55,14 +65,25 @@ public class UserService {
         return userRepository.findAll();
     }
 
-    public void validateEnter(String login, String password) throws ValidationException {
-        User user = userRepository.findByLoginAndPasswordSha(login, getPasswordSha(password));
+    public void validateEnter(String loginOrEmail, String password) throws ValidationException {
+        User user = userRepository.findByLoginAndPasswordSha(loginOrEmail, getPasswordSha(password));
         if (user == null) {
-            throw new ValidationException("Invalid login or password");
+            user = userRepository.findByEmailAndPasswordSha(loginOrEmail, getPasswordSha(password));
+            if (user == null) {
+                throw new ValidationException("Invalid login/email or password");
+            }
         }
     }
 
-    public User findByLoginAndPassword(String login, String password) {
-        return userRepository.findByLoginAndPasswordSha(login, getPasswordSha(password));
+    public User findByLoginOrEmailAndPassword(String loginOrEmail, String password) {
+        User userByLogin = userRepository.findByLoginAndPasswordSha(loginOrEmail, getPasswordSha(password));
+        User userByEmail = userRepository.findByEmailAndPasswordSha(loginOrEmail, getPasswordSha(password));
+        return (userByLogin == null) ? userByEmail : userByLogin;
     }
+
+    public int findCount(){
+        return userRepository.findCount();
+    }
+
+
 }
