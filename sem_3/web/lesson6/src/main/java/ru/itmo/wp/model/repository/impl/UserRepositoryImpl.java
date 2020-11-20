@@ -157,7 +157,7 @@ public class UserRepositoryImpl implements UserRepository {
 
     @Override
     public int findCount() {
-        int count = 0;
+        int count;
         try (Connection connection = DATA_SOURCE.getConnection()) {
             try (PreparedStatement statement = connection.prepareStatement("SELECT COUNT(*) AS count FROM User")) {
                 try (ResultSet resultSet = statement.executeQuery()) {

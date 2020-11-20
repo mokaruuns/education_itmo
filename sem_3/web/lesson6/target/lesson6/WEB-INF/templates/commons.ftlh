@@ -33,7 +33,7 @@
     <nav>
         <ul>
             <li><a href="/index">Home</a></li>
-            <li><a href="/users">Users ${userCount}</a></li>
+            <li><a href="/users">Users</a></li>
         </ul>
     </nav>
 </header>
@@ -60,6 +60,9 @@
     </main>
 </div>
 <footer>
+    <div>
+        Users: ${userCount}
+    </div>
     <a href="/index">Codeforces</a> &copy; 2020 by Mike Mirzayanov
 </footer>
 </body>

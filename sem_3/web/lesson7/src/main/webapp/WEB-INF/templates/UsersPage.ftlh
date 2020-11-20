@@ -26,7 +26,6 @@
             </tbody>
         </table>
     </div>
-
     <script>
         $(function () {
             const $noData = $(".users .noData");
@@ -35,13 +34,13 @@
                     action: "findAll"
                 },
                 function (response) {
+                    $noData.hide();
                     response["users"].forEach(function (user) {
-                        $noData.hide();
-                        const $tr = $($(".users template").prop("content")).clone();
-                        $tr.find(".user_id").text(user["id"]);
-                        $tr.find(".user_login").text(user["login"]);
-                        $tr.find("tr").attr("data-userId", user["id"]);
-                        $(".users tbody").append($tr);
+                        const $tmp = $($(".users template").prop("content")).clone();
+                        $tmp.find(".user_id").text(user["id"]);
+                        $tmp.find(".user_login").text(user["login"]);
+                        $tmp.find("tr").attr("data-userId", user["id"]);
+                        $(".users tbody").append($tmp);
                     });
                     $(".users tr").click(function () {
                         ajax({
@@ -51,51 +50,8 @@
                                 notify(response["user"].creationTime);
                             }
                         );
-                        // $.ajax({
-                        //     type: "POST",
-                        //     dataType: "json",
-                        //     data: {
-                        //         action: "findUser",
-                        //         userId: $(this).attr("data-userId")
-                        //     },
-                        //     success: function (response) {
-                        //         notify(response["user"].creationTime);
-                        //     }
-                        // })
                     });
                 });
-            // $.ajax({
-            //
-            //     type: "POST",
-            //     dataType: "json",
-            //     data: {
-            //         action: "findAll"
-            //     },
-            //
-            //     success: function (response) {
-            //         response["users"].forEach(function (user) {
-            //             $noData.hide();
-            //             const $tr = $($(".users template").prop("content")).clone();
-            //             $tr.find(".user_id").text(user["id"]);
-            //             $tr.find(".user_login").text(user["login"]);
-            //             $tr.find("tr").attr("data-userId", user["id"]);
-            //             $(".users tbody").append($tr);
-            //         });
-            //         $(".users tr").click(function () {
-            //             $.ajax({
-            //                 type: "POST",
-            //                 dataType: "json",
-            //                 data: {
-            //                     action: "findUser",
-            //                     userId: $(this).attr("data-userId")
-            //                 },
-            //                 success: function (response) {
-            //                     notify(response["user"].creationTime);
-            //                 }
-            //             })
-            //         });
-            //     }
-            // });
         })
     </script>
 </@c.page>

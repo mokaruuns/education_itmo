@@ -10,7 +10,9 @@ import ru.itmo.wp.model.repository.impl.UserRepositoryImpl;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
 
-/** @noinspection UnstableApiUsage*/
+/**
+ * @noinspection UnstableApiUsage
+ */
 public class UserService {
     private final UserRepository userRepository = new UserRepositoryImpl();
     private static final String PASSWORD_SALT = "177d4b5f2e4f4edafa7404533973c04c513ac619";

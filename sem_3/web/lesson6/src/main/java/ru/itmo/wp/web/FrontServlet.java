@@ -122,9 +122,9 @@ public class FrontServlet extends HttpServlet {
             throw new NotFoundException();
         }
 
-        Method method = findMethod(route.getAction(), pageClass);
-        Method methodBefore = findMethod("before", pageClass);
-        Method methodAfter = findMethod("after", pageClass);
+        Method actionMethod = findMethod(route.getAction(), pageClass);
+        Method beforeMethod = findMethod("before", pageClass);
+        Method afterMethod = findMethod("after", pageClass);
         Object page;
         try {
             page = pageClass.newInstance();
@@ -136,12 +136,12 @@ public class FrontServlet extends HttpServlet {
 //        putUser(request, view);
 
         try {
-            method.setAccessible(true);
-            methodBefore.invoke(page, request, view);
-            method.invoke(page, request, view);
-            methodAfter.invoke(page, request, view);
+            beforeMethod.invoke(page, request, view);
+            actionMethod.setAccessible(true);
+            actionMethod.invoke(page, request, view);
+            afterMethod.invoke(page, request, view);
         } catch (IllegalAccessException e) {
-            throw new ServletException("Unable to run action [pageClass=" + pageClass + ", method=" + method + "].", e);
+            throw new ServletException("Unable to run action [pageClass=" + pageClass + ", method=" + actionMethod + "].", e);
         } catch (InvocationTargetException e) {
             Throwable cause = e.getCause();
             if (cause instanceof RedirectException) {
@@ -160,7 +160,13 @@ public class FrontServlet extends HttpServlet {
                     }
                 }
             } else {
-                throw new ServletException("Unable to run action [pageClass=" + pageClass + ", method=" + method + "].", e);
+                throw new ServletException("Unable to run action [pageClass=" + pageClass + ", method=" + actionMethod + "].", e);
+            }
+        } finally {
+            try {
+                afterMethod.invoke(page, request, view);
+            } catch (IllegalAccessException | InvocationTargetException e) {
+                e.printStackTrace();
             }
         }
 
@@ -171,7 +177,7 @@ public class FrontServlet extends HttpServlet {
         try {
             template.process(view, response.getWriter());
         } catch (TemplateException e) {
-            throw new ServletException("Can't render template [pageClass=" + pageClass + ", method=" + method + "].", e);
+            throw new ServletException("Can't render template [pageClass=" + pageClass + ", method=" + actionMethod + "].", e);
         }
     }
 

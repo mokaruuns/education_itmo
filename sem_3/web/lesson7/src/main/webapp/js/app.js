@@ -5,12 +5,18 @@ window.notify = function (message) {
     });
 }
 
-window.ajax = function (date, funcSuccess) {
+window.ajax = function (data, success) {
     $.ajax({
         type: "POST",
         dataType: "json",
-        data: date,
-        success: funcSuccess
+        data: data,
+        success: function (response) {
+            if (success) {
+                success(response);
+            }
+            if (response["redirect"]) {
+                location.href = response["redirect"];
+            }
+        }
     });
-
 }
