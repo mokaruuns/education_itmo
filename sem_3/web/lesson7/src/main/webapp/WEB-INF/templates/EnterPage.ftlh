@@ -4,7 +4,7 @@
 <#import "commons.ftlh" as c>
 
 <@c.page>
-    <div class="form-box">
+    <div class="enter form-box">
         <div class="header">Enter</div>
         <div class="body">
             <form method="post" action="">
@@ -25,15 +25,56 @@
                         <input id="password" name="password" type="password" value="${password!}"/>
                     </div>
                 </div>
-                <#if error??>
-                    <div class="error">
-                        ${error!}
-                    </div>
-                </#if>
+                <div class="error">
+                    ${error!}
+                </div>
                 <div class="button-field">
                     <input type="submit" value="Enter">
                 </div>
             </form>
         </div>
     </div>
+
+    <script>
+        $(function () {
+            $(".enter form").submit(function () {
+                const login = $(this).find("input[name='login']").val();
+                const password = $(this).find("input[name='password']").val();
+                const $error = $(this).find(".error");
+
+                ajax({
+                        action: "enter",
+                        login: login,
+                        password: password
+                    }, function (response) {
+                        if (response["error"]) {
+                            $error.text(response["error"]);
+                        } else {
+                            location.href = response["redirect"];
+                            // alert("OK");
+                        }
+                    }
+                );
+                // $.ajax({
+                //     type: "POST",
+                //     // url: "",
+                //     dataType: "json",
+                //     data: {
+                //         action: "enter",
+                //         login: login,
+                //         password: password
+                //     },
+                //     success: function (response) {
+                //         if (response["error"]) {
+                //             $error.text(response["error"]);
+                //         } else {
+                //             location.href = response["redirect"];
+                //             alert("OK");
+                //         }
+                //     }
+                // });
+                return false;
+            });
+        })
+    </script>
 </@c.page>

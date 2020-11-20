@@ -18,4 +18,7 @@ public class IndexPage {
             request.getSession().removeAttribute("message");
         }
     }
+
+
+
 }
