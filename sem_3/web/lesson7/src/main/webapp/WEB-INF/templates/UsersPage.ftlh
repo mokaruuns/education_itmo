@@ -9,6 +9,11 @@
             <tr>
                 <th>Id</th>
                 <th>Login</th>
+                <#if user??>
+                    <#if user.admin == true>
+                        <th>Admin</th>
+                    </#if>
+                </#if>
             </tr>
             </thead>
             <tbody>
@@ -16,6 +21,11 @@
                 <tr>
                     <td class="user_id"></td>
                     <td class="user_login"></td>
+                    <#if user?? >
+                        <#if user.admin == true >
+                            <td><a href="#" class="user_admin"></a></td>
+                        </#if>
+                    </#if>
                 </tr>
             </template>
             <tr class="noData">
@@ -39,15 +49,23 @@
                         const $tmp = $($(".users template").prop("content")).clone();
                         $tmp.find(".user_id").text(user["id"]);
                         $tmp.find(".user_login").text(user["login"]);
-                        $tmp.find("tr").attr("data-userId", user["id"]);
+                        if (response["user"] != null && response["user"]["admin"]) {
+                            $tmp.find(".user_admin").text(user["admin"] ? "disable" : "enable");
+                        }
+                        $tmp.find(".user_admin").attr("data-userId", user["id"]);
+                        $tmp.find(".user_admin").attr("data-secondAction", user["admin"] ? "disable" : "enable");
                         $(".users tbody").append($tmp);
                     });
-                    $(".users tr").click(function () {
+                    $(".user_admin").click(function () {
+                        const $link = $(this);
                         ajax({
-                                action: "findUser",
-                                userId: $(this).attr("data-userId")
+                                action: "changePermissions",
+                                userId: $(this).attr("data-userId"),
+                                secondAction: $(this).attr("data-secondAction")
                             }, function (response) {
-                                notify(response["user"].creationTime);
+                                if (response["changedUser"]) {
+                                    $link.text(response["changedUser"]["admin"] ? "disable" : "enable");
+                                }
                             }
                         );
                     });

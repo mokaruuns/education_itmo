@@ -9,5 +9,6 @@ public interface UserRepository {
     User findByLogin(String login);
     User findByLoginAndPasswordSha(String login, String passwordSha);
     List<User> findAll();
+    void changePermissions(Long id, boolean enable);
     void save(User user, String passwordSha);
 }

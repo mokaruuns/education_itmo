@@ -74,6 +74,19 @@ public class UserRepositoryImpl implements UserRepository {
         return users;
     }
 
+    @Override
+    public void changePermissions(Long id, boolean enable) {
+        try (Connection connection = DATA_SOURCE.getConnection()) {
+            try (PreparedStatement statement = connection.prepareStatement("UPDATE User SET admin=? WHERE id=?")) {
+                statement.setBoolean(1, enable);
+                statement.setLong(2, id);
+                statement.executeQuery();
+            }
+        } catch (SQLException e) {
+            throw new RepositoryException("Can't find User.", e);
+        }
+    }
+
     private User toUser(ResultSetMetaData metaData, ResultSet resultSet) throws SQLException {
         if (!resultSet.next()) {
             return null;
@@ -91,6 +104,9 @@ public class UserRepositoryImpl implements UserRepository {
                 case "creationTime":
                     user.setCreationTime(resultSet.getTimestamp(i));
                     break;
+                case "admin":
+                    user.setAdmin(resultSet.getBoolean(i));
+                    break;
                 default:
                     // No operations.
             }
@@ -102,9 +118,10 @@ public class UserRepositoryImpl implements UserRepository {
     @Override
     public void save(User user, String passwordSha) {
         try (Connection connection = DATA_SOURCE.getConnection()) {
-            try (PreparedStatement statement = connection.prepareStatement("INSERT INTO `User` (`login`, `passwordSha`, `creationTime`) VALUES (?, ?, NOW())", Statement.RETURN_GENERATED_KEYS)) {
+            try (PreparedStatement statement = connection.prepareStatement("INSERT INTO `User` (`login`, `passwordSha`, `creationTime`, `admin`) VALUES (?, ?, NOW(), ?)", Statement.RETURN_GENERATED_KEYS)) {
                 statement.setString(1, user.getLogin());
                 statement.setString(2, passwordSha);
+                statement.setBoolean(   3, user.isAdmin());
                 if (statement.executeUpdate() != 1) {
                     throw new RepositoryException("Can't save User.");
                 } else {

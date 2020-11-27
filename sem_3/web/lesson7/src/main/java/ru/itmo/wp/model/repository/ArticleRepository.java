@@ -10,5 +10,5 @@ public interface ArticleRepository {
     List<Article> findAll();
     Article find(Long id);
     List<Article> findByUserId(Long userId);
-    void changeVisibility(Long articleId);
+    void changeVisibility(Long articleId, boolean hide);
 }

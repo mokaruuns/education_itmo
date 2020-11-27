@@ -65,4 +65,8 @@ public class UserService {
         }
         return user;
     }
+
+    public void changePermissions(Long id, boolean enable) {
+        userRepository.changePermissions(id, enable);
+    }
 }

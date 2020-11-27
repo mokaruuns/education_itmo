@@ -91,10 +91,11 @@ public class ArticleRepositoryImpl implements ArticleRepository {
     }
 
     @Override
-    public void changeVisibility(Long articleId) {
+    public void changeVisibility(Long articleId, boolean hide) {
         try (Connection connection = DATA_SOURCE.getConnection()) {
-            try (PreparedStatement statement = connection.prepareStatement("UPDATE Article SET hidden = NOT hidden WHERE id=?")) {
-                statement.setLong(1, articleId);
+            try (PreparedStatement statement = connection.prepareStatement("UPDATE Article SET hidden=? WHERE id=?")) {
+                statement.setBoolean(1, hide);
+                statement.setLong(2, articleId);
                 statement.executeQuery();
             }
         } catch (SQLException e) {

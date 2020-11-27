@@ -1,6 +1,6 @@
 [#ftl]
 [#-- @implicitly included --]
+[#-- @ftlvariable name="user" type="ru.itmo.wp.model.domain.User" --]
 [#-- @ftlvariable name="message" type="java.lang.String" file="../webapp/WEB-INF/templates/commons.ftlh" --]
-[#-- @ftlvariable name="user" type="ru.itmo.wp.model.domain.User" file="../webapp/WEB-INF/templates/commons.ftlh" --]
 [#-- @ftlvariable name="articles" type="ru.itmo.wp.model.domain.Article[]" file="../webapp/WEB-INF/templates/MyArticlesPage.ftlh" --]
-[#-- @ftlvariable name="article" type="ru.itmo.wp.model.domain.Article" file="../webapp/WEB-INF/templates/MyArticlesPage.ftlh" --]
+[#-- @ftlvariable name="article" type="ru.itmo.wp.model.domain.Article" --]

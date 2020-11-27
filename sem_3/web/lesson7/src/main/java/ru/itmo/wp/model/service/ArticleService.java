@@ -51,8 +51,8 @@ public class ArticleService {
         return articleRepository.find(id);
     }
 
-    public void changeVisibility(Long articleId) {
-        articleRepository.changeVisibility(articleId);
+    public void changeVisibility(Long articleId, boolean hide) {
+        articleRepository.changeVisibility(articleId, hide);
     }
 
     public static class ArticleView {

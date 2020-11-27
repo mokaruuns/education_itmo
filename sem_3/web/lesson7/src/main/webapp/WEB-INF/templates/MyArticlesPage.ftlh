@@ -10,13 +10,16 @@
             </tr>
             </thead>
             <tbody>
-
             <#list articles as article>
                 <tr>
                     <td class="id">${article.id}</td>
                     <td>${article.title}</td>
-                    <td class="button" data-id=${article.id}><input type="button"
-                                                                    value=${article.hidden?string('Show', 'Hide')}></td>
+                    <td class="button"
+                        data-id=${article.id}
+                        data-userId=${article.userId}
+                        data-secondAction=${article.hidden?string('Show', 'Hide')}>
+                        <input type="button" value=${article.hidden?string('Show', 'Hide')}>
+                    </td>
                 </tr>
             </#list>
             </tbody>
@@ -27,7 +30,9 @@
             const $button = $(this).find("input");
             ajax({
                     action: "changeVisibility",
-                    id: $(this).attr("data-id")
+                    id: $(this).attr("data-id"),
+                    userId: $(this).attr("data-userId"),
+                    secondAction: $(this).attr("data-secondAction")
                 }, function (response) {
                     if (response["article"]) {
                         $button.val(response["article"].hidden ? "Show" : "Hide");
