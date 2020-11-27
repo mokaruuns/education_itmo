@@ -16,8 +16,7 @@
                     <td>${article.title}</td>
                     <td class="button"
                         data-id=${article.id}
-                        data-userId=${article.userId}
-                        data-secondAction=${article.hidden?string('Show', 'Hide')}>
+                        data-userId=${article.userId}>
                         <input type="button" value=${article.hidden?string('Show', 'Hide')}>
                     </td>
                 </tr>
@@ -32,7 +31,7 @@
                     action: "changeVisibility",
                     id: $(this).attr("data-id"),
                     userId: $(this).attr("data-userId"),
-                    secondAction: $(this).attr("data-secondAction")
+                    secondAction: $button.val()
                 }, function (response) {
                     if (response["article"]) {
                         $button.val(response["article"].hidden ? "Show" : "Hide");

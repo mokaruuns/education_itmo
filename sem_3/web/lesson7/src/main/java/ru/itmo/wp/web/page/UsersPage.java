@@ -30,16 +30,16 @@ public class UsersPage {
     private void changePermissions(HttpServletRequest request, Map<String, Object> view) {
         ensureAuth(request);
         if (!((User) request.getSession().getAttribute("user")).isAdmin()) {
-            request.getSession().setAttribute("message", "You aren't admin!");
+            request.getSession().setAttribute("message", "You aren`t admin!");
             throw new RedirectException("/index");
         }
-        userService.changePermissions(Long.valueOf(request.getParameter("userId")), request.getParameter("secondAction").equals("enable"));
+        userService.changePermissions(Long.valueOf(request.getParameter("userId")), request.getParameter("secondAction").equals("true"));
         view.put("changedUser", userService.find(Long.parseLong(request.getParameter("userId"))));
     }
 
     private void ensureAuth(HttpServletRequest request) {
         if (request.getSession().getAttribute("user") == null) {
-            request.getSession().setAttribute("message", "You aren't entered!");
+            request.getSession().setAttribute("message", "You aren`t entered!");
             throw new RedirectException("/index");
         }
     }

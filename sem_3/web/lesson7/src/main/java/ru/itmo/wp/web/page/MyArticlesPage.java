@@ -25,7 +25,7 @@ public class MyArticlesPage {
     private void changeVisibility(HttpServletRequest request, Map<String, Object> view) {
         ensureAuth(request);
         if (request.getSession().getAttribute("user").equals(userService.find(Long.parseLong(request.getParameter("userId"))))) {
-            request.getSession().setAttribute("message", "You aren't author!");
+            request.getSession().setAttribute("message", "You aren`t author!");
             throw new RedirectException("/index");
         }
         articleService.changeVisibility(Long.valueOf(request.getParameter("id")), request.getParameter("secondAction").equals("Hide"));
@@ -34,7 +34,7 @@ public class MyArticlesPage {
 
     private void ensureAuth(HttpServletRequest request) {
         if (request.getSession().getAttribute("user") == null) {
-            request.getSession().setAttribute("message", "You aren't entered!");
+            request.getSession().setAttribute("message", "You aren`t entered!");
             throw new RedirectException("/index");
         }
     }

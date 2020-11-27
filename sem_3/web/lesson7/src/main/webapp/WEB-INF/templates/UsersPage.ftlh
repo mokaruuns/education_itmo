@@ -23,7 +23,10 @@
                     <td class="user_login"></td>
                     <#if user?? >
                         <#if user.admin == true >
-                            <td><a href="#" class="user_admin"></a></td>
+                            <td class="user_admin">
+                                <div class="user_admin_value"></div>
+                                <a href="#" class="user_admin_toggle"></a>
+                            </td>
                         </#if>
                     </#if>
                 </tr>
@@ -50,21 +53,23 @@
                         $tmp.find(".user_id").text(user["id"]);
                         $tmp.find(".user_login").text(user["login"]);
                         if (response["user"] != null && response["user"]["admin"]) {
-                            $tmp.find(".user_admin").text(user["admin"] ? "disable" : "enable");
+                            $tmp.find(".user_admin .user_admin_value").text(user["admin"] ? "true" : "false");
+                            $tmp.find(".user_admin .user_admin_toggle").text(user["admin"] ? "disable" : "enable");
                         }
                         $tmp.find(".user_admin").attr("data-userId", user["id"]);
-                        $tmp.find(".user_admin").attr("data-secondAction", user["admin"] ? "disable" : "enable");
                         $(".users tbody").append($tmp);
                     });
-                    $(".user_admin").click(function () {
-                        const $link = $(this);
+                    $(".user_admin .user_admin_toggle").click(function () {
+                        const $link = $(this).parent();
+                        const isAdmin = $link.find(".user_admin_value").text();
                         ajax({
                                 action: "changePermissions",
-                                userId: $(this).attr("data-userId"),
-                                secondAction: $(this).attr("data-secondAction")
+                                userId: $link.attr("data-userId"),
+                                secondAction: isAdmin === "false",
                             }, function (response) {
                                 if (response["changedUser"]) {
-                                    $link.text(response["changedUser"]["admin"] ? "disable" : "enable");
+                                    $link.find(".user_admin_value").text(response["changedUser"]["admin"] ? "true" : "false");
+                                    $link.find(".user_admin_toggle").text(response["changedUser"]["admin"] ? "disable" : "enable")
                                 }
                             }
                         );

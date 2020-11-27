@@ -121,7 +121,7 @@ public class UserRepositoryImpl implements UserRepository {
             try (PreparedStatement statement = connection.prepareStatement("INSERT INTO `User` (`login`, `passwordSha`, `creationTime`, `admin`) VALUES (?, ?, NOW(), ?)", Statement.RETURN_GENERATED_KEYS)) {
                 statement.setString(1, user.getLogin());
                 statement.setString(2, passwordSha);
-                statement.setBoolean(   3, user.isAdmin());
+                statement.setBoolean(3, user.isAdmin());
                 if (statement.executeUpdate() != 1) {
                     throw new RepositoryException("Can't save User.");
                 } else {
