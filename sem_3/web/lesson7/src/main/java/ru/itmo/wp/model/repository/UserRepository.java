@@ -6,9 +6,14 @@ import java.util.List;
 
 public interface UserRepository {
     User find(long id);
+
     User findByLogin(String login);
+
     User findByLoginAndPasswordSha(String login, String passwordSha);
+
     List<User> findAll();
+
     void changePermissions(Long id, boolean enable);
+
     void save(User user, String passwordSha);
 }

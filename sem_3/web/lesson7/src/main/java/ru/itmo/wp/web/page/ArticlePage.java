@@ -21,7 +21,6 @@ public class ArticlePage {
     }
 
 
-
     private void create(HttpServletRequest request, Map<String, Object> view) throws ValidationException {
         ensureAuth(request);
         Article article = new Article();
@@ -33,6 +32,7 @@ public class ArticlePage {
         request.getSession().setAttribute("message", "You are successfully published!");
         throw new RedirectException("/index");
     }
+
     private void ensureAuth(HttpServletRequest request) {
         if (request.getSession().getAttribute("user") == null) {
             request.getSession().setAttribute("message", "You aren't entered!");

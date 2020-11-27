@@ -10,7 +10,6 @@ import ru.itmo.wp.model.repository.impl.ArticleRepositoryImpl;
 import ru.itmo.wp.model.repository.impl.UserRepositoryImpl;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class ArticleService {
@@ -44,9 +43,11 @@ public class ArticleService {
         }
         return articleViews;
     }
+
     public List<Article> findByUserId(Long userId) {
         return articleRepository.findByUserId(userId);
     }
+
     public Article find(Long id) {
         return articleRepository.find(id);
     }
@@ -75,6 +76,7 @@ public class ArticleService {
         public User getUser() {
             return user;
         }
+
         public void setUser(User user) {
             this.user = user;
         }

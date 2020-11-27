@@ -7,7 +7,9 @@ import ru.itmo.wp.model.service.UserService;
 import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
 
-/** @noinspection unused*/
+/**
+ * @noinspection unused
+ */
 public class IndexPage {
     private final ArticleService articleService = new ArticleService();
     private final UserService userService = new UserService();

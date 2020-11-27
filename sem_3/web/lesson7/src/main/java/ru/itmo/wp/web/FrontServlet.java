@@ -237,14 +237,6 @@ public class FrontServlet extends HttpServlet {
             );
         }
 
-        private String getClassName() {
-            return className;
-        }
-
-        private String getAction() {
-            return action;
-        }
-
         private static Route newRoute(HttpServletRequest request) {
             String uri = request.getRequestURI();
 
@@ -268,6 +260,14 @@ public class FrontServlet extends HttpServlet {
             }
 
             return new Route(className.toString(), action);
+        }
+
+        private String getClassName() {
+            return className;
+        }
+
+        private String getAction() {
+            return action;
         }
     }
 }

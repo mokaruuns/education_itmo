@@ -14,8 +14,8 @@ import java.util.List;
  * @noinspection UnstableApiUsage
  */
 public class UserService {
-    private final UserRepository userRepository = new UserRepositoryImpl();
     private static final String PASSWORD_SALT = "177d4b5f2e4f4edafa7404533973c04c513ac619";
+    private final UserRepository userRepository = new UserRepositoryImpl();
 
     public void validateRegistration(User user, String password) throws ValidationException {
         if (Strings.isNullOrEmpty(user.getLogin())) {

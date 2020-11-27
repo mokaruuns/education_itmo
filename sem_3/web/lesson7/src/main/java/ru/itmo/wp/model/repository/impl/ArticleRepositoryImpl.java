@@ -133,7 +133,6 @@ public class ArticleRepositoryImpl implements ArticleRepository {
                     // No operations.
             }
         }
-
         return article;
     }
 }

@@ -8,7 +8,9 @@ import ru.itmo.wp.web.exception.RedirectException;
 import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
 
-/** @noinspection unused*/
+/**
+ * @noinspection unused
+ */
 public class RegisterPage {
     private final UserService userService = new UserService();
 

@@ -1,6 +1,5 @@
 package ru.itmo.wp.web.page;
 
-import ru.itmo.wp.model.domain.Article;
 import ru.itmo.wp.model.domain.User;
 import ru.itmo.wp.model.service.ArticleService;
 import ru.itmo.wp.model.service.UserService;
