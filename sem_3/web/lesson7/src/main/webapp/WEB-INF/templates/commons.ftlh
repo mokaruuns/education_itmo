@@ -1,5 +1,3 @@
-<#-- @ftlvariable name="user" type="ru.itmo.wp.model.domain.User" -->
-<#-- @ftlvariable name="message" type="java.lang.String" -->
 <#macro page>
 <!DOCTYPE html>
 <html lang="en">
@@ -37,6 +35,7 @@
             <li><a href="/index">Home</a></li>
             <li><a href="/users">Users</a></li>
             <#if user??><li><a href="/article">Article</a></li></#if>
+            <#if user??><li><a href="/myArticles">my Articles</a></li></#if>
         </ul>
     </nav>
 </header>

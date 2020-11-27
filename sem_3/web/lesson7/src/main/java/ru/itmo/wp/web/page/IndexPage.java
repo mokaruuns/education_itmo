@@ -14,6 +14,7 @@ public class IndexPage {
 
     private void action(HttpServletRequest request, Map<String, Object> view) {
         putMessage(request, view);
+        view.put("articleViews", articleService.findViews());
     }
 
     private void putMessage(HttpServletRequest request, Map<String, Object> view) {
@@ -32,5 +33,4 @@ public class IndexPage {
         view.put("userArticle",
                 userService.find(Long.parseLong(request.getParameter("userId"))));
     }
-
 }

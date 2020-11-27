@@ -2,7 +2,6 @@ package ru.itmo.wp.model.repository.impl;
 
 import ru.itmo.wp.model.database.DatabaseUtils;
 import ru.itmo.wp.model.domain.Article;
-import ru.itmo.wp.model.domain.User;
 import ru.itmo.wp.model.exception.RepositoryException;
 import ru.itmo.wp.model.repository.ArticleRepository;
 
@@ -54,6 +53,53 @@ public class ArticleRepositoryImpl implements ArticleRepository {
             throw new RepositoryException("Can't find Article.", e);
         }
         return articles;
+    }
+
+    @Override
+    public Article find(Long id) {
+        Article article;
+        try (Connection connection = DATA_SOURCE.getConnection()) {
+            try (PreparedStatement statement = connection.prepareStatement("SELECT * FROM `Article` WHERE id=?")) {
+                statement.setLong(1, id);
+                try (ResultSet resultSet = statement.executeQuery()) {
+                    article = toArticle(statement.getMetaData(), resultSet);
+                }
+            }
+        } catch (SQLException e) {
+            throw new RepositoryException("Can't find Article.", e);
+        }
+        return article;
+    }
+
+    @Override
+    public List<Article> findByUserId(Long userId) {
+        List<Article> articles = new ArrayList<>();
+        try (Connection connection = DATA_SOURCE.getConnection()) {
+            try (PreparedStatement statement = connection.prepareStatement("SELECT * FROM `Article` WHERE userId=? ORDER BY id DESC")) {
+                statement.setLong(1, userId);
+                try (ResultSet resultSet = statement.executeQuery()) {
+                    Article article;
+                    while ((article = toArticle(statement.getMetaData(), resultSet)) != null) {
+                        articles.add(article);
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            throw new RepositoryException("Can't find Article.", e);
+        }
+        return articles;
+    }
+
+    @Override
+    public void changeVisibility(Long articleId) {
+        try (Connection connection = DATA_SOURCE.getConnection()) {
+            try (PreparedStatement statement = connection.prepareStatement("UPDATE Article SET hidden = NOT hidden WHERE id=?")) {
+                statement.setLong(1, articleId);
+                statement.executeQuery();
+            }
+        } catch (SQLException e) {
+            throw new RepositoryException("Can't find Article.", e);
+        }
     }
 
 

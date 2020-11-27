@@ -44,6 +44,16 @@ public class ArticleService {
         }
         return articleViews;
     }
+    public List<Article> findByUserId(Long userId) {
+        return articleRepository.findByUserId(userId);
+    }
+    public Article find(Long id) {
+        return articleRepository.find(id);
+    }
+
+    public void changeVisibility(Long articleId) {
+        articleRepository.changeVisibility(articleId);
+    }
 
     public static class ArticleView {
         private Article article;
@@ -68,6 +78,7 @@ public class ArticleService {
         public void setUser(User user) {
             this.user = user;
         }
-
     }
+
+
 }

@@ -38,8 +38,8 @@
                     action: "findAll"
                 },
                 function (response) {
+                    $noData.hide();
                     response["articleViews"].forEach(function (articleView) {
-                        $noData.hide();
                         const $tml = $($(".articles template").prop("content")).clone();
                         $tml.find(".title").text(articleView.article["title"]);
                         $tml.find(".body").text(articleView.article["text"])

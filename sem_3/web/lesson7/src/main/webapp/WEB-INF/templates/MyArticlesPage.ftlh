@@ -1,10 +1,6 @@
-[#-- @ftlvariable name="articles" type="ru.itmo.web.lesson7.model.Ar[]" --]
-
 <#import "commons.ftlh" as c>
-
 <@c.page>
-    <div class="datatable">
-        <div class="articles">Articles</div>
+    <div class="article datatable">
         <table>
             <thead>
             <tr>
@@ -14,14 +10,30 @@
             </tr>
             </thead>
             <tbody>
-            <#list articles as u>
+
+            <#list articles as article>
                 <tr>
-                    <td><@c.userlink u/></td>
-                    <td>${u.handle}</td>
-                    <td>${u.id}</td>
+                    <td class="id">${article.id}</td>
+                    <td>${article.title}</td>
+                    <td class="button" data-id=${article.id}><input type="button"
+                                                                    value=${article.hidden?string('Show', 'Hide')}></td>
                 </tr>
             </#list>
             </tbody>
         </table>
     </div>
+    <script>
+        $(".article tr .button").click(function () {
+            const $button = $(this).find("input");
+            ajax({
+                    action: "changeVisibility",
+                    id: $(this).attr("data-id")
+                }, function (response) {
+                    if (response["article"]) {
+                        $button.val(response["article"].hidden ? "Show" : "Hide");
+                    }
+                }
+            );
+        });
+    </script>
 </@c.page>
