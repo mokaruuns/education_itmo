@@ -23,7 +23,7 @@ public class UserPage extends Page {
             if (user == null) {
                 model.addAttribute("message", "No such user");
             } else {
-                model.addAttribute("user", user);
+                model.addAttribute("u", user);
             }
         } catch (NumberFormatException e) {
             model.addAttribute("message", "No such user");

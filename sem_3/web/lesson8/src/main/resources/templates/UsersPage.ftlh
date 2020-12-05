@@ -10,6 +10,7 @@
                 <th>Id</th>
                 <th>Login</th>
                 <th>Created</th>
+                <th>Disabled</th>
             </tr>
             </thead>
             <tbody>
@@ -25,6 +26,13 @@
                         <td class="id">${user.id}</td>
                         <td class="login">${user.login}</td>
                         <td class="creationTime">${user.creationTime}</td>
+                        <td class="disabled">
+                            <form method="post" action=${user.disabled?then('enable', 'disable')}>
+                                <div class="button-field">
+                                    <input type="submit" value=${user.disabled?then('enable', 'disable')}>
+                                </div>
+                            </form>
+                        </td>
                     </tr>
                 </#list>
             </#if>

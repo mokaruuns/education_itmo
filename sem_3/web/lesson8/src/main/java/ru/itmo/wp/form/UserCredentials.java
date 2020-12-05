@@ -18,6 +18,7 @@ public class UserCredentials {
     @Size(min = 1, max = 60)
     private String password;
 
+
     public String getLogin() {
         return login;
     }

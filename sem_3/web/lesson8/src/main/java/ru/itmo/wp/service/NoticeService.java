@@ -2,6 +2,7 @@ package ru.itmo.wp.service;
 
 import org.springframework.stereotype.Service;
 import ru.itmo.wp.domain.Notice;
+import ru.itmo.wp.form.NoticeCredentials;
 import ru.itmo.wp.repository.NoticeRepository;
 
 import java.util.List;
@@ -20,5 +21,15 @@ public class NoticeService {
 
     public List<Notice> findAll() {
         return noticeRepository.findAllByOrderByIdDesc();
+    }
+
+    public boolean isContentVacant(String content) {
+        return true;
+    }
+
+    public void create(NoticeCredentials noticeCredentials) {
+       Notice notice = new Notice();
+       notice.setContent(noticeCredentials.getContent());
+       noticeRepository.save(notice);
     }
 }
