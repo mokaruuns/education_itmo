@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 
-public class StaticFilter extends HttpFilter {
+public class  StaticFilter extends HttpFilter {
     @Override
     protected void doFilter(HttpServletRequest request,
                             HttpServletResponse response,

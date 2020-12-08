@@ -17,8 +17,13 @@ void find_cycle(deque<int> &deque, int size) {
     FOR(k, 0, size * (size - 1)) {
         if (graph[deque.at(0)][deque.at(1)] == '0') {
             int i = 2;
-            while (graph[deque.at(0)][deque.at(i)] == '0' || graph[deque.at(1)][deque.at(i + 1)] == '0') {
+            while ((i < size - 1) &&
+                   (graph[deque.at(0)][deque.at(i)] == '0' || graph[deque.at(1)][deque.at(i + 1)] == '0')) {
                 i++;
+            }
+            if (i == size - 1) {
+                i = 2;
+                while (graph[deque.at(0)][deque.at(i)] == '0') i++;
             }
             reverse(deque.begin() + 1, deque.begin() + i + 1);
         }

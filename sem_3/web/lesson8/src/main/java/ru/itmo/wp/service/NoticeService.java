@@ -23,10 +23,6 @@ public class NoticeService {
         return noticeRepository.findAllByOrderByIdDesc();
     }
 
-    public boolean isContentVacant(String content) {
-        return true;
-    }
-
     public void create(NoticeCredentials noticeCredentials) {
        Notice notice = new Notice();
        notice.setContent(noticeCredentials.getContent());
