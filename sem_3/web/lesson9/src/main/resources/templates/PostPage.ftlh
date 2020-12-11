@@ -43,8 +43,6 @@
                     <@c.comment comment=comment></@c.comment>
                 </#list>
             </#if>
-        <#else>
-            ${message}
         </#if>
     </div>
 </@c.page>

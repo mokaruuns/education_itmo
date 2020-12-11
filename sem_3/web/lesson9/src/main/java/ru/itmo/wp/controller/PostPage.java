@@ -37,35 +37,24 @@ public class PostPage extends Page {
                 model.addAttribute("message", "No such post");
             } else {
                 model.addAttribute("p", post);
+                model.addAttribute("comment", new Comment());
             }
         } catch (NumberFormatException e) {
             model.addAttribute("message", "No such post");
         }
-        model.addAttribute("comment", new Comment());
-            return "PostPage";
+        return "PostPage";
     }
 
-
-//    @AnyRole({Role.Name.WRITER, Role.Name.ADMIN})
-//    @GetMapping("/writeComment")
-//    public String writeCommentGet(Model model) {
-//        model.addAttribute("comment", new Comment());
-//        return "PostPage";
-//    }
-
-
     @PostMapping("/post/{id}")
-    public String writePostPost(@PathVariable("id") String id,
-                                @Valid @ModelAttribute("comment")Comment comment,
-                                BindingResult bindingResult,
-                                HttpSession httpSession) {
+    public String writeCommentPost(@PathVariable("id") String id,
+                                   @Valid @ModelAttribute("comment")Comment comment,
+                                   BindingResult bindingResult,
+                                   HttpSession httpSession) {
         if (bindingResult.hasErrors()) {
             return "redirect:/post/"+id;
         }
-
         postService.writeComment(getUser(httpSession), postService.findById(Long.parseLong(id)), comment);
         putMessage(httpSession, "You write new comment");
-
         return "redirect:/post/"+id;
     }
 }

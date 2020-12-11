@@ -37,7 +37,6 @@ public class WritePostPage extends Page {
         if (bindingResult.hasErrors()) {
             return "WritePostPage";
         }
-
         userService.writePost(getUser(httpSession), post);
         putMessage(httpSession, "You published new post");
 

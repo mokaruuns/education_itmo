@@ -3,11 +3,13 @@ package ru.itmo.wp.domain;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 /** @noinspection unused*/
 @Entity
@@ -27,7 +29,7 @@ public class Post {
     private String title;
 
     @NotNull
-    @NotEmpty
+    @NotBlank
     @Size(min = 1, max = 65000)
     @Lob
     private String text;
@@ -38,6 +40,13 @@ public class Post {
     @OneToMany(mappedBy = "post", cascade = CascadeType.ALL)
     @OrderBy("id desc")
     private List<Comment> comments;
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "post_tag",
+            joinColumns = @JoinColumn(name = "post_id"),
+            inverseJoinColumns = @JoinColumn(name = "tag_id")
+    )
+    private Set<Tag> tags;
 
     public long getId() {
         return id;
@@ -85,5 +94,13 @@ public class Post {
 
     public void setComments(List<Comment> comments) {
         this.comments = comments;
+    }
+
+    public Set<Tag> getTags() {
+        return tags;
+    }
+
+    public void setTags(Set<Tag> tags) {
+        this.tags = tags;
     }
 }

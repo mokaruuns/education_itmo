@@ -92,6 +92,11 @@
         <div class="title"><a href="/post/${post.id}">${post.title}</a></div>
         <div class="information">By ${post.user.login}, ${post.creationTime}</div>
         <div class="body">${post.text}</div>
+        <div class="tags">
+            <#list post.tags as tag>
+                ${tag.name}
+            </#list>
+        </div>
         <div class="footer">
             <div class="left">
                 <img src="<@spring.url '/img/voteup.png'/>" title="Vote Up" alt="Vote Up"/>

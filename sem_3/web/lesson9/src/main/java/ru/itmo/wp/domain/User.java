@@ -3,6 +3,7 @@ package ru.itmo.wp.domain;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
@@ -20,7 +21,7 @@ public class User {
     private long id;
 
     @NotNull
-    @NotEmpty
+    @NotBlank
     private String login;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
