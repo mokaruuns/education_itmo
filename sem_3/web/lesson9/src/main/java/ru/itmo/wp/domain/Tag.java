@@ -1,10 +1,7 @@
 package ru.itmo.wp.domain;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
 
 @Entity
 @Table(
@@ -16,8 +13,6 @@ public class Tag {
     private long id;
 
     @NotNull
-    @NotBlank
-//    @Pattern(regexp = "([a-z]+[\\s]*)*", message = "Expected Latin letters and whitespace symbols")
     private String name;
 
     public long getId() {

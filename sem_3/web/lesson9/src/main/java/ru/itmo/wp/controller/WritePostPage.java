@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import ru.itmo.wp.domain.Post;
 import ru.itmo.wp.domain.Role;
+import ru.itmo.wp.form.RawPost;
 import ru.itmo.wp.security.AnyRole;
 import ru.itmo.wp.service.UserService;
 
@@ -25,21 +26,36 @@ public class WritePostPage extends Page {
     @AnyRole({Role.Name.WRITER, Role.Name.ADMIN})
     @GetMapping("/writePost")
     public String writePostGet(Model model) {
-        model.addAttribute("post", new Post());
+        model.addAttribute("rawPost", new RawPost());
         return "WritePostPage";
     }
 
+    //    @AnyRole({Role.Name.WRITER, Role.Name.ADMIN})
+//    @PostMapping("/writePost")
+//    public String writePostPost(@Valid @ModelAttribute("post") Post post,
+//                                BindingResult bindingResult,
+//                                HttpSession httpSession) {
+//        if (bindingResult.hasErrors()) {
+//            return "WritePostPage";
+//        }
+//        userService.writePost(getUser(httpSession), post);
+//        putMessage(httpSession, "You published new post");
+//
+//        return "redirect:/posts";
+//    }
+
     @AnyRole({Role.Name.WRITER, Role.Name.ADMIN})
     @PostMapping("/writePost")
-    public String writePostPost(@Valid @ModelAttribute("post") Post post,
+    public String writePostPost(@Valid @ModelAttribute("rawPost") RawPost rawPost,
                                 BindingResult bindingResult,
                                 HttpSession httpSession) {
         if (bindingResult.hasErrors()) {
             return "WritePostPage";
         }
-        userService.writePost(getUser(httpSession), post);
+        userService.writePost(getUser(httpSession), rawPost);
         putMessage(httpSession, "You published new post");
 
         return "redirect:/posts";
     }
+
 }

@@ -1,4 +1,4 @@
-<#-- @ftlvariable name="createForm" type="ru.itmo.wp.form.NoticeCredentials" -->
+<#-- @ftlvariable name="createForm" type="ru.itmo.wp.form.NoticeForm" -->
 <#import "/spring.ftl" as spring>
 <#import "commons.ftlh" as c>
 

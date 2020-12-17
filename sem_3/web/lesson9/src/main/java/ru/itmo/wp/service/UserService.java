@@ -3,18 +3,22 @@ package ru.itmo.wp.service;
 import org.springframework.stereotype.Service;
 import ru.itmo.wp.domain.Post;
 import ru.itmo.wp.domain.Role;
+import ru.itmo.wp.domain.Tag;
 import ru.itmo.wp.domain.User;
+import ru.itmo.wp.form.RawPost;
 import ru.itmo.wp.form.UserCredentials;
 import ru.itmo.wp.repository.RoleRepository;
 import ru.itmo.wp.repository.UserRepository;
 
-import java.util.List;
+import java.util.*;
 
 @Service
 public class UserService {
     private final UserRepository userRepository;
 
-    /** @noinspection FieldCanBeLocal, unused */
+    /**
+     * @noinspection FieldCanBeLocal, unused
+     */
     private final RoleRepository roleRepository;
 
     public UserService(UserRepository userRepository, RoleRepository roleRepository) {
@@ -53,6 +57,21 @@ public class UserService {
     }
 
     public void writePost(User user, Post post) {
+        user.addPost(post);
+        userRepository.save(user);
+    }
+
+    public void writePost(User user, RawPost rawPost) {
+        Post post = new Post();
+        post.setTitle(rawPost.getTitle());
+        post.setText(rawPost.getText());
+        Set<Tag> tags = new HashSet<>();
+        for (String tag : rawPost.getTags().split("\\s")) {
+            Tag tag1 = new Tag();
+            tag1.setName(tag);
+            tags.add(tag1);
+        }
+        post.setTags(tags);
         user.addPost(post);
         userRepository.save(user);
     }

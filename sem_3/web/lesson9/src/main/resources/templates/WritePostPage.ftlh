@@ -1,4 +1,5 @@
 <#-- @ftlvariable name="post" type="ru.itmo.wp.domain.Post" -->
+<#-- @ftlvariable name="rawPost" type="ru.itmo.wp.form.RawPost" -->
 
 <#import "/spring.ftl" as spring>
 <#import "commons.ftlh" as c>
@@ -14,28 +15,31 @@
                         <label for="title">Title</label>
                     </div>
                     <div class="value">
-                        <input autofocus id="title" name="title" value="${post.title!}"/>
+                        <input autofocus id="title" name="title" value="${rawPost.title!}"/>
                     </div>
-                    <@c.error "post.title"/>
+                    <@c.error "rawPost.title"/>
                 </div>
                 <div class="field">
                     <div class="name">
                         <label for="text">Text</label>
                     </div>
                     <div class="value">
-                        <textarea id="text" name="text">${post.text!}</textarea>
+                        <textarea id="text" name="text">${rawPost.text!}</textarea>
                     </div>
-                    <@c.error "post.text"/>
+                    <@c.error "rawPost.text"/>
                 </div>
-<#--                <div class="field">-->
-<#--                    <div class="name">-->
-<#--                        <label for="tags">Tags</label>-->
-<#--                    </div>-->
+                <div class="field">
+                    <div class="name">
+                        <label for="tags">Tags</label>
+                    </div>
 <#--                    <div class="value">-->
-<#--                        <textarea id="tags" name="tags">${post.tags!}</textarea>-->
+<#--                        <textarea id="tags" name="tags">${rawPost.tags!}</textarea>-->
 <#--                    </div>-->
-<#--                    <@c.error "post.tags"/>-->
-<#--                </div>-->
+                    <div class="value">
+                        <input autofocus id="tags" name="tags" value="${rawPost.tags!}"/>
+                    </div>
+                    <@c.error "rawPost.tags"/>
+                </div>
                 <div class="button-field">
                     <input type="submit" value="Write">
                 </div>
