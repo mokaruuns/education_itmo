@@ -42,7 +42,9 @@ export default {
           this.$root.$emit("onRegisterValidationError", "Login already is used");
           return;
         }
-        if (!login || login.length > 16 || login.length < 3) {
+        if (/[^a-z]+/.test(login)) {
+          this.$root.$emit("onRegisterValidationError", "Login can contains only lowercase latin letters\n");
+        } else if (!login || login.length > 16 || login.length < 3) {
           this.$root.$emit("onRegisterValidationError", "Login is wrong: 3 <= length <= 16");
         } else if (!name || name.length > 32 || login.length < 1) {
           this.$root.$emit("onRegisterValidationError", "Name is wrong: 1 <= length <= 32");
