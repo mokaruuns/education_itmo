@@ -4,7 +4,7 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 @SuppressWarnings("unused")
-public class NoticeCredentials {
+public class NoticeForm {
     @NotNull
     @NotEmpty
     private String content;

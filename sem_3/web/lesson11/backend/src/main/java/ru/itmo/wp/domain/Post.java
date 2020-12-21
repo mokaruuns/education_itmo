@@ -3,28 +3,29 @@ package ru.itmo.wp.domain;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.Date;
 
-@SuppressWarnings("unused")
 @Entity
-@Table(
-        indexes = @Index(columnList = "creationTime")
-)
-public class Notice {
+public class Post {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Lob
-    @NotNull
     @NotEmpty
-    @NotBlank
     @Size(min = 1, max = 100)
-    private String content;
+    private String title;
+
+
+    @NotEmpty
+    @Size(min = 1, max = 10000)
+    @Lob
+    private String text;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
 
     @CreationTimestamp
     private Date creationTime;
@@ -37,12 +38,28 @@ public class Notice {
         this.id = id;
     }
 
-    public String getContent() {
-        return content;
+    public String getTitle() {
+        return title;
     }
 
-    public void setContent(String login) {
-        this.content = login;
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getText() {
+        return text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public Date getCreationTime() {
