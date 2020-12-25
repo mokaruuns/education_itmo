@@ -36,9 +36,10 @@ vector<int> build_lcp(const string &s, const vector<int> &suff) {
 }
 
 void solve() {
-    string basicString;
-    cin >> basicString;
-    int n = basicString.length() + 1;
+    string basicString, s1, s2;
+    cin >> s1 >> s2;
+    basicString = s1 + "@" + s2 + "$";
+    int n = basicString.length();
     int k = max(n, alpha);
     vector<int> chars(n);
     vector<int> cnt(alpha);
@@ -70,10 +71,22 @@ void solve() {
         suff = suff_copy;
         chars = classes;
     }
-    FOR(i, 1, n) cout << suff[i] + 1 << " ";
-    cout << endl;
-    vector<int> lcp = build_lcp(basicString + '_', suff);
-    FOR(i, 1, n - 1) cout << lcp[i] << " ";
+//    FOR(i, 1, n) cout << suff[i] + 1 << " ";
+//    cout << endl;
+    string bs_copy = basicString;
+    vector<int> lcp = build_lcp(basicString, suff);
+    int maxS = 0;
+    int result = 0;
+    FOR(i, 1, n - 1) {
+        if ((suff[i] < (int) s1.size() && suff[i + 1] > (int) s1.size() ||
+             suff[i] > s1.size() && suff[i + 1] < s1.size()) && (lcp[i] > maxS)) {
+            maxS = lcp[i];
+            result = suff[i];
+        }
+    }
+    FOR(i, result, result + maxS) {
+        cout << basicString[i];
+    }
 }
 
 int main() {

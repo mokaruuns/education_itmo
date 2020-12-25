@@ -38,7 +38,10 @@ vector<int> build_lcp(const string &s, const vector<int> &suff) {
 void solve() {
     string basicString;
     cin >> basicString;
-    int n = basicString.length() + 1;
+    int number;
+    cin >> number;
+    number--;
+    int n = basicString.length();
     int k = max(n, alpha);
     vector<int> chars(n);
     vector<int> cnt(alpha);
@@ -70,10 +73,26 @@ void solve() {
         suff = suff_copy;
         chars = classes;
     }
-    FOR(i, 1, n) cout << suff[i] + 1 << " ";
-    cout << endl;
-    vector<int> lcp = build_lcp(basicString + '_', suff);
-    FOR(i, 1, n - 1) cout << lcp[i] << " ";
+//    FOR(i, 1, n) cout << suff[i] + 1 << " ";
+//    cout << endl;
+    int cur = -1;
+    vector<bool> used(n, false);
+    FOR(i, 0, n) {
+        if (!used[chars[suff[i]]]) {
+            cur++;
+            used[chars[suff[i]]] = true;
+        }
+        if (cur == number) {
+            FOR(j, suff[i], n) {
+                cout << basicString[j];
+            }
+            FOR(j, 0, suff[i]) {
+                cout << basicString[j];
+            }
+            return;
+        }
+    }
+    cout << "IMPOSSIBLE";
 }
 
 int main() {

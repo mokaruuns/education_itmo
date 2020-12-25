@@ -35,9 +35,8 @@ vector<int> build_lcp(const string &s, const vector<int> &suff) {
     return lcp;
 }
 
-void solve() {
-    string basicString;
-    cin >> basicString;
+
+vector<int> build_suff_mas(string basicString) {
     int n = basicString.length() + 1;
     int k = max(n, alpha);
     vector<int> chars(n);
@@ -70,10 +69,27 @@ void solve() {
         suff = suff_copy;
         chars = classes;
     }
-    FOR(i, 1, n) cout << suff[i] + 1 << " ";
-    cout << endl;
-    vector<int> lcp = build_lcp(basicString + '_', suff);
-    FOR(i, 1, n - 1) cout << lcp[i] << " ";
+    return suff;
+}
+
+void elementary_search(string s){
+
+}
+
+void solve() {
+    vector<string> ss;
+    int n;
+    cin >> n;
+    FOR(i, 0, n) {
+        string str;
+        cin >> str;
+        ss.push_back(str);
+    }
+    string basicString;
+    cin >> basicString;
+    vector<int> suff = build_suff_mas(basicString);
+    FOR(i, 1, basicString.length() + 1) cout << suff[i] + 1 << " ";
+
 }
 
 int main() {
