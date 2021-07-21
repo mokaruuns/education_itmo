@@ -4,3 +4,6 @@
 [submodule "sem_3/os/alloc-mokaruuns"]
 	path = sem_3/os/alloc-mokaruuns
 	url = https://github.com/os-ctd-itmo/alloc-mokaruuns.git
+[submodule "sem_4/java-advanced-2021"]
+	path = sem_4/java-advanced-2021
+	url = http://www.kgeorgiy.info/git-students/year2019/Ahmetov_Marsel/java-advanced
