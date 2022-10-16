@@ -1,0 +1,137 @@
+#!/bin/sh
+
+#1 create test dir
+mkdir ~/test
+
+
+cd ~/test
+
+#2 write files and dirs list to file
+ls -aF /etc > list
+
+#3 write amount dirs and files
+grep "/" list | wc -l >> list
+grep -P "^[^\/]+$" list | wc -l >> list
+
+
+#4 create links
+mkdir links
+
+cd links
+
+#5 create hlink
+ln ../list list_hlink
+
+#6 create slink
+ln -s ../list list_slink
+
+
+cd ../
+#7 print amount hlinks
+echo "\nproblem 7:"
+ls -lR
+
+
+#8 add amount lines in list
+wc -l < list >>  links/list_hlink
+
+cd links
+
+#9 compare two files
+echo "\nproblem 9"
+if cmp list_hlink list_slink > /dev/null
+then echo "YES"
+else echo "NO"
+fi
+
+
+cd ../
+
+#10 rename file
+#mv list list1
+
+
+cd links
+
+#11 compare two files
+echo "\nproblem 11"
+if cmp list_hlink list_slink > /dev/null
+then echo "YES"
+else echo "NO"
+fi
+
+cd ../
+
+#12 hlink for dir
+echo "\nproblem 12"
+ln  links ~/links_hlink
+
+#13
+echo "\nproblem 13"
+find /etc -type f | grep -P "^.+\.conf$" > ~/list_conf
+
+#14
+echo "\nproblem 14"
+find /etc -type d | grep -P "^.+\.d$" > ~/list_d
+
+#15
+cat ~/list_conf >> ~/list_conf_d | cat ~/list_d >> ~/list_conf_d
+
+#16
+mkdir .sub
+
+cd ~
+#17
+cp list_conf_d test/.sub
+
+#18
+cp --backup list_conf_d test/.sub
+
+#19
+echo "\nproblem 19:"
+find test/
+
+#20
+man man > ~/man.txt
+
+#21
+split -b 1K man.txt
+
+#22
+mkdir test/man.dir
+
+#23
+mv x* test/man.dir
+
+#24
+cat test/man.dir/* > test/man.dir/man.txt
+
+#25
+echo "\nproblem 25"
+if cmp man.txt test/man.dir/man.txt > /dev/null
+then echo "YES"
+else echo "NO"
+fi
+
+#26
+echo "~BEGIN~" > tmp
+cat man.txt >> tmp
+echo "~END~" >> tmp
+mv tmp man.txt
+
+#27
+diff -c test/man.dir/man.txt man.txt > diff.patch
+
+#28
+mv diff.patch test/man.dir/
+
+#29
+echo "\nproblem 29"
+patch test/man.dir/man.txt test/man.dir/diff.patch
+
+#30
+echo "\nproblem 30"
+if cmp man.txt test/man.dir/man.txt > /dev/null
+then echo "YES"
+else echo "NO"
+fi
