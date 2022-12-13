@@ -4,6 +4,7 @@ import java.text.ParseException;
 public class LexicalAnalyzer {
 
     InputStream is;
+    int lastChar;
     int currentChar;
     int currentPos;
     Token currentToken;
@@ -17,6 +18,7 @@ public class LexicalAnalyzer {
     private void nextChar() throws ParseException {
         currentPos++;
         try {
+            lastChar = currentChar;
             currentChar = is.read();
         } catch (Exception e) {
             throw new ParseException("Error reading input", currentPos);
@@ -74,6 +76,10 @@ public class LexicalAnalyzer {
 
     public int currentPos() {
         return currentPos;
+    }
+
+    public char currentChar() {
+        return (char) currentChar;
     }
 
 }
