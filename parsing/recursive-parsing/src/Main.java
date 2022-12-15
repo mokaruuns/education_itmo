@@ -4,9 +4,9 @@ import java.text.ParseException;
 
 public class Main {
     public static void main(String[] args) throws ParseException {
-        System.out.println("Hello world!");
-
-        testParser("a(nk*)|m|k");
+        System.out.println("Parsing...");
+        testParser("a|b|c*d|e(f|g)");
+        System.out.println("Parsing done.");
     }
 
     public static void testParser(String initialString) throws ParseException {
@@ -23,7 +23,6 @@ public class Main {
 
         Graph graph = new Graph(tree);
         graph.build();
-        graph.toDot();
         graph.toDotFile("graph.gv");
     }
 }
