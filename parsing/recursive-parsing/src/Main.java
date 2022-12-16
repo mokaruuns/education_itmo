@@ -1,19 +1,36 @@
+import graph.Graph;
+import parser.LexicalAnalyzer;
+import parser.Parser;
+import parser.Tree;
+
 import java.io.ByteArrayInputStream;
+import java.io.IOException;
 import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.text.ParseException;
+import java.util.Random;
 
 public class Main {
     public static void main(String[] args) throws ParseException {
         System.out.println("Parsing...");
-        testParser("a|b|c*d|e(f|g)");
+        testParser("a");
+        testParser("(a)");
+        testParser("ab");
+        testParser("a|b");
+        testParser("a*");
+        testParser("a|b*");
+        testParser("a|b*|c");
+        testParser("a|(b*|c)*");
+        testParser("a|(b*|c)*|d");
         System.out.println("Parsing done.");
     }
 
     public static void testParser(String initialString) throws ParseException {
 
-        InputStream targetStream = new ByteArrayInputStream(initialString.getBytes());
         Parser parser = new Parser();
-        LexicalAnalyzer lex = new LexicalAnalyzer(targetStream);
+        LexicalAnalyzer lex = new LexicalAnalyzer(initialString);
         Tree tree = null;
         try {
             tree = parser.parse(lex);
@@ -21,8 +38,9 @@ public class Main {
             e.printStackTrace();
         }
 
-        Graph graph = new Graph(tree);
+        Graph graph = new Graph(tree, initialString);
         graph.build();
-        graph.toDotFile("graph.gv");
+
+        graph.toDotFile("dot/graph-" + initialString.hashCode()  +".gv");
     }
 }

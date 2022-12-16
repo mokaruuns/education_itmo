@@ -1,4 +1,5 @@
 digraph G {
+E [label="regex= a*"];
 0 [label="Or"];
 1 [label="And"];
 2 [label="Star"];

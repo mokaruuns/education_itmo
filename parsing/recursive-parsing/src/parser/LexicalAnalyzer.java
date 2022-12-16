@@ -1,5 +1,9 @@
+package parser;
+
+import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.text.ParseException;
+import java.util.ArrayList;
 
 public class LexicalAnalyzer {
 
@@ -8,6 +12,13 @@ public class LexicalAnalyzer {
     int currentChar;
     int currentPos;
     Token currentToken;
+
+    public LexicalAnalyzer(String is) {
+        this.is = new ByteArrayInputStream(is.getBytes());
+        currentPos = 0;
+        currentChar = ' ';
+        lastChar = ' ';
+    }
 
     public LexicalAnalyzer(InputStream is) throws ParseException {
         this.is = is;
@@ -80,6 +91,15 @@ public class LexicalAnalyzer {
 
     public char currentChar() {
         return (char) currentChar;
+    }
+
+    public ArrayList<Token> getTokens() throws ParseException {
+        ArrayList<Token> tokens = new ArrayList<>();
+        while (currentToken != Token.T_END) {
+            nextToken();
+            tokens.add(currentToken);
+        }
+        return tokens;
     }
 
 }

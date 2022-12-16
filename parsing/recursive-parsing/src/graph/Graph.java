@@ -1,18 +1,24 @@
+package graph;
+
+import parser.Tree;
+
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.*;
 
 public class Graph {
     private final Map<Integer, Set<Integer>> graph;
+    private final String regexStr;
     private final Map<Integer, String> labels;
     private Set<Integer> finish;
     private final Tree tree;
     private int counter;
 
-    public Graph(Tree tree) {
+    public Graph(Tree tree, String regexStr) {
         this.tree = tree;
         this.graph = new HashMap<>();
         this.labels = new HashMap<>();
+        this.regexStr = regexStr;
         this.counter = 0;
     }
 
@@ -48,6 +54,7 @@ public class Graph {
 
     public void toDot() {
         System.out.println("digraph G {");
+        System.out.println("E [label=\"" + regexStr + "\"];");
         for (Map.Entry<Integer, String> entry : labels.entrySet()) {
             System.out.println(entry.getKey() + " [label=\"" + entry.getValue() + "\"];");
         }
@@ -62,6 +69,7 @@ public class Graph {
     public void toDotFile(String filename) {
         try (PrintWriter out = new PrintWriter(filename)) {
             out.println("digraph G {");
+            out.println("E [label=\"regex= " + regexStr + "\"];");
             for (Map.Entry<Integer, String> entry : labels.entrySet()) {
                 out.println(entry.getKey() + " [label=\"" + entry.getValue() + "\"];");
             }

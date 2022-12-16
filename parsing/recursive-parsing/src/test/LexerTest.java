@@ -9,8 +9,7 @@ import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class LexerTester {
-
+public class LexerTest {
 
     @Test
     public void testChar() throws ParseException {

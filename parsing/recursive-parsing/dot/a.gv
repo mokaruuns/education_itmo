@@ -1,19 +1,18 @@
 digraph G {
+E [label="regex = a"];
 0 [label="Or"];
 1 [label="And"];
 2 [label="Star"];
 3 [label="Base"];
 4 [label="a"];
 6 [label="Star1"];
-7 [label="*"];
-9 [label="And1"];
-11 [label="Or1"];
+8 [label="And1"];
+10 [label="Or1"];
 0 -> 1;
-0 -> 11;
+0 -> 10;
 1 -> 2;
-1 -> 9;
+1 -> 8;
 2 -> 3;
 2 -> 6;
 3 -> 4;
-6 -> 7;
 }

@@ -1,6 +1,6 @@
+package parser;
+
 import java.text.ParseException;
-import java.util.ArrayList;
-import java.util.List;
 
 public class Parser {
     LexicalAnalyzer lex;
@@ -21,7 +21,7 @@ public class Parser {
             case T_CHAR, T_OPEN -> {
                 tree.addChild(And());
                 tree.addChild(Or1());
-                assert lex.currentToken != Token.T_END && lex.currentToken != Token.T_CLOSE;
+                assert lex.currentToken == Token.T_END || lex.currentToken == Token.T_CLOSE;
             }
             default -> {
                 throw new ParseException("Unexpected token", lex.currentPos);
@@ -37,10 +37,11 @@ public class Parser {
                 lex.nextToken();
                 tree.addChild(And());
                 tree.addChild(Or1());
-                assert lex.currentToken != Token.T_END && lex.currentToken != Token.T_CLOSE;
+                assert lex.currentToken == Token.T_END || lex.currentToken == Token.T_CLOSE;
+
             }
             case T_END, T_CLOSE -> {
-//                tree.addChild(new Tree("eps"));
+//                tree.addChild(new parser.Tree("eps"));
             }
             default -> {
                 throw new ParseException("Unexpected token", lex.currentPos);
@@ -55,7 +56,7 @@ public class Parser {
             case T_CHAR, T_OPEN -> {
                 tree.addChild(Star());
                 tree.addChild(And1());
-                assert lex.currentToken != Token.T_END && lex.currentToken != Token.T_CLOSE && lex.currentToken != Token.T_OR;
+                assert lex.currentToken == Token.T_END || lex.currentToken == Token.T_CLOSE || lex.currentToken == Token.T_OR;
             }
             default -> {
                 throw new ParseException("Unexpected token", lex.currentPos);
@@ -70,10 +71,10 @@ public class Parser {
             case T_CHAR, T_OPEN -> {
                 tree.addChild(Star());
                 tree.addChild(And1());
-                assert lex.currentToken != Token.T_END && lex.currentToken != Token.T_CLOSE && lex.currentToken != Token.T_OR;
+                assert lex.currentToken == Token.T_END || lex.currentToken == Token.T_CLOSE || lex.currentToken == Token.T_OR;
             }
             case T_OR, T_CLOSE, T_END -> {
-//                tree.addChild(new Tree("eps"));
+//                tree.addChild(new parser.Tree("eps"));
             }
             default -> {
                 throw new ParseException("Unexpected token", lex.currentPos);
@@ -88,7 +89,7 @@ public class Parser {
             case T_CHAR, T_OPEN -> {
                 tree.addChild(Base());
                 tree.addChild(Star1());
-                assert lex.currentToken != Token.T_END && lex.currentToken != Token.T_CLOSE && lex.currentToken != Token.T_OR && lex.currentToken != Token.T_CHAR;
+                assert lex.currentToken == Token.T_END || lex.currentToken == Token.T_CLOSE || lex.currentToken == Token.T_OR || lex.currentToken == Token.T_CHAR || lex.currentToken == Token.T_OPEN;
             }
             default -> {
                 throw new ParseException("Unexpected token", lex.currentPos);
@@ -103,10 +104,10 @@ public class Parser {
             case T_STAR -> {
                 lex.nextToken();
                 tree.addChild(new Tree("*"));
-                assert lex.currentToken != Token.T_END && lex.currentToken != Token.T_CLOSE && lex.currentToken != Token.T_OR && lex.currentToken != Token.T_CHAR;
+                assert lex.currentToken == Token.T_END || lex.currentToken == Token.T_CLOSE || lex.currentToken == Token.T_OR || lex.currentToken == Token.T_CHAR || lex.currentToken == Token.T_OPEN;
             }
             default -> {
-//                tree.addChild(new Tree("eps"));
+//                tree.addChild(new parser.Tree("eps"));
             }
         }
         return tree;
@@ -116,8 +117,9 @@ public class Parser {
         Tree tree = new Tree("Base");
         switch (lex.currentToken) {
             case T_CHAR -> {
-                tree.addChild(new Tree(String.valueOf((char)lex.lastChar)));
+                tree.addChild(new Tree(String.valueOf((char) lex.lastChar)));
                 lex.nextToken();
+                assert lex.currentToken == Token.T_END || lex.currentToken == Token.T_CLOSE || lex.currentToken == Token.T_OR || lex.currentToken == Token.T_CHAR || lex.currentToken == Token.T_OPEN || lex.currentToken == Token.T_STAR;
             }
             case T_OPEN -> {
                 lex.nextToken();
@@ -128,6 +130,11 @@ public class Parser {
                 }
                 tree.addChild(new Tree(")"));
                 lex.nextToken();
+                assert lex.currentToken == Token.T_END || lex.currentToken == Token.T_CLOSE || lex.currentToken == Token.T_OR || lex.currentToken == Token.T_CHAR || lex.currentToken == Token.T_OPEN || lex.currentToken == Token.T_STAR;
+
+            }
+            default -> {
+                throw new ParseException("Unexpected token", lex.currentPos);
             }
         }
         return tree;
