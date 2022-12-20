@@ -18,10 +18,10 @@ public class Main {
         testParser("a");
         testParser("(a)");
         testParser("ab");
-        testParser("a|b");
-        testParser("a*");
-        testParser("a|b*");
-        testParser("a|b*|c");
+        testParser("a|b**c");
+        testParser("a**");
+        testParser("a|b**");
+        testParser("a|b***|c");
         testParser("a|(b*|c)*");
         testParser("a|(b*|c)*|d");
         System.out.println("Parsing done.");

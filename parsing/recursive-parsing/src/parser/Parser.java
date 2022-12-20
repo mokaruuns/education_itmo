@@ -104,6 +104,7 @@ public class Parser {
             case T_STAR -> {
                 lex.nextToken();
                 tree.addChild(new Tree("*"));
+                tree.addChild(Star1());
                 assert lex.currentToken == Token.T_END || lex.currentToken == Token.T_CLOSE || lex.currentToken == Token.T_OR || lex.currentToken == Token.T_CHAR || lex.currentToken == Token.T_OPEN;
             }
             default -> {
