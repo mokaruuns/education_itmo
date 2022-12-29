@@ -30,3 +30,21 @@ do
     echo "user $user has id $(id -u $user)" >> work3.log
 done
 ```
+
+2. добавляет в файл work3.log строку, содержащую дату последней смены пароля для пользователя `root`;
+
+```bash
+#!/bin/bash
+user=root
+date=$(chage -l $user | head -1| cut -d: -f2)
+echo "date of last password change for user $user is $date" >> work3.log
+```
+
+3. добавляет в файл work3.log список всех групп в системе (только названия групп) через запятую
+    
+```bash
+#!/bin/bash
+all_groups=$(cat /etc/group | cut -d: -f1)
+tr '\n' ',' < all_groups >> work3.log
+
+```

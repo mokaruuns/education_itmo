@@ -7,3 +7,14 @@ for user in $all_users
 do
     echo "user $user has id $(id -u $user)" >> work3.log
 done
+
+# add last change date to work3.log
+
+user=root
+date=$(chage -l $user | head -1| cut -d: -f2)
+echo "date of last password change for user $user is $date" >> work3.log
+
+# add all groups to work3.log
+
+all_groups=$(cat /etc/group | cut -d: -f1)
+echo "$(awk '{print $0}' ORS="," <<< "$text" | sed 's/,$//')"
