@@ -59,8 +59,8 @@ ls -aF /etc > ~/test/list
 затем количество скрытых файлов в каталоге /etc.
 
 ```
-grep "/" ~/test/list | wc -l >> ~/test/list
-grep -P "^[^\/]+$" ~/test/list | wc -l >> ~/test/list
+ls -aF /etc | grep / | wc -l >> ~/test/list
+ls -aF /etc | grep ^\. | wc -l >> ~/test/list
 ```
 
 4. Создать в каталоге test каталог links.
@@ -122,13 +122,13 @@ ln ~/test/links ~/links
 13. Создать в домашнем каталоге файл list_conf, содержащий список файлов с расширением .conf, из
 каталога /etc и всех его подкаталогов.
 ```
-ls -r /etc | find -type f | grep -P "^.+\.conf$" > ~/list_conf
+find /etc -name "*.conf" -type f> ~/list_conf
 ```
 
 14. Создать в домашнем каталоге файл list_d, содержащий список всех подкаталогов каталога /etc,
 расширение которых .d.
 ```
-ls -r /etc | find -type d | grep -P "^.+\.d$" > ~/list_d
+find /etc -name "*.d" -type d> ~/list_d
 ```
 
 15. Создать файл list_conf_d, включив в него последовательно содержимое list_conf и list_d.

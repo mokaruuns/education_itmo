@@ -8,8 +8,8 @@ mkdir ~/test
 ls -aF /etc > ~/test/list
 
 #3 write amount dirs and files
-grep "/" ~/test/list | wc -l >> ~/test/list
-grep -P "^[^\/]+$" ~/test/list | wc -l >> ~/test/list
+ls -aF /etc | grep / | wc -l >> ~/test/list
+ls -aF /etc | grep ^\. | wc -l >> ~/test/list
 
 #4 create links
 mkdir ~/test/links
@@ -54,11 +54,11 @@ ln ~/test/links ~/hlinks
 
 #13
 echo "\nproblem 13"
-ls -r /etc | find -type f | grep -P "^.+\.conf$" > ~/list_conf
+find /etc -name "*.conf" -type f> ~/list_conf
 
 #14
 echo "\nproblem 14"
-ls -r /etc | find -type d | grep -P "^.+\.d$" > ~/list_d
+find /etc -name "*.d" -type d> ~/list_d
 
 #15
 cat ~/list_conf >> ~/list_conf_d | cat ~/list_d >> ~/list_conf_d
