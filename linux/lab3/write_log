@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# write all users and their ids to work3.log
+
+all_users=$(cat /etc/passwd | cut -d: -f1)
+for user in $all_users
+do
+    echo "user $user has id $(id -u $user)" >> work3.log
+done
