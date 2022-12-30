@@ -20,3 +20,25 @@ echo "date of last password change for user $user is $date" >> work3.log
 
 all_groups=$(cat /etc/group | cut -d: -f1)
 "$(awk '{print $0}' ORS="," <<< "$all_groups" | sed 's/,$//')" >> work3.log
+
+# add hello file
+echo "Be careful!" > /etc/skel/readme.txt
+
+# add new user
+useradd -m -p 12345678 u1
+
+# add new group
+groupadd g1
+
+# add user to group
+usermod -a -G g1 u1
+
+# add u1 user info
+user=u1
+echo "user $user has id $(id -u $user) and belongs to groups $(id -Gn $user)" >> work3.log
+
+# include user to u1 group
+user=user
+usermod -a -G g1 $user
+
+
