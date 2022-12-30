@@ -1,5 +1,7 @@
 #!/bin/bash
 
+"" > work3.log
+
 # write all users and their ids to work3.log
 
 all_users=$(cat /etc/passwd | cut -d: -f1)
@@ -17,4 +19,4 @@ echo "date of last password change for user $user is $date" >> work3.log
 # add all groups to work3.log
 
 all_groups=$(cat /etc/group | cut -d: -f1)
-echo "$(awk '{print $0}' ORS="," <<< "$text" | sed 's/,$//')"
+"$(awk '{print $0}' ORS="," <<< "$all_groups" | sed 's/,$//')" >> work3.log
