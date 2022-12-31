@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "" /home/work3.log
+echo "" > /home/work3.log
 
 # write all users and their ids to work3.log
 
@@ -72,5 +72,6 @@ chmod 755 /home/test14/nano
 
 # create test15
 mkdir /home/test15
-touch /home/test15/secret_file
-chmod 000 /home/test15/secret_file
+echo "secret file"  > /home/test15/.secret_file
+chmod 111 /home/test15
+chmod 444 /home/test15/.secret_file
