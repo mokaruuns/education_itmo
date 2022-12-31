@@ -27,7 +27,7 @@ usermod, openssl, chage, chmod, chgrp, chown, groups, id.
 all_users=$(cat /etc/passwd | cut -d: -f1)
 for user in $all_users
 do
-    echo "user $user has id $(id -u $user)" >> work3.log
+    echo "user $user has id $(id -u $user)" >> /home/work3.log
 done
 ```
 
@@ -37,7 +37,7 @@ done
 #!/bin/bash
 user=root
 date=$(chage -l $user | head -1| cut -d: -f2)
-echo "date of last password change for user $user is $date" >> work3.log
+echo "date of last password change for user $user is $date" >> /home/work3.log
 ```
 
 3. добавляет в файл work3.log список всех групп в системе (только названия групп) через запятую
@@ -45,7 +45,7 @@ echo "date of last password change for user $user is $date" >> work3.log
 ```bash
 #!/bin/bash
 all_groups=$(cat /etc/group | cut -d: -f1)
-echo "$(awk '{print $0}' ORS="," <<< "$all_groups" | sed 's/,$//')" >> work3.log
+echo "$(awk '{print $0}' ORS="," <<< "$all_groups" | sed 's/,$//')" >> /home/work3.log
 ```
 
 4. делает так, чтобы при создании нового пользователя у него в домашнем каталоге создавался файл readme.txt с текстом «Be careful!»
@@ -86,7 +86,7 @@ usermod -a -G g1 u1
 #!/bin/bash
 
 user=u1
-echo "user $user has id $(id -u $user) and belongs to groups $(id -Gn $user)" >> work3.log
+echo "user $user has id $(id -u $user) and belongs to groups $(id -Gn $user)" >> /home/work3.log
 ```
 
 9. делает так, чтобы пользователь user дополнительно входил в группу g1
@@ -104,7 +104,7 @@ usermod -a -G g1 $user
 #!/bin/bash
 
 group=g1
-echo "$(awk '{print $0}' ORS="," <<< "$(cat /etc/group | grep $group | cut -d: -f4)" | sed 's/,$//')" >> work3.log
+echo "$(awk '{print $0}' ORS="," <<< "$(cat /etc/group | grep $group | cut -d: -f4)" | sed 's/,$//')" >> /home/work3.log
 ```
 
 11.  делает так, что при входе пользователя u1 в систему вместо оболочки bash автоматически
