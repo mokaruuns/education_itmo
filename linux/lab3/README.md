@@ -60,7 +60,7 @@ echo "Be careful!" > /etc/skel/readme.txt
 ```bash
 #!/bin/bash
 
-useradd -m -p 12345678 u1
+useradd -m -p $(openssl passwd -1 12345678) u1
 ```
 
 6. создает группу g1
@@ -106,3 +106,85 @@ usermod -a -G g1 $user
 group=g1
 echo "$(awk '{print $0}' ORS="," <<< "$(cat /etc/group | grep $group | cut -d: -f4)" | sed 's/,$//')" >> work3.log
 ```
+
+11.  делает так, что при входе пользователя u1 в систему вместо оболочки bash автоматически
+запускается `/usr/bin/mc`, при выходе из которого пользователь возвращается к вводу логина и
+пароля
+
+```bash
+#!/bin/bash
+
+user=u1
+echo "/usr/bin/mc" >> /home/$user/.bash_profile
+```
+
+12.  создает пользователя u2 с паролем 87654321
+
+```bash
+#!/bin/bash
+
+useradd -m -p $(openssl passwd -1 87654321) u2
+```
+
+
+13. в каталоге /home создает каталог test13, в который копирует файл work3.log два раза с
+разными именами (work3-1.log и work3-2.log)
+
+```bash
+#!/bin/bash
+
+cp /home/work3.log /home/test13/work3-1.log
+cp /home/work3.log /home/test13/work3-2.log
+```
+
+14. сделает так, чтобы пользователи u1 и u2 смогли бы просматривать каталог test13 и читать эти
+файлы, только пользователь u1 смог бы изменять и удалять их, а все остальные пользователи
+системы не могли просматривать содержимое каталога test13 и файлов в нем. При этом никто не
+должен иметь права исполнять эти файлы
+
+```bash
+#!/bin/bash
+
+groupadd group13
+usermod -a -G group13 u1
+usermod -a -G group13 u2
+chown u1:group13 /home/test13 -R
+chmod 640 /home/test13 -R
+```
+
+15. создает в каталоге /home каталог test14, в который любой пользователь системы сможет
+записать данные, но удалить любой файл сможет только пользователь, который его создал или
+пользователь u1
+
+```bash
+#!/bin/bash
+
+mkdir /home/test14
+chmod 755 /home/test14
+chown u1 /home/test14 -R
+```
+
+16.  копирует в каталог test14 исполняемый файл редактора nano и делает так, чтобы любой
+пользователь смог изменять с его помощью файлы, созданные в пункте 13
+
+```bash
+#!/bin/bash
+
+cp /usr/bin/nano /home/test14
+chmod 755 /home/test14/nano
+```
+
+17.  создает каталог test15 и создает в нем текстовый файл /test15/secret_file. Делает так, чтобы
+содержимое этого файла можно было вывести на экран, используя полный путь, но чтобы узнать
+имя этого файла, было бы невозможно
+
+```bash
+#!/bin/bash
+
+mkdir /home/test15
+touch /home/test15/secret_file
+chmod 000 /home/test15/secret_file
+```
+
+
+

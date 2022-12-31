@@ -1,6 +1,6 @@
 #!/bin/bash
 
-"" > work3.log
+echo "" > work3.log
 
 # write all users and their ids to work3.log
 
@@ -19,13 +19,13 @@ echo "date of last password change for user $user is $date" >> work3.log
 # add all groups to work3.log
 
 all_groups=$(cat /etc/group | cut -d: -f1)
-"$(awk '{print $0}' ORS="," <<< "$all_groups" | sed 's/,$//')" >> work3.log
+echo "$(awk '{print $0}' ORS="," <<< "$all_groups" | sed 's/,$//')" >> work3.log
 
 # add hello file
 echo "Be careful!" > /etc/skel/readme.txt
 
 # add new user
-useradd -m -p 12345678 u1
+useradd -m -p $(openssl passwd -1 12345678) u1
 
 # add new group
 groupadd g1
@@ -42,3 +42,35 @@ user=user
 usermod -a -G g1 $user
 
 
+# add mc to u1 user
+user=u1
+echo "/usr/bin/mc" >> /home/$user/.bash_profile
+
+# create new user u2 with password 87654321
+useradd -m -p $(openssl passwd -1 87654321) u2
+
+# copy work3.log
+mkdir /home/test13
+cp /home/work3.log /home/test13/work3-1.log
+cp /home/work3.log /home/test13/work3-2.log
+
+# set permissions
+groupadd test13group
+usermod -a -G test13group u1
+usermod -a -G test13group u2
+chown u1:test13group /home/test13 -R
+chmod 640 /home/test13 -R
+
+# create test14
+mkdir /home/test14
+chmod 755 /home/test14
+chown u1 /home/test14 -R
+
+# copy test14
+cp /usr/bin/nano /home/test14
+chmod 755 /home/test14/nano
+
+# create test15
+mkdir /home/test15
+touch /home/test15/secret_file
+chmod 000 /home/test15/secret_file
