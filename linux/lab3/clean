@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# remove all files from /home/test13
+rm -rf /home/test13
+
+# remove all users
+userdel -r u1 u2
+
+# remove all groups
+groupdel test13group g1
+
+# remove all files from /home
+rm -rf /home/test13 /home/test14 /home/test15 
+rm -rf /home/work3.log
+rm -rf /home/u1 /home/u2
+
+# remove all files from /etc/skel
+rm -rf /etc/skel/readme.txt
