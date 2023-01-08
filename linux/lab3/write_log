@@ -37,7 +37,6 @@ groupadd g1
 usermod -a -G g1 u1
 
 # add u1 user info
-
 echo "Problem 8" >> /home/work3.log
 
 user=u1
@@ -50,16 +49,13 @@ usermod -a -G g1 $user
 # add info about g1 group
 echo "Problem 10" >> /home/work3.log
 
-
 group=g1
 echo "$(awk '{print $0}' ORS="," <<< "$(cat /etc/group | grep $group | cut -d: -f4)" | sed 's/,$//')" >> /home/work3.log
-
 
 # add mc to u1 user
 user=u1
 # echo "/usr/bin/mc" >> /home/$user/.bash_profile
 usermod -s /usr/bin/mc $user
-
 
 # create new user u2 with password 87654321
 useradd -m -p $(openssl passwd -1 87654321) u2
@@ -70,26 +66,24 @@ cp /home/work3.log /home/test13/work3-1.log
 cp /home/work3.log /home/test13/work3-2.log
 
 # set permissions
-groupadd test13group
-usermod -a -G test13group u1
-usermod -a -G test13group u2
-chown u1:test13group /home/test13 -R
-chmod 640 /home/test13 -R
+groupadd group13
+usermod -a -G group13 u1
+usermod -a -G group13 u2
+chown -R u1:group13 /home/test13
+chmod -R 640 /home/test13
 
 # create test14
 mkdir /home/test14
-chmod 755 /home/test14
-chown u1 /home/test14 -R
+chmod +t /home/test14
+chown u1:u1 /home/test14
 
 # copy test14
-cp /usr/bin/nano /home/test14
-chmod 755 /home/test14/nano
+cp /usr/bin/nano /home/test14/nano
+chown u1:u1 /home/test14/nano
+chmod u+s /home/test14/nano
 
 # create test15
 mkdir /home/test15
 echo "secret file"  > /home/test15/.secret_file
 chmod 111 /home/test15
 chmod 444 /home/test15/.secret_file
-
-# remove files from /etc/skel
-rm /etc/skel/readme.txt
