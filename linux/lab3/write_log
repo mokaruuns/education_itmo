@@ -57,7 +57,9 @@ echo "$(awk '{print $0}' ORS="," <<< "$(cat /etc/group | grep $group | cut -d: -
 
 # add mc to u1 user
 user=u1
-echo "/usr/bin/mc" >> /home/$user/.bash_profile
+# echo "/usr/bin/mc" >> /home/$user/.bash_profile
+usermod -s /usr/bin/mc $user
+
 
 # create new user u2 with password 87654321
 useradd -m -p $(openssl passwd -1 87654321) u2

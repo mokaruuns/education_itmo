@@ -123,7 +123,9 @@ echo "$(awk '{print $0}' ORS="," <<< "$(cat /etc/group | grep $group | cut -d: -
 #!/bin/bash
 
 user=u1
-echo "/usr/bin/mc" >> /home/$user/.bash_profile
+# echo "/usr/bin/mc" >> /home/$user/.bash_profile
+
+usermod -s /usr/bin/mc $user
 ```
 
 12.  создает пользователя u2 с паролем 87654321
@@ -156,8 +158,9 @@ cp /home/work3.log /home/test13/work3-2.log
 groupadd group13
 usermod -a -G group13 u1
 usermod -a -G group13 u2
-chown u1:group13 /home/test13 -R
-chmod 640 /home/test13 -R
+chown -R u1:group13 /home/test13
+chmod -R 640 /home/test13
+
 ```
 
 15. создает в каталоге /home каталог test14, в который любой пользователь системы сможет
@@ -168,8 +171,8 @@ chmod 640 /home/test13 -R
 #!/bin/bash
 
 mkdir /home/test14
-chmod 755 /home/test14
-chown u1 /home/test14 -R
+chmod +t /home/test14
+chown u1:u1 /home/test14
 ```
 
 16.  копирует в каталог test14 исполняемый файл редактора nano и делает так, чтобы любой
@@ -178,8 +181,9 @@ chown u1 /home/test14 -R
 ```bash
 #!/bin/bash
 
-cp /usr/bin/nano /home/test14
-chmod 755 /home/test14/nano
+cp /usr/bin/nano /home/test14/nano
+chown u1:u1 /home/test14/nano
+chmod u+s /home/test14/nano
 ```
 
 17.  создает каталог test15 и создает в нем текстовый файл /test15/secret_file. Делает так, чтобы
