@@ -3,6 +3,7 @@
 echo "" > /home/work3.log
 
 # write all users and their ids to work3.log
+echo "Problem 1" >> /home/work3.log
 
 all_users=$(cat /etc/passwd | cut -d: -f1)
 for user in $all_users
@@ -11,12 +12,14 @@ do
 done
 
 # add last change date to work3.log
+echo "Problem 2" >> /home/work3.log
 
 user=root
 date=$(chage -l $user | head -1| cut -d: -f2)
 echo "date of last password change for user $user is $date" >> /home/work3.log
 
 # add all groups to work3.log
+echo "Problem 3" >> /home/work3.log
 
 all_groups=$(cat /etc/group | cut -d: -f1)
 echo "$(awk '{print $0}' ORS="," <<< "$all_groups" | sed 's/,$//')" >> /home/work3.log
@@ -34,12 +37,22 @@ groupadd g1
 usermod -a -G g1 u1
 
 # add u1 user info
+
+echo "Problem 8" >> /home/work3.log
+
 user=u1
 echo "user $user has id $(id -u $user) and belongs to groups $(id -Gn $user)" >> /home/work3.log
 
 # include user(mokaruuns) to u1 group
 user=mokaruuns
 usermod -a -G g1 $user
+
+# add info about g1 group
+echo "Problem 10" >> /home/work3.log
+
+
+group=g1
+echo "$(awk '{print $0}' ORS="," <<< "$(cat /etc/group | grep $group | cut -d: -f4)" | sed 's/,$//')" >> /home/work3.log
 
 
 # add mc to u1 user

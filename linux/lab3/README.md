@@ -91,7 +91,6 @@ usermod -a -G g1 u1
 #!/bin/bash
 echo "Problem 8" >> /home/work3.log
 
-
 user=u1
 echo "user $user has id $(id -u $user) and belongs to groups $(id -Gn $user)" >> /home/work3.log
 ```
