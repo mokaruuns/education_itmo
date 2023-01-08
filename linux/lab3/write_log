@@ -75,3 +75,6 @@ mkdir /home/test15
 echo "secret file"  > /home/test15/.secret_file
 chmod 111 /home/test15
 chmod 444 /home/test15/.secret_file
+
+# remove files from /etc/skel
+rm /etc/skel/readme.txt

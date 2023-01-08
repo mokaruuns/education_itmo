@@ -24,6 +24,7 @@ usermod, openssl, chage, chmod, chgrp, chown, groups, id.
 
 ```bash
 #!/bin/bash
+echo "Problem 1" >> /home/work3.log
 all_users=$(cat /etc/passwd | cut -d: -f1)
 for user in $all_users
 do
@@ -35,6 +36,8 @@ done
 
 ```bash
 #!/bin/bash
+echo "Problem 2" >> /home/work3.log
+
 user=root
 date=$(chage -l $user | head -1| cut -d: -f2)
 echo "date of last password change for user $user is $date" >> /home/work3.log
@@ -44,6 +47,8 @@ echo "date of last password change for user $user is $date" >> /home/work3.log
     
 ```bash
 #!/bin/bash
+echo "Problem 3" >> /home/work3.log
+
 all_groups=$(cat /etc/group | cut -d: -f1)
 echo "$(awk '{print $0}' ORS="," <<< "$all_groups" | sed 's/,$//')" >> /home/work3.log
 ```
@@ -84,12 +89,14 @@ usermod -a -G g1 u1
 
 ```bash
 #!/bin/bash
+echo "Problem 8" >> /home/work3.log
+
 
 user=u1
 echo "user $user has id $(id -u $user) and belongs to groups $(id -Gn $user)" >> /home/work3.log
 ```
 
-9. делает так, чтобы пользователь user дополнительно входил в группу g1
+9. делает так, чтобы пользователь user(mokaruuns) дополнительно входил в группу g1
 
 ```bash
 #!/bin/bash
@@ -102,6 +109,8 @@ usermod -a -G g1 $user
 
 ```bash
 #!/bin/bash
+echo "Problem 10" >> /home/work3.log
+
 
 group=g1
 echo "$(awk '{print $0}' ORS="," <<< "$(cat /etc/group | grep $group | cut -d: -f4)" | sed 's/,$//')" >> /home/work3.log
@@ -182,8 +191,9 @@ chmod 755 /home/test14/nano
 #!/bin/bash
 
 mkdir /home/test15
-touch /home/test15/secret_file
-chmod 000 /home/test15/secret_file
+echo "secret file"  > /home/test15/.secret_file
+chmod 111 /home/test15
+chmod 444 /home/test15/.secret_file
 ```
 
 
