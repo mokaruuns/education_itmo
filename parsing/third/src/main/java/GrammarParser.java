@@ -1,9 +1,4 @@
 // Generated from java-escape by ANTLR 4.11.1
-
-    import classes.Tree;
-    import classes.Nodes;
-
-
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;
@@ -22,42 +17,33 @@ public class GrammarParser extends Parser {
 		new PredictionContextCache();
 	public static final int
 		T__0=1, T__1=2, T__2=3, T__3=4, T__4=5, T__5=6, T__6=7, T__7=8, T__8=9, 
-		T__9=10, T__10=11, T__11=12, T__12=13, T__13=14, T__14=15, T__15=16, T__16=17, 
-		T__17=18, T__18=19, T__19=20, T__20=21, T__21=22, T__22=23, T__23=24, 
-		T__24=25, T__25=26, T__26=27, T__27=28, T__28=29, T__29=30, T__30=31, 
-		T__31=32, T__32=33, T__33=34, T__34=35, T__35=36, T__36=37, T__37=38, 
-		T__38=39, T__39=40, IDENTIFIER=41, NUMBER=42, WS=43, SYMBOL=44, OPERATOR=45;
+		T__9=10, T__10=11, GREEK=12, FUNCTION=13, IDENTIFIER=14, NUMBER=15, WS=16, 
+		SYMBOL=17, OPERATOR=18, LETTER=19;
 	public static final int
-		RULE_math = 0, RULE_mrow = 1, RULE_msqrt = 2, RULE_brace = 3, RULE_square = 4, 
-		RULE_paren = 5, RULE_mfrac = 6, RULE_mi = 7, RULE_mn = 8, RULE_mo = 9, 
-		RULE_ms = 10, RULE_greek = 11;
+		RULE_math = 0, RULE_mrow = 1, RULE_indexes = 2, RULE_msup = 3, RULE_msub = 4, 
+		RULE_actions = 5, RULE_mfrac = 6, RULE_msqrt = 7, RULE_mbinom = 8, RULE_mi = 9, 
+		RULE_mn = 10, RULE_mo = 11, RULE_ms = 12, RULE_greek = 13, RULE_functions = 14, 
+		RULE_identifier = 15;
 	private static String[] makeRuleNames() {
 		return new String[] {
-			"math", "mrow", "msqrt", "brace", "square", "paren", "mfrac", "mi", "mn", 
-			"mo", "ms", "greek"
+			"math", "mrow", "indexes", "msup", "msub", "actions", "mfrac", "msqrt", 
+			"mbinom", "mi", "mn", "mo", "ms", "greek", "functions", "identifier"
 		};
 	}
 	public static final String[] ruleNames = makeRuleNames();
 
 	private static String[] makeLiteralNames() {
 		return new String[] {
-			null, "'$'", "'\\sqrt'", "'{'", "'}'", "'['", "']'", "'('", "')'", "'\\frac'", 
-			"'\\Gamma'", "'\\Delta'", "'\\Theta'", "'\\Lambda'", "'\\Pi'", "'\\Sigma'", 
-			"'\\Phi'", "'\\Psi'", "'\\Omega'", "'\\alpha'", "'\\beta'", "'\\gamma'", 
-			"'\\delta'", "'\\epsilon'", "'\\eta'", "'\\theta'", "'\\iota'", "'\\kappa'", 
-			"'\\lambda'", "'\\mugreek'", "'\\nu'", "'\\xi'", "'\\pi'", "'\\rho'", 
-			"'\\sigma'", "'\\tau'", "'\\upsilon'", "'\\phi'", "'\\chi'", "'\\psi'", 
-			"'\\omega'"
+			null, "'$'", "'^'", "'{'", "'}'", "'_'", "'\\frac'", "'\\sqrt'", "'['", 
+			"']'", "'\\binom'", "'\\'"
 		};
 	}
 	private static final String[] _LITERAL_NAMES = makeLiteralNames();
 	private static String[] makeSymbolicNames() {
 		return new String[] {
 			null, null, null, null, null, null, null, null, null, null, null, null, 
-			null, null, null, null, null, null, null, null, null, null, null, null, 
-			null, null, null, null, null, null, null, null, null, null, null, null, 
-			null, null, null, null, null, "IDENTIFIER", "NUMBER", "WS", "SYMBOL", 
-			"OPERATOR"
+			"GREEK", "FUNCTION", "IDENTIFIER", "NUMBER", "WS", "SYMBOL", "OPERATOR", 
+			"LETTER"
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
@@ -113,8 +99,6 @@ public class GrammarParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class MathContext extends ParserRuleContext {
-		public Tree tree_;
-		public MrowContext mrow;
 		public MrowContext mrow() {
 			return getRuleContext(MrowContext.class,0);
 		}
@@ -143,15 +127,12 @@ public class GrammarParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(24);
+			setState(32);
 			match(T__0);
-			setState(25);
-			((MathContext)_localctx).mrow = mrow();
-			setState(26);
+			setState(33);
+			mrow();
+			setState(34);
 			match(T__0);
-
-			        ((MathContext)_localctx).tree_ =  new Tree(Nodes.MATH, List.of(((MathContext)_localctx).mrow.tree_));
-			    
 			}
 		}
 		catch (RecognitionException re) {
@@ -167,55 +148,17 @@ public class GrammarParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class MrowContext extends ParserRuleContext {
-		public Tree tree_;
-		public MiContext mi;
-		public MnContext mn;
-		public MoContext mo;
-		public MsContext ms;
-		public MsqrtContext msqrt;
-		public MfracContext mfrac;
-		public ParenContext paren;
-		public List<MiContext> mi() {
-			return getRuleContexts(MiContext.class);
+		public List<IndexesContext> indexes() {
+			return getRuleContexts(IndexesContext.class);
 		}
-		public MiContext mi(int i) {
-			return getRuleContext(MiContext.class,i);
+		public IndexesContext indexes(int i) {
+			return getRuleContext(IndexesContext.class,i);
 		}
-		public List<MnContext> mn() {
-			return getRuleContexts(MnContext.class);
+		public List<ActionsContext> actions() {
+			return getRuleContexts(ActionsContext.class);
 		}
-		public MnContext mn(int i) {
-			return getRuleContext(MnContext.class,i);
-		}
-		public List<MoContext> mo() {
-			return getRuleContexts(MoContext.class);
-		}
-		public MoContext mo(int i) {
-			return getRuleContext(MoContext.class,i);
-		}
-		public List<MsContext> ms() {
-			return getRuleContexts(MsContext.class);
-		}
-		public MsContext ms(int i) {
-			return getRuleContext(MsContext.class,i);
-		}
-		public List<MsqrtContext> msqrt() {
-			return getRuleContexts(MsqrtContext.class);
-		}
-		public MsqrtContext msqrt(int i) {
-			return getRuleContext(MsqrtContext.class,i);
-		}
-		public List<MfracContext> mfrac() {
-			return getRuleContexts(MfracContext.class);
-		}
-		public MfracContext mfrac(int i) {
-			return getRuleContext(MfracContext.class,i);
-		}
-		public List<ParenContext> paren() {
-			return getRuleContexts(ParenContext.class);
-		}
-		public ParenContext paren(int i) {
-			return getRuleContext(ParenContext.class,i);
+		public ActionsContext actions(int i) {
+			return getRuleContext(ActionsContext.class,i);
 		}
 		public MrowContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -239,108 +182,209 @@ public class GrammarParser extends Parser {
 	public final MrowContext mrow() throws RecognitionException {
 		MrowContext _localctx = new MrowContext(_ctx, getState());
 		enterRule(_localctx, 2, RULE_mrow);
-		List<Tree> children_ = new ArrayList<Tree>();
 		int _la;
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(38); 
+			_errHandler.sync(this);
+			_la = _input.LA(1);
+			do {
+				{
+				setState(38);
+				_errHandler.sync(this);
+				switch ( getInterpreter().adaptivePredict(_input,0,_ctx) ) {
+				case 1:
+					{
+					setState(36);
+					indexes();
+					}
+					break;
+				case 2:
+					{
+					setState(37);
+					actions();
+					}
+					break;
+				}
+				}
+				setState(40); 
+				_errHandler.sync(this);
+				_la = _input.LA(1);
+			} while ( ((_la) & ~0x3f) == 0 && ((1L << _la) & 445632L) != 0 );
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	@SuppressWarnings("CheckReturnValue")
+	public static class IndexesContext extends ParserRuleContext {
+		public MsubContext msub() {
+			return getRuleContext(MsubContext.class,0);
+		}
+		public MsupContext msup() {
+			return getRuleContext(MsupContext.class,0);
+		}
+		public IndexesContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_indexes; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof GrammarListener ) ((GrammarListener)listener).enterIndexes(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof GrammarListener ) ((GrammarListener)listener).exitIndexes(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof GrammarVisitor ) return ((GrammarVisitor<? extends T>)visitor).visitIndexes(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+
+	public final IndexesContext indexes() throws RecognitionException {
+		IndexesContext _localctx = new IndexesContext(_ctx, getState());
+		enterRule(_localctx, 4, RULE_indexes);
+		try {
+			setState(44);
+			_errHandler.sync(this);
+			switch ( getInterpreter().adaptivePredict(_input,2,_ctx) ) {
+			case 1:
+				enterOuterAlt(_localctx, 1);
+				{
+				setState(42);
+				msub();
+				}
+				break;
+			case 2:
+				enterOuterAlt(_localctx, 2);
+				{
+				setState(43);
+				msup();
+				}
+				break;
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	@SuppressWarnings("CheckReturnValue")
+	public static class MsupContext extends ParserRuleContext {
+		public ActionsContext actions() {
+			return getRuleContext(ActionsContext.class,0);
+		}
+		public MrowContext mrow() {
+			return getRuleContext(MrowContext.class,0);
+		}
+		public MsupContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_msup; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof GrammarListener ) ((GrammarListener)listener).enterMsup(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof GrammarListener ) ((GrammarListener)listener).exitMsup(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof GrammarVisitor ) return ((GrammarVisitor<? extends T>)visitor).visitMsup(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+
+	public final MsupContext msup() throws RecognitionException {
+		MsupContext _localctx = new MsupContext(_ctx, getState());
+		enterRule(_localctx, 6, RULE_msup);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(46);
+			actions();
+			setState(47);
+			match(T__1);
+			setState(48);
+			match(T__2);
+			setState(49);
+			mrow();
+			setState(50);
+			match(T__3);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	@SuppressWarnings("CheckReturnValue")
+	public static class MsubContext extends ParserRuleContext {
+		public ActionsContext actions() {
+			return getRuleContext(ActionsContext.class,0);
+		}
+		public MrowContext mrow() {
+			return getRuleContext(MrowContext.class,0);
+		}
+		public MsubContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_msub; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof GrammarListener ) ((GrammarListener)listener).enterMsub(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof GrammarListener ) ((GrammarListener)listener).exitMsub(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof GrammarVisitor ) return ((GrammarVisitor<? extends T>)visitor).visitMsub(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+
+	public final MsubContext msub() throws RecognitionException {
+		MsubContext _localctx = new MsubContext(_ctx, getState());
+		enterRule(_localctx, 8, RULE_msub);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(52);
-			_errHandler.sync(this);
-			_la = _input.LA(1);
-			while (((_la) & ~0x3f) == 0 && ((1L << _la) & 61572651155076L) != 0) {
-				{
-				setState(50);
-				_errHandler.sync(this);
-				switch (_input.LA(1)) {
-				case T__9:
-				case T__10:
-				case T__11:
-				case T__12:
-				case T__13:
-				case T__14:
-				case T__15:
-				case T__16:
-				case T__17:
-				case T__18:
-				case T__19:
-				case T__20:
-				case T__21:
-				case T__22:
-				case T__23:
-				case T__24:
-				case T__25:
-				case T__26:
-				case T__27:
-				case T__28:
-				case T__29:
-				case T__30:
-				case T__31:
-				case T__32:
-				case T__33:
-				case T__34:
-				case T__35:
-				case T__36:
-				case T__37:
-				case T__38:
-				case T__39:
-				case IDENTIFIER:
-					{
-					setState(29);
-					((MrowContext)_localctx).mi = mi();
-					 children_.add(new Tree(Nodes.MI, (((MrowContext)_localctx).mi!=null?_input.getText(((MrowContext)_localctx).mi.start,((MrowContext)_localctx).mi.stop):null))); 
-					}
-					break;
-				case NUMBER:
-					{
-					setState(32);
-					((MrowContext)_localctx).mn = mn();
-					 children_.add(new Tree(Nodes.MN, (((MrowContext)_localctx).mn!=null?_input.getText(((MrowContext)_localctx).mn.start,((MrowContext)_localctx).mn.stop):null))); 
-					}
-					break;
-				case OPERATOR:
-					{
-					setState(35);
-					((MrowContext)_localctx).mo = mo();
-					 children_.add(new Tree(Nodes.MO, (((MrowContext)_localctx).mo!=null?_input.getText(((MrowContext)_localctx).mo.start,((MrowContext)_localctx).mo.stop):null))); 
-					}
-					break;
-				case SYMBOL:
-					{
-					setState(38);
-					((MrowContext)_localctx).ms = ms();
-					 children_.add(new Tree(Nodes.MS, (((MrowContext)_localctx).ms!=null?_input.getText(((MrowContext)_localctx).ms.start,((MrowContext)_localctx).ms.stop):null))); 
-					}
-					break;
-				case T__1:
-					{
-					setState(41);
-					((MrowContext)_localctx).msqrt = msqrt();
-					 children_.add(((MrowContext)_localctx).msqrt.tree_); 
-					}
-					break;
-				case T__8:
-					{
-					setState(44);
-					((MrowContext)_localctx).mfrac = mfrac();
-					 children_.add(((MrowContext)_localctx).mfrac.tree_); 
-					}
-					break;
-				case T__6:
-					{
-					setState(47);
-					((MrowContext)_localctx).paren = paren();
-					 children_.add(((MrowContext)_localctx).paren.tree_); 
-					}
-					break;
-				default:
-					throw new NoViableAltException(this);
-				}
-				}
-				setState(54);
-				_errHandler.sync(this);
-				_la = _input.LA(1);
-			}
-			 ((MrowContext)_localctx).tree_ =  new Tree(Nodes.MROW, children_); 
+			actions();
+			setState(53);
+			match(T__4);
+			setState(54);
+			match(T__2);
+			setState(55);
+			mrow();
+			setState(56);
+			match(T__3);
 			}
 		}
 		catch (RecognitionException re) {
@@ -355,216 +399,106 @@ public class GrammarParser extends Parser {
 	}
 
 	@SuppressWarnings("CheckReturnValue")
-	public static class MsqrtContext extends ParserRuleContext {
-		public Tree tree_;
-		public BraceContext brace;
-		public BraceContext brace() {
-			return getRuleContext(BraceContext.class,0);
+	public static class ActionsContext extends ParserRuleContext {
+		public MiContext mi() {
+			return getRuleContext(MiContext.class,0);
 		}
-		public SquareContext square() {
-			return getRuleContext(SquareContext.class,0);
+		public MnContext mn() {
+			return getRuleContext(MnContext.class,0);
 		}
-		public MsqrtContext(ParserRuleContext parent, int invokingState) {
+		public MoContext mo() {
+			return getRuleContext(MoContext.class,0);
+		}
+		public MsContext ms() {
+			return getRuleContext(MsContext.class,0);
+		}
+		public MfracContext mfrac() {
+			return getRuleContext(MfracContext.class,0);
+		}
+		public MsqrtContext msqrt() {
+			return getRuleContext(MsqrtContext.class,0);
+		}
+		public MbinomContext mbinom() {
+			return getRuleContext(MbinomContext.class,0);
+		}
+		public ActionsContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
-		@Override public int getRuleIndex() { return RULE_msqrt; }
+		@Override public int getRuleIndex() { return RULE_actions; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof GrammarListener ) ((GrammarListener)listener).enterMsqrt(this);
+			if ( listener instanceof GrammarListener ) ((GrammarListener)listener).enterActions(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof GrammarListener ) ((GrammarListener)listener).exitMsqrt(this);
+			if ( listener instanceof GrammarListener ) ((GrammarListener)listener).exitActions(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof GrammarVisitor ) return ((GrammarVisitor<? extends T>)visitor).visitMsqrt(this);
+			if ( visitor instanceof GrammarVisitor ) return ((GrammarVisitor<? extends T>)visitor).visitActions(this);
 			else return visitor.visitChildren(this);
 		}
 	}
 
-	public final MsqrtContext msqrt() throws RecognitionException {
-		MsqrtContext _localctx = new MsqrtContext(_ctx, getState());
-		enterRule(_localctx, 4, RULE_msqrt);
-		Tree tree = new Tree(Nodes.MSQRT);
-		int _la;
+	public final ActionsContext actions() throws RecognitionException {
+		ActionsContext _localctx = new ActionsContext(_ctx, getState());
+		enterRule(_localctx, 10, RULE_actions);
 		try {
-			enterOuterAlt(_localctx, 1);
-			{
-			setState(57);
-			match(T__1);
-			setState(59);
+			setState(65);
 			_errHandler.sync(this);
-			_la = _input.LA(1);
-			if (_la==T__4) {
+			switch (_input.LA(1)) {
+			case T__10:
+			case IDENTIFIER:
+				enterOuterAlt(_localctx, 1);
 				{
 				setState(58);
-				square();
+				mi();
 				}
-			}
-
-			setState(61);
-			((MsqrtContext)_localctx).brace = brace();
-
-			            tree.addChild(((MsqrtContext)_localctx).brace.tree_);
-			            ((MsqrtContext)_localctx).tree_ =  tree;
-			        
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.reportError(this, re);
-			_errHandler.recover(this, re);
-		}
-		finally {
-			exitRule();
-		}
-		return _localctx;
-	}
-
-	@SuppressWarnings("CheckReturnValue")
-	public static class BraceContext extends ParserRuleContext {
-		public Tree tree_;
-		public MrowContext mrow;
-		public MrowContext mrow() {
-			return getRuleContext(MrowContext.class,0);
-		}
-		public BraceContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_brace; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof GrammarListener ) ((GrammarListener)listener).enterBrace(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof GrammarListener ) ((GrammarListener)listener).exitBrace(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof GrammarVisitor ) return ((GrammarVisitor<? extends T>)visitor).visitBrace(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-
-	public final BraceContext brace() throws RecognitionException {
-		BraceContext _localctx = new BraceContext(_ctx, getState());
-		enterRule(_localctx, 6, RULE_brace);
-		try {
-			enterOuterAlt(_localctx, 1);
-			{
-			setState(64);
-			match(T__2);
-			setState(65);
-			((BraceContext)_localctx).mrow = mrow();
-			setState(66);
-			match(T__3);
-			 ((BraceContext)_localctx).tree_ =   new Tree(Nodes.MBRACE, List.of(((BraceContext)_localctx).mrow.tree_)); 
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.reportError(this, re);
-			_errHandler.recover(this, re);
-		}
-		finally {
-			exitRule();
-		}
-		return _localctx;
-	}
-
-	@SuppressWarnings("CheckReturnValue")
-	public static class SquareContext extends ParserRuleContext {
-		public Tree tree_;
-		public MrowContext mrow;
-		public MrowContext mrow() {
-			return getRuleContext(MrowContext.class,0);
-		}
-		public SquareContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_square; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof GrammarListener ) ((GrammarListener)listener).enterSquare(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof GrammarListener ) ((GrammarListener)listener).exitSquare(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof GrammarVisitor ) return ((GrammarVisitor<? extends T>)visitor).visitSquare(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-
-	public final SquareContext square() throws RecognitionException {
-		SquareContext _localctx = new SquareContext(_ctx, getState());
-		enterRule(_localctx, 8, RULE_square);
-		try {
-			enterOuterAlt(_localctx, 1);
-			{
-			setState(69);
-			match(T__4);
-			setState(70);
-			((SquareContext)_localctx).mrow = mrow();
-			setState(71);
-			match(T__5);
-			 ((SquareContext)_localctx).tree_ =   new Tree(Nodes.MSQUARE, List.of(((SquareContext)_localctx).mrow.tree_)); 
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.reportError(this, re);
-			_errHandler.recover(this, re);
-		}
-		finally {
-			exitRule();
-		}
-		return _localctx;
-	}
-
-	@SuppressWarnings("CheckReturnValue")
-	public static class ParenContext extends ParserRuleContext {
-		public Tree tree_;
-		public MrowContext mrow;
-		public MrowContext mrow() {
-			return getRuleContext(MrowContext.class,0);
-		}
-		public ParenContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_paren; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof GrammarListener ) ((GrammarListener)listener).enterParen(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof GrammarListener ) ((GrammarListener)listener).exitParen(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof GrammarVisitor ) return ((GrammarVisitor<? extends T>)visitor).visitParen(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-
-	public final ParenContext paren() throws RecognitionException {
-		ParenContext _localctx = new ParenContext(_ctx, getState());
-		enterRule(_localctx, 10, RULE_paren);
-		try {
-			enterOuterAlt(_localctx, 1);
-			{
-			setState(74);
-			match(T__6);
-			setState(75);
-			((ParenContext)_localctx).mrow = mrow();
-			setState(76);
-			match(T__7);
-			 ((ParenContext)_localctx).tree_ =   new Tree(Nodes.MPAREN, List.of(((ParenContext)_localctx).mrow.tree_)); 
+				break;
+			case NUMBER:
+				enterOuterAlt(_localctx, 2);
+				{
+				setState(59);
+				mn();
+				}
+				break;
+			case OPERATOR:
+				enterOuterAlt(_localctx, 3);
+				{
+				setState(60);
+				mo();
+				}
+				break;
+			case SYMBOL:
+				enterOuterAlt(_localctx, 4);
+				{
+				setState(61);
+				ms();
+				}
+				break;
+			case T__5:
+				enterOuterAlt(_localctx, 5);
+				{
+				setState(62);
+				mfrac();
+				}
+				break;
+			case T__6:
+				enterOuterAlt(_localctx, 6);
+				{
+				setState(63);
+				msqrt();
+				}
+				break;
+			case T__9:
+				enterOuterAlt(_localctx, 7);
+				{
+				setState(64);
+				mbinom();
+				}
+				break;
+			default:
+				throw new NoViableAltException(this);
 			}
 		}
 		catch (RecognitionException re) {
@@ -580,13 +514,11 @@ public class GrammarParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class MfracContext extends ParserRuleContext {
-		public Tree tree_;
-		public BraceContext brace;
-		public List<BraceContext> brace() {
-			return getRuleContexts(BraceContext.class);
+		public List<MrowContext> mrow() {
+			return getRuleContexts(MrowContext.class);
 		}
-		public BraceContext brace(int i) {
-			return getRuleContext(BraceContext.class,i);
+		public MrowContext mrow(int i) {
+			return getRuleContext(MrowContext.class,i);
 		}
 		public MfracContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -610,21 +542,152 @@ public class GrammarParser extends Parser {
 	public final MfracContext mfrac() throws RecognitionException {
 		MfracContext _localctx = new MfracContext(_ctx, getState());
 		enterRule(_localctx, 12, RULE_mfrac);
-		Tree tree = new Tree(Nodes.MFRAC, "frac");
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(79);
-			match(T__8);
-			setState(80);
-			((MfracContext)_localctx).brace = brace();
-			tree.addChild(((MfracContext)_localctx).brace.tree_);
-			setState(82);
-			((MfracContext)_localctx).brace = brace();
+			setState(67);
+			match(T__5);
+			setState(68);
+			match(T__2);
+			setState(69);
+			mrow();
+			setState(70);
+			match(T__3);
+			setState(71);
+			match(T__2);
+			setState(72);
+			mrow();
+			setState(73);
+			match(T__3);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
 
-			        tree.addChild(((MfracContext)_localctx).brace.tree_);
-			        ((MfracContext)_localctx).tree_ =  tree;
-			    
+	@SuppressWarnings("CheckReturnValue")
+	public static class MsqrtContext extends ParserRuleContext {
+		public List<MrowContext> mrow() {
+			return getRuleContexts(MrowContext.class);
+		}
+		public MrowContext mrow(int i) {
+			return getRuleContext(MrowContext.class,i);
+		}
+		public MsqrtContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_msqrt; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof GrammarListener ) ((GrammarListener)listener).enterMsqrt(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof GrammarListener ) ((GrammarListener)listener).exitMsqrt(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof GrammarVisitor ) return ((GrammarVisitor<? extends T>)visitor).visitMsqrt(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+
+	public final MsqrtContext msqrt() throws RecognitionException {
+		MsqrtContext _localctx = new MsqrtContext(_ctx, getState());
+		enterRule(_localctx, 14, RULE_msqrt);
+		int _la;
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(75);
+			match(T__6);
+			setState(80);
+			_errHandler.sync(this);
+			_la = _input.LA(1);
+			if (_la==T__7) {
+				{
+				setState(76);
+				match(T__7);
+				setState(77);
+				mrow();
+				setState(78);
+				match(T__8);
+				}
+			}
+
+			setState(82);
+			match(T__2);
+			setState(83);
+			mrow();
+			setState(84);
+			match(T__3);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	@SuppressWarnings("CheckReturnValue")
+	public static class MbinomContext extends ParserRuleContext {
+		public List<MrowContext> mrow() {
+			return getRuleContexts(MrowContext.class);
+		}
+		public MrowContext mrow(int i) {
+			return getRuleContext(MrowContext.class,i);
+		}
+		public MbinomContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_mbinom; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof GrammarListener ) ((GrammarListener)listener).enterMbinom(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof GrammarListener ) ((GrammarListener)listener).exitMbinom(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof GrammarVisitor ) return ((GrammarVisitor<? extends T>)visitor).visitMbinom(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+
+	public final MbinomContext mbinom() throws RecognitionException {
+		MbinomContext _localctx = new MbinomContext(_ctx, getState());
+		enterRule(_localctx, 16, RULE_mbinom);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(86);
+			match(T__9);
+			setState(87);
+			match(T__2);
+			setState(88);
+			mrow();
+			setState(89);
+			match(T__3);
+			setState(90);
+			match(T__2);
+			setState(91);
+			mrow();
+			setState(92);
+			match(T__3);
 			}
 		}
 		catch (RecognitionException re) {
@@ -640,9 +703,14 @@ public class GrammarParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class MiContext extends ParserRuleContext {
-		public TerminalNode IDENTIFIER() { return getToken(GrammarParser.IDENTIFIER, 0); }
+		public IdentifierContext identifier() {
+			return getRuleContext(IdentifierContext.class,0);
+		}
 		public GreekContext greek() {
 			return getRuleContext(GreekContext.class,0);
+		}
+		public FunctionsContext functions() {
+			return getRuleContext(FunctionsContext.class,0);
 		}
 		public MiContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -665,57 +733,32 @@ public class GrammarParser extends Parser {
 
 	public final MiContext mi() throws RecognitionException {
 		MiContext _localctx = new MiContext(_ctx, getState());
-		enterRule(_localctx, 14, RULE_mi);
+		enterRule(_localctx, 18, RULE_mi);
 		try {
-			setState(87);
+			setState(97);
 			_errHandler.sync(this);
-			switch (_input.LA(1)) {
-			case IDENTIFIER:
+			switch ( getInterpreter().adaptivePredict(_input,5,_ctx) ) {
+			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(85);
-				match(IDENTIFIER);
+				setState(94);
+				identifier();
 				}
 				break;
-			case T__9:
-			case T__10:
-			case T__11:
-			case T__12:
-			case T__13:
-			case T__14:
-			case T__15:
-			case T__16:
-			case T__17:
-			case T__18:
-			case T__19:
-			case T__20:
-			case T__21:
-			case T__22:
-			case T__23:
-			case T__24:
-			case T__25:
-			case T__26:
-			case T__27:
-			case T__28:
-			case T__29:
-			case T__30:
-			case T__31:
-			case T__32:
-			case T__33:
-			case T__34:
-			case T__35:
-			case T__36:
-			case T__37:
-			case T__38:
-			case T__39:
+			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(86);
+				setState(95);
 				greek();
 				}
 				break;
-			default:
-				throw new NoViableAltException(this);
+			case 3:
+				enterOuterAlt(_localctx, 3);
+				{
+				setState(96);
+				functions();
+				}
+				break;
 			}
 		}
 		catch (RecognitionException re) {
@@ -753,11 +796,11 @@ public class GrammarParser extends Parser {
 
 	public final MnContext mn() throws RecognitionException {
 		MnContext _localctx = new MnContext(_ctx, getState());
-		enterRule(_localctx, 16, RULE_mn);
+		enterRule(_localctx, 20, RULE_mn);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(89);
+			setState(99);
 			match(NUMBER);
 			}
 		}
@@ -796,11 +839,11 @@ public class GrammarParser extends Parser {
 
 	public final MoContext mo() throws RecognitionException {
 		MoContext _localctx = new MoContext(_ctx, getState());
-		enterRule(_localctx, 18, RULE_mo);
+		enterRule(_localctx, 22, RULE_mo);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(91);
+			setState(101);
 			match(OPERATOR);
 			}
 		}
@@ -842,12 +885,12 @@ public class GrammarParser extends Parser {
 
 	public final MsContext ms() throws RecognitionException {
 		MsContext _localctx = new MsContext(_ctx, getState());
-		enterRule(_localctx, 20, RULE_ms);
+		enterRule(_localctx, 24, RULE_ms);
 		try {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(94); 
+			setState(104); 
 			_errHandler.sync(this);
 			_alt = 1;
 			do {
@@ -855,7 +898,7 @@ public class GrammarParser extends Parser {
 				case 1:
 					{
 					{
-					setState(93);
+					setState(103);
 					match(SYMBOL);
 					}
 					}
@@ -863,9 +906,9 @@ public class GrammarParser extends Parser {
 				default:
 					throw new NoViableAltException(this);
 				}
-				setState(96); 
+				setState(106); 
 				_errHandler.sync(this);
-				_alt = getInterpreter().adaptivePredict(_input,4,_ctx);
+				_alt = getInterpreter().adaptivePredict(_input,6,_ctx);
 			} while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER );
 			}
 		}
@@ -882,6 +925,7 @@ public class GrammarParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class GreekContext extends ParserRuleContext {
+		public TerminalNode GREEK() { return getToken(GrammarParser.GREEK, 0); }
 		public GreekContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -903,21 +947,102 @@ public class GrammarParser extends Parser {
 
 	public final GreekContext greek() throws RecognitionException {
 		GreekContext _localctx = new GreekContext(_ctx, getState());
-		enterRule(_localctx, 22, RULE_greek);
-		int _la;
+		enterRule(_localctx, 26, RULE_greek);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(98);
-			_la = _input.LA(1);
-			if ( !(((_la) & ~0x3f) == 0 && ((1L << _la) & 2199023254528L) != 0) ) {
-			_errHandler.recoverInline(this);
+			setState(108);
+			match(T__10);
+			setState(109);
+			match(GREEK);
 			}
-			else {
-				if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
-				_errHandler.reportMatch(this);
-				consume();
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	@SuppressWarnings("CheckReturnValue")
+	public static class FunctionsContext extends ParserRuleContext {
+		public TerminalNode FUNCTION() { return getToken(GrammarParser.FUNCTION, 0); }
+		public FunctionsContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_functions; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof GrammarListener ) ((GrammarListener)listener).enterFunctions(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof GrammarListener ) ((GrammarListener)listener).exitFunctions(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof GrammarVisitor ) return ((GrammarVisitor<? extends T>)visitor).visitFunctions(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+
+	public final FunctionsContext functions() throws RecognitionException {
+		FunctionsContext _localctx = new FunctionsContext(_ctx, getState());
+		enterRule(_localctx, 28, RULE_functions);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(111);
+			match(T__10);
+			setState(112);
+			match(FUNCTION);
 			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	@SuppressWarnings("CheckReturnValue")
+	public static class IdentifierContext extends ParserRuleContext {
+		public TerminalNode IDENTIFIER() { return getToken(GrammarParser.IDENTIFIER, 0); }
+		public IdentifierContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_identifier; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof GrammarListener ) ((GrammarListener)listener).enterIdentifier(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof GrammarListener ) ((GrammarListener)listener).exitIdentifier(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof GrammarVisitor ) return ((GrammarVisitor<? extends T>)visitor).visitIdentifier(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+
+	public final IdentifierContext identifier() throws RecognitionException {
+		IdentifierContext _localctx = new IdentifierContext(_ctx, getState());
+		enterRule(_localctx, 30, RULE_identifier);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(114);
+			match(IDENTIFIER);
 			}
 		}
 		catch (RecognitionException re) {
@@ -932,63 +1057,68 @@ public class GrammarParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\u0004\u0001-e\u0002\u0000\u0007\u0000\u0002\u0001\u0007\u0001\u0002\u0002"+
-		"\u0007\u0002\u0002\u0003\u0007\u0003\u0002\u0004\u0007\u0004\u0002\u0005"+
-		"\u0007\u0005\u0002\u0006\u0007\u0006\u0002\u0007\u0007\u0007\u0002\b\u0007"+
-		"\b\u0002\t\u0007\t\u0002\n\u0007\n\u0002\u000b\u0007\u000b\u0001\u0000"+
+		"\u0004\u0001\u0013u\u0002\u0000\u0007\u0000\u0002\u0001\u0007\u0001\u0002"+
+		"\u0002\u0007\u0002\u0002\u0003\u0007\u0003\u0002\u0004\u0007\u0004\u0002"+
+		"\u0005\u0007\u0005\u0002\u0006\u0007\u0006\u0002\u0007\u0007\u0007\u0002"+
+		"\b\u0007\b\u0002\t\u0007\t\u0002\n\u0007\n\u0002\u000b\u0007\u000b\u0002"+
+		"\f\u0007\f\u0002\r\u0007\r\u0002\u000e\u0007\u000e\u0002\u000f\u0007\u000f"+
 		"\u0001\u0000\u0001\u0000\u0001\u0000\u0001\u0000\u0001\u0001\u0001\u0001"+
-		"\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001"+
-		"\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001"+
-		"\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001"+
-		"\u0001\u0001\u0005\u00013\b\u0001\n\u0001\f\u00016\t\u0001\u0001\u0001"+
-		"\u0001\u0001\u0001\u0002\u0001\u0002\u0003\u0002<\b\u0002\u0001\u0002"+
-		"\u0001\u0002\u0001\u0002\u0001\u0003\u0001\u0003\u0001\u0003\u0001\u0003"+
-		"\u0001\u0003\u0001\u0004\u0001\u0004\u0001\u0004\u0001\u0004\u0001\u0004"+
-		"\u0001\u0005\u0001\u0005\u0001\u0005\u0001\u0005\u0001\u0005\u0001\u0006"+
-		"\u0001\u0006\u0001\u0006\u0001\u0006\u0001\u0006\u0001\u0006\u0001\u0007"+
-		"\u0001\u0007\u0003\u0007X\b\u0007\u0001\b\u0001\b\u0001\t\u0001\t\u0001"+
-		"\n\u0004\n_\b\n\u000b\n\f\n`\u0001\u000b\u0001\u000b\u0001\u000b\u0000"+
-		"\u0000\f\u0000\u0002\u0004\u0006\b\n\f\u000e\u0010\u0012\u0014\u0016\u0000"+
-		"\u0001\u0001\u0000\n(b\u0000\u0018\u0001\u0000\u0000\u0000\u00024\u0001"+
-		"\u0000\u0000\u0000\u00049\u0001\u0000\u0000\u0000\u0006@\u0001\u0000\u0000"+
-		"\u0000\bE\u0001\u0000\u0000\u0000\nJ\u0001\u0000\u0000\u0000\fO\u0001"+
-		"\u0000\u0000\u0000\u000eW\u0001\u0000\u0000\u0000\u0010Y\u0001\u0000\u0000"+
-		"\u0000\u0012[\u0001\u0000\u0000\u0000\u0014^\u0001\u0000\u0000\u0000\u0016"+
-		"b\u0001\u0000\u0000\u0000\u0018\u0019\u0005\u0001\u0000\u0000\u0019\u001a"+
-		"\u0003\u0002\u0001\u0000\u001a\u001b\u0005\u0001\u0000\u0000\u001b\u001c"+
-		"\u0006\u0000\uffff\uffff\u0000\u001c\u0001\u0001\u0000\u0000\u0000\u001d"+
-		"\u001e\u0003\u000e\u0007\u0000\u001e\u001f\u0006\u0001\uffff\uffff\u0000"+
-		"\u001f3\u0001\u0000\u0000\u0000 !\u0003\u0010\b\u0000!\"\u0006\u0001\uffff"+
-		"\uffff\u0000\"3\u0001\u0000\u0000\u0000#$\u0003\u0012\t\u0000$%\u0006"+
-		"\u0001\uffff\uffff\u0000%3\u0001\u0000\u0000\u0000&\'\u0003\u0014\n\u0000"+
-		"\'(\u0006\u0001\uffff\uffff\u0000(3\u0001\u0000\u0000\u0000)*\u0003\u0004"+
-		"\u0002\u0000*+\u0006\u0001\uffff\uffff\u0000+3\u0001\u0000\u0000\u0000"+
-		",-\u0003\f\u0006\u0000-.\u0006\u0001\uffff\uffff\u0000.3\u0001\u0000\u0000"+
-		"\u0000/0\u0003\n\u0005\u000001\u0006\u0001\uffff\uffff\u000013\u0001\u0000"+
-		"\u0000\u00002\u001d\u0001\u0000\u0000\u00002 \u0001\u0000\u0000\u0000"+
-		"2#\u0001\u0000\u0000\u00002&\u0001\u0000\u0000\u00002)\u0001\u0000\u0000"+
-		"\u00002,\u0001\u0000\u0000\u00002/\u0001\u0000\u0000\u000036\u0001\u0000"+
-		"\u0000\u000042\u0001\u0000\u0000\u000045\u0001\u0000\u0000\u000057\u0001"+
-		"\u0000\u0000\u000064\u0001\u0000\u0000\u000078\u0006\u0001\uffff\uffff"+
-		"\u00008\u0003\u0001\u0000\u0000\u00009;\u0005\u0002\u0000\u0000:<\u0003"+
-		"\b\u0004\u0000;:\u0001\u0000\u0000\u0000;<\u0001\u0000\u0000\u0000<=\u0001"+
-		"\u0000\u0000\u0000=>\u0003\u0006\u0003\u0000>?\u0006\u0002\uffff\uffff"+
-		"\u0000?\u0005\u0001\u0000\u0000\u0000@A\u0005\u0003\u0000\u0000AB\u0003"+
-		"\u0002\u0001\u0000BC\u0005\u0004\u0000\u0000CD\u0006\u0003\uffff\uffff"+
-		"\u0000D\u0007\u0001\u0000\u0000\u0000EF\u0005\u0005\u0000\u0000FG\u0003"+
-		"\u0002\u0001\u0000GH\u0005\u0006\u0000\u0000HI\u0006\u0004\uffff\uffff"+
-		"\u0000I\t\u0001\u0000\u0000\u0000JK\u0005\u0007\u0000\u0000KL\u0003\u0002"+
-		"\u0001\u0000LM\u0005\b\u0000\u0000MN\u0006\u0005\uffff\uffff\u0000N\u000b"+
-		"\u0001\u0000\u0000\u0000OP\u0005\t\u0000\u0000PQ\u0003\u0006\u0003\u0000"+
-		"QR\u0006\u0006\uffff\uffff\u0000RS\u0003\u0006\u0003\u0000ST\u0006\u0006"+
-		"\uffff\uffff\u0000T\r\u0001\u0000\u0000\u0000UX\u0005)\u0000\u0000VX\u0003"+
-		"\u0016\u000b\u0000WU\u0001\u0000\u0000\u0000WV\u0001\u0000\u0000\u0000"+
-		"X\u000f\u0001\u0000\u0000\u0000YZ\u0005*\u0000\u0000Z\u0011\u0001\u0000"+
-		"\u0000\u0000[\\\u0005-\u0000\u0000\\\u0013\u0001\u0000\u0000\u0000]_\u0005"+
-		",\u0000\u0000^]\u0001\u0000\u0000\u0000_`\u0001\u0000\u0000\u0000`^\u0001"+
-		"\u0000\u0000\u0000`a\u0001\u0000\u0000\u0000a\u0015\u0001\u0000\u0000"+
-		"\u0000bc\u0007\u0000\u0000\u0000c\u0017\u0001\u0000\u0000\u0000\u0005"+
-		"24;W`";
+		"\u0004\u0001\'\b\u0001\u000b\u0001\f\u0001(\u0001\u0002\u0001\u0002\u0003"+
+		"\u0002-\b\u0002\u0001\u0003\u0001\u0003\u0001\u0003\u0001\u0003\u0001"+
+		"\u0003\u0001\u0003\u0001\u0004\u0001\u0004\u0001\u0004\u0001\u0004\u0001"+
+		"\u0004\u0001\u0004\u0001\u0005\u0001\u0005\u0001\u0005\u0001\u0005\u0001"+
+		"\u0005\u0001\u0005\u0001\u0005\u0003\u0005B\b\u0005\u0001\u0006\u0001"+
+		"\u0006\u0001\u0006\u0001\u0006\u0001\u0006\u0001\u0006\u0001\u0006\u0001"+
+		"\u0006\u0001\u0007\u0001\u0007\u0001\u0007\u0001\u0007\u0001\u0007\u0003"+
+		"\u0007Q\b\u0007\u0001\u0007\u0001\u0007\u0001\u0007\u0001\u0007\u0001"+
+		"\b\u0001\b\u0001\b\u0001\b\u0001\b\u0001\b\u0001\b\u0001\b\u0001\t\u0001"+
+		"\t\u0001\t\u0003\tb\b\t\u0001\n\u0001\n\u0001\u000b\u0001\u000b\u0001"+
+		"\f\u0004\fi\b\f\u000b\f\f\fj\u0001\r\u0001\r\u0001\r\u0001\u000e\u0001"+
+		"\u000e\u0001\u000e\u0001\u000f\u0001\u000f\u0001\u000f\u0000\u0000\u0010"+
+		"\u0000\u0002\u0004\u0006\b\n\f\u000e\u0010\u0012\u0014\u0016\u0018\u001a"+
+		"\u001c\u001e\u0000\u0000q\u0000 \u0001\u0000\u0000\u0000\u0002&\u0001"+
+		"\u0000\u0000\u0000\u0004,\u0001\u0000\u0000\u0000\u0006.\u0001\u0000\u0000"+
+		"\u0000\b4\u0001\u0000\u0000\u0000\nA\u0001\u0000\u0000\u0000\fC\u0001"+
+		"\u0000\u0000\u0000\u000eK\u0001\u0000\u0000\u0000\u0010V\u0001\u0000\u0000"+
+		"\u0000\u0012a\u0001\u0000\u0000\u0000\u0014c\u0001\u0000\u0000\u0000\u0016"+
+		"e\u0001\u0000\u0000\u0000\u0018h\u0001\u0000\u0000\u0000\u001al\u0001"+
+		"\u0000\u0000\u0000\u001co\u0001\u0000\u0000\u0000\u001er\u0001\u0000\u0000"+
+		"\u0000 !\u0005\u0001\u0000\u0000!\"\u0003\u0002\u0001\u0000\"#\u0005\u0001"+
+		"\u0000\u0000#\u0001\u0001\u0000\u0000\u0000$\'\u0003\u0004\u0002\u0000"+
+		"%\'\u0003\n\u0005\u0000&$\u0001\u0000\u0000\u0000&%\u0001\u0000\u0000"+
+		"\u0000\'(\u0001\u0000\u0000\u0000(&\u0001\u0000\u0000\u0000()\u0001\u0000"+
+		"\u0000\u0000)\u0003\u0001\u0000\u0000\u0000*-\u0003\b\u0004\u0000+-\u0003"+
+		"\u0006\u0003\u0000,*\u0001\u0000\u0000\u0000,+\u0001\u0000\u0000\u0000"+
+		"-\u0005\u0001\u0000\u0000\u0000./\u0003\n\u0005\u0000/0\u0005\u0002\u0000"+
+		"\u000001\u0005\u0003\u0000\u000012\u0003\u0002\u0001\u000023\u0005\u0004"+
+		"\u0000\u00003\u0007\u0001\u0000\u0000\u000045\u0003\n\u0005\u000056\u0005"+
+		"\u0005\u0000\u000067\u0005\u0003\u0000\u000078\u0003\u0002\u0001\u0000"+
+		"89\u0005\u0004\u0000\u00009\t\u0001\u0000\u0000\u0000:B\u0003\u0012\t"+
+		"\u0000;B\u0003\u0014\n\u0000<B\u0003\u0016\u000b\u0000=B\u0003\u0018\f"+
+		"\u0000>B\u0003\f\u0006\u0000?B\u0003\u000e\u0007\u0000@B\u0003\u0010\b"+
+		"\u0000A:\u0001\u0000\u0000\u0000A;\u0001\u0000\u0000\u0000A<\u0001\u0000"+
+		"\u0000\u0000A=\u0001\u0000\u0000\u0000A>\u0001\u0000\u0000\u0000A?\u0001"+
+		"\u0000\u0000\u0000A@\u0001\u0000\u0000\u0000B\u000b\u0001\u0000\u0000"+
+		"\u0000CD\u0005\u0006\u0000\u0000DE\u0005\u0003\u0000\u0000EF\u0003\u0002"+
+		"\u0001\u0000FG\u0005\u0004\u0000\u0000GH\u0005\u0003\u0000\u0000HI\u0003"+
+		"\u0002\u0001\u0000IJ\u0005\u0004\u0000\u0000J\r\u0001\u0000\u0000\u0000"+
+		"KP\u0005\u0007\u0000\u0000LM\u0005\b\u0000\u0000MN\u0003\u0002\u0001\u0000"+
+		"NO\u0005\t\u0000\u0000OQ\u0001\u0000\u0000\u0000PL\u0001\u0000\u0000\u0000"+
+		"PQ\u0001\u0000\u0000\u0000QR\u0001\u0000\u0000\u0000RS\u0005\u0003\u0000"+
+		"\u0000ST\u0003\u0002\u0001\u0000TU\u0005\u0004\u0000\u0000U\u000f\u0001"+
+		"\u0000\u0000\u0000VW\u0005\n\u0000\u0000WX\u0005\u0003\u0000\u0000XY\u0003"+
+		"\u0002\u0001\u0000YZ\u0005\u0004\u0000\u0000Z[\u0005\u0003\u0000\u0000"+
+		"[\\\u0003\u0002\u0001\u0000\\]\u0005\u0004\u0000\u0000]\u0011\u0001\u0000"+
+		"\u0000\u0000^b\u0003\u001e\u000f\u0000_b\u0003\u001a\r\u0000`b\u0003\u001c"+
+		"\u000e\u0000a^\u0001\u0000\u0000\u0000a_\u0001\u0000\u0000\u0000a`\u0001"+
+		"\u0000\u0000\u0000b\u0013\u0001\u0000\u0000\u0000cd\u0005\u000f\u0000"+
+		"\u0000d\u0015\u0001\u0000\u0000\u0000ef\u0005\u0012\u0000\u0000f\u0017"+
+		"\u0001\u0000\u0000\u0000gi\u0005\u0011\u0000\u0000hg\u0001\u0000\u0000"+
+		"\u0000ij\u0001\u0000\u0000\u0000jh\u0001\u0000\u0000\u0000jk\u0001\u0000"+
+		"\u0000\u0000k\u0019\u0001\u0000\u0000\u0000lm\u0005\u000b\u0000\u0000"+
+		"mn\u0005\f\u0000\u0000n\u001b\u0001\u0000\u0000\u0000op\u0005\u000b\u0000"+
+		"\u0000pq\u0005\r\u0000\u0000q\u001d\u0001\u0000\u0000\u0000rs\u0005\u000e"+
+		"\u0000\u0000s\u001f\u0001\u0000\u0000\u0000\u0007&(,APaj";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

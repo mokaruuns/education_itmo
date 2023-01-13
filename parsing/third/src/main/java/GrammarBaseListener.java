@@ -1,10 +1,5 @@
 // Generated from java-escape by ANTLR 4.11.1
 
-    import classes.Tree;
-    import classes.Nodes;
-
-
-
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ErrorNode;
 import org.antlr.v4.runtime.tree.TerminalNode;
@@ -45,49 +40,49 @@ public class GrammarBaseListener implements GrammarListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterMsqrt(GrammarParser.MsqrtContext ctx) { }
+	@Override public void enterIndexes(GrammarParser.IndexesContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitMsqrt(GrammarParser.MsqrtContext ctx) { }
+	@Override public void exitIndexes(GrammarParser.IndexesContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterBrace(GrammarParser.BraceContext ctx) { }
+	@Override public void enterMsup(GrammarParser.MsupContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitBrace(GrammarParser.BraceContext ctx) { }
+	@Override public void exitMsup(GrammarParser.MsupContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterSquare(GrammarParser.SquareContext ctx) { }
+	@Override public void enterMsub(GrammarParser.MsubContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitSquare(GrammarParser.SquareContext ctx) { }
+	@Override public void exitMsub(GrammarParser.MsubContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterParen(GrammarParser.ParenContext ctx) { }
+	@Override public void enterActions(GrammarParser.ActionsContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitParen(GrammarParser.ParenContext ctx) { }
+	@Override public void exitActions(GrammarParser.ActionsContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -100,6 +95,30 @@ public class GrammarBaseListener implements GrammarListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitMfrac(GrammarParser.MfracContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterMsqrt(GrammarParser.MsqrtContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitMsqrt(GrammarParser.MsqrtContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterMbinom(GrammarParser.MbinomContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitMbinom(GrammarParser.MbinomContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -160,6 +179,30 @@ public class GrammarBaseListener implements GrammarListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitGreek(GrammarParser.GreekContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterFunctions(GrammarParser.FunctionsContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitFunctions(GrammarParser.FunctionsContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterIdentifier(GrammarParser.IdentifierContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitIdentifier(GrammarParser.IdentifierContext ctx) { }
 
 	/**
 	 * {@inheritDoc}

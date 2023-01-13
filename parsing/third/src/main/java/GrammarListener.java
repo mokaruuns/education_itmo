@@ -1,9 +1,4 @@
 // Generated from java-escape by ANTLR 4.11.1
-
-    import classes.Tree;
-    import classes.Nodes;
-
-
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
 /**
@@ -32,45 +27,45 @@ public interface GrammarListener extends ParseTreeListener {
 	 */
 	void exitMrow(GrammarParser.MrowContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link GrammarParser#msqrt}.
+	 * Enter a parse tree produced by {@link GrammarParser#indexes}.
 	 * @param ctx the parse tree
 	 */
-	void enterMsqrt(GrammarParser.MsqrtContext ctx);
+	void enterIndexes(GrammarParser.IndexesContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link GrammarParser#msqrt}.
+	 * Exit a parse tree produced by {@link GrammarParser#indexes}.
 	 * @param ctx the parse tree
 	 */
-	void exitMsqrt(GrammarParser.MsqrtContext ctx);
+	void exitIndexes(GrammarParser.IndexesContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link GrammarParser#brace}.
+	 * Enter a parse tree produced by {@link GrammarParser#msup}.
 	 * @param ctx the parse tree
 	 */
-	void enterBrace(GrammarParser.BraceContext ctx);
+	void enterMsup(GrammarParser.MsupContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link GrammarParser#brace}.
+	 * Exit a parse tree produced by {@link GrammarParser#msup}.
 	 * @param ctx the parse tree
 	 */
-	void exitBrace(GrammarParser.BraceContext ctx);
+	void exitMsup(GrammarParser.MsupContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link GrammarParser#square}.
+	 * Enter a parse tree produced by {@link GrammarParser#msub}.
 	 * @param ctx the parse tree
 	 */
-	void enterSquare(GrammarParser.SquareContext ctx);
+	void enterMsub(GrammarParser.MsubContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link GrammarParser#square}.
+	 * Exit a parse tree produced by {@link GrammarParser#msub}.
 	 * @param ctx the parse tree
 	 */
-	void exitSquare(GrammarParser.SquareContext ctx);
+	void exitMsub(GrammarParser.MsubContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link GrammarParser#paren}.
+	 * Enter a parse tree produced by {@link GrammarParser#actions}.
 	 * @param ctx the parse tree
 	 */
-	void enterParen(GrammarParser.ParenContext ctx);
+	void enterActions(GrammarParser.ActionsContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link GrammarParser#paren}.
+	 * Exit a parse tree produced by {@link GrammarParser#actions}.
 	 * @param ctx the parse tree
 	 */
-	void exitParen(GrammarParser.ParenContext ctx);
+	void exitActions(GrammarParser.ActionsContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link GrammarParser#mfrac}.
 	 * @param ctx the parse tree
@@ -81,6 +76,26 @@ public interface GrammarListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitMfrac(GrammarParser.MfracContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link GrammarParser#msqrt}.
+	 * @param ctx the parse tree
+	 */
+	void enterMsqrt(GrammarParser.MsqrtContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link GrammarParser#msqrt}.
+	 * @param ctx the parse tree
+	 */
+	void exitMsqrt(GrammarParser.MsqrtContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link GrammarParser#mbinom}.
+	 * @param ctx the parse tree
+	 */
+	void enterMbinom(GrammarParser.MbinomContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link GrammarParser#mbinom}.
+	 * @param ctx the parse tree
+	 */
+	void exitMbinom(GrammarParser.MbinomContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link GrammarParser#mi}.
 	 * @param ctx the parse tree
@@ -131,4 +146,24 @@ public interface GrammarListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitGreek(GrammarParser.GreekContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link GrammarParser#functions}.
+	 * @param ctx the parse tree
+	 */
+	void enterFunctions(GrammarParser.FunctionsContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link GrammarParser#functions}.
+	 * @param ctx the parse tree
+	 */
+	void exitFunctions(GrammarParser.FunctionsContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link GrammarParser#identifier}.
+	 * @param ctx the parse tree
+	 */
+	void enterIdentifier(GrammarParser.IdentifierContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link GrammarParser#identifier}.
+	 * @param ctx the parse tree
+	 */
+	void exitIdentifier(GrammarParser.IdentifierContext ctx);
 }

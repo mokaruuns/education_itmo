@@ -1,9 +1,4 @@
 // Generated from java-escape by ANTLR 4.11.1
-
-    import classes.Tree;
-    import classes.Nodes;
-
-
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
 /**
@@ -27,35 +22,47 @@ public interface GrammarVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitMrow(GrammarParser.MrowContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link GrammarParser#msqrt}.
+	 * Visit a parse tree produced by {@link GrammarParser#indexes}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitMsqrt(GrammarParser.MsqrtContext ctx);
+	T visitIndexes(GrammarParser.IndexesContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link GrammarParser#brace}.
+	 * Visit a parse tree produced by {@link GrammarParser#msup}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitBrace(GrammarParser.BraceContext ctx);
+	T visitMsup(GrammarParser.MsupContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link GrammarParser#square}.
+	 * Visit a parse tree produced by {@link GrammarParser#msub}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitSquare(GrammarParser.SquareContext ctx);
+	T visitMsub(GrammarParser.MsubContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link GrammarParser#paren}.
+	 * Visit a parse tree produced by {@link GrammarParser#actions}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitParen(GrammarParser.ParenContext ctx);
+	T visitActions(GrammarParser.ActionsContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link GrammarParser#mfrac}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitMfrac(GrammarParser.MfracContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link GrammarParser#msqrt}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitMsqrt(GrammarParser.MsqrtContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link GrammarParser#mbinom}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitMbinom(GrammarParser.MbinomContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link GrammarParser#mi}.
 	 * @param ctx the parse tree
@@ -86,4 +93,16 @@ public interface GrammarVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitGreek(GrammarParser.GreekContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link GrammarParser#functions}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitFunctions(GrammarParser.FunctionsContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link GrammarParser#identifier}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitIdentifier(GrammarParser.IdentifierContext ctx);
 }

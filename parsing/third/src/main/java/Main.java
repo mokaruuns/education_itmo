@@ -1,12 +1,13 @@
 import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-import classes.Tree;
-import classes.Nodes;
+import org.antlr.v4.runtime.tree.ParseTree;
 
 public class Main {
     public static void main(String[] args) {
@@ -19,24 +20,30 @@ public class Main {
         try {
             GrammarLexer lexer = new GrammarLexer(CharStreams.fromPath(path));
             GrammarParser parser = new GrammarParser(new CommonTokenStream(lexer));
-            Tree tree = parser.math().tree_;
-            System.out.println(tree.toMathML());
+            ParseTree tree = parser.math();
+            Visitor visitor = new Visitor();
+            String result = visitor.visit(tree);
+            toHtml(result);
+            System.out.println(result);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
     }
 
-//    private static void testToMathMl(){
-//        Tree tree = new Tree(Nodes.MATH,
-//                new Tree(Nodes.MROW,
-//                        new Tree(Nodes.MI, "a"),
-//                        new Tree(Nodes.MFRAC, Lis
-//                                new Tree(Nodes.MI, "b"),
-//                                new Tree(Nodes.MI, "c")
-//                        )
-//                )
-//        );
-//        System.out.println(tree.toMathML());
-//    }
+    private static void toHtml (String result) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("result.html"));){
+            writer.write("<!DOCTYPE html>\r");
+            writer.write("<html  lang=\"en\">\r");
+            writer.write("<head>\r");
+            writer.write("<meta charset=\"utf-8\">\r");
+            writer.write("<title>Result</title>\r");
+            writer.write("</head>\r");
+            writer.write("<body>\r");
+            writer.write(result);
+            writer.write("</body>\r");
+            writer.write("</html>\r");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

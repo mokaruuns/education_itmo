@@ -1,91 +1,37 @@
 grammar Grammar;
 
-@header {
-    import classes.Tree;
-    import classes.Nodes;
+math : '$' mrow '$' ;
 
-}
-//
-//math returns [Tree tree_]
-//    : '$' mrow '$' {
-//        $tree_ = new Tree(Nodes.MATH, "", List.of($mrow.tree_));
-//    };
-//
-//mrow returns [Tree tree_]
-//    @init {List<Tree> children_ = new ArrayList<Tree>();}
-//    : (mi { children_.add(new Tree(Nodes.MI, $mi.text, null)); }) * {
-//        $tree_ = new Tree(Nodes.MROW, "", children_);
-//    };
-//
-//mi: (LETTER | DIGIT | SYMBOL)+ ;
-//
-//
-//WS           : [ \t\r\n]+ -> skip ;
-//LETTER       : [a-zA-Z];
-//DIGIT        : [0-9];
-//SYMBOL       : [^a-zA-Z0-9];
-//
+mrow : (indexes | actions) + ;
 
-math returns [Tree tree_]
-    : '$' mrow '$' {
-        $tree_ = new Tree(Nodes.MATH, List.of($mrow.tree_));
-    };
+indexes : msub | msup;
+msup : actions '^' '{' mrow '}';
+msub : actions '_' '{' mrow '}';
 
-mrow returns [Tree tree_]
-    @init {List<Tree> children_ = new ArrayList<Tree>();}
-    : (   mi { children_.add(new Tree(Nodes.MI, $mi.text)); }
-        | mn { children_.add(new Tree(Nodes.MN, $mn.text)); }
-        | mo { children_.add(new Tree(Nodes.MO, $mo.text)); }
-        | ms { children_.add(new Tree(Nodes.MS, $ms.text)); }
-        | msqrt { children_.add($msqrt.tree_); }
-        | mfrac { children_.add($mfrac.tree_); }
-        | paren { children_.add($paren.tree_); }
-      ) * { $tree_ = new Tree(Nodes.MROW, children_); };
-
-msqrt returns [Tree tree_]
-    @init {Tree tree = new Tree(Nodes.MSQRT);}
-    : '\\sqrt'
-        square?
-        brace {
-            tree.addChild($brace.tree_);
-            $tree_ = tree;
-        };
-
-brace returns [Tree tree_]: '{' mrow '}' { $tree_ =  new Tree(Nodes.MBRACE, List.of($mrow.tree_)); };
-
-square returns [Tree tree_]: '[' mrow ']' { $tree_ =  new Tree(Nodes.MSQUARE, List.of($mrow.tree_)); };
-
-paren returns [Tree tree_]: '(' mrow ')' { $tree_ =  new Tree(Nodes.MPAREN, List.of($mrow.tree_)); };
-
-mfrac returns [Tree tree_]
-    @init {Tree tree = new Tree(Nodes.MFRAC, "frac");}
-    :  '\\frac'
-    brace {tree.addChild($brace.tree_);}
-    brace {
-        tree.addChild($brace.tree_);
-        $tree_ = tree;
-    };
-mi : IDENTIFIER | greek;
-
+actions : mi | mn | mo | ms | mfrac | msqrt | mbinom;
+mfrac : '\\frac' '{'  mrow '}' '{' mrow '}';
+msqrt : '\\sqrt' ('[' mrow ']') ? '{' mrow '}';
+mbinom : '\\binom' '{' mrow '}' '{' mrow '}';
+mi : identifier | greek | functions ;
 mn : NUMBER ;
-
 mo : OPERATOR ;
-
 ms : SYMBOL+ ;
 
-greek :	'\\Gamma' | '\\Delta'  | '\\Theta'   | '\\Lambda' | '\\Pi'
-      | '\\Sigma' | '\\Phi'    | '\\Psi'     | '\\Omega'  | '\\alpha' | '\\beta'
-      | '\\gamma' | '\\delta'  | '\\epsilon' | '\\eta'    | '\\theta' | '\\iota'
-      | '\\kappa' | '\\lambda' | '\\mugreek' | '\\nu'     | '\\xi'    | '\\pi'  | '\\rho'
-      | '\\sigma' | '\\tau'    | '\\upsilon' | '\\phi'    | '\\chi'   | '\\psi' | '\\omega' ;
+greek : '\\' GREEK ;
+GREEK : 'alpha' | 'beta' | 'gamma' | 'delta' | 'epsilon' | 'zeta' | 'eta' | 'theta' | 'iota' | 'kappa' | 'lambda' | 'mu' | 'nu' | 'xi' | 'omicron' | 'pi' | 'rho' | 'sigma' | 'tau' | 'upsilon' | 'phi' | 'chi' | 'psi' | 'omega' | 'Gamma' | 'Delta' | 'Theta' | 'Lambda' | 'Xi' | 'Pi' | 'Sigma' | 'Upsilon' | 'Phi' | 'Psi' | 'Omega' ;
 
+functions : '\\' FUNCTION ;
+FUNCTION : 'sin' | 'cos' | 'tan' | 'cot';
 
-IDENTIFIER : [a-zA-Z]+ ;
+identifier : IDENTIFIER ;
+
+IDENTIFIER : LETTER+;
 
 NUMBER : [0-9]+ ;
 
-WS           : [ \t\r\n]+ -> skip ;
+WS : [ \t\r\n]+ -> skip ;
 
-SYMBOL       : [^a-zA-Z0-9];
+SYMBOL : [^a-zA-Z0-9];
 
-OPERATOR : [+-/*=<>] ;
+OPERATOR : [+-/*=<>!&|()] ;
+LETTER : [a-zA-Z]+ ;
