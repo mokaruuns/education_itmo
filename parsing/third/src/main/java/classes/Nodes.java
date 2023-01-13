@@ -6,10 +6,11 @@ public enum Nodes {
     MI,
     MO,
     MN,
-    MSUB,
-    MSUP,
+    MS,
     MFRAC,
-    MROOT,
-    MSQRT
+    MSQRT,
+    MBRACE,
+    MSQUARE,
+    MPAREN,
 }
 

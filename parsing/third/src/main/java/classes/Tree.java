@@ -7,7 +7,7 @@ import java.util.List;
 public class Tree {
 
     private final Nodes node;
-    private final String content;
+    private String content;
 
     List<Tree> children;
 
@@ -35,6 +35,10 @@ public class Tree {
         this.node = node;
         this.content = "";
         this.children = new ArrayList<>();
+    }
+
+    public void setContent(String content) {
+        this.content = content;
     }
 
     public void addChild(Tree child) {
@@ -68,6 +72,8 @@ public class Tree {
     }
 
     public String toMathML() {
+        StringBuilder sb = new StringBuilder();
+
         switch (node) {
             case MI -> {
                 return "<mi>" + content + "</mi>";
@@ -79,73 +85,61 @@ public class Tree {
                 return "<mn>" + content + "</mn>";
             }
             case MROW -> {
-                StringBuilder sb = new StringBuilder();
                 sb.append("<mrow>");
                 for (Tree child : children) {
                     sb.append(child.toMathML());
                 }
                 sb.append("</mrow>");
-                return sb.toString();
+                sb.append("\n");
             }
             case MATH -> {
-                StringBuilder sb = new StringBuilder();
-                sb.append("<math>");
+                sb.append("<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\">");
                 for (Tree child : children) {
                     sb.append(child.toMathML());
                 }
                 sb.append("</math>");
-                return sb.toString();
-            }
-            case MSUB -> {
-                StringBuilder sb = new StringBuilder();
-                sb.append("<msub>");
-                for (Tree child : children) {
-                    sb.append(child.toMathML());
-                }
-                sb.append("</msub>");
-                return sb.toString();
-            }
-            case MSUP -> {
-                StringBuilder sb = new StringBuilder();
-                sb.append("<msup>");
-                for (Tree child : children) {
-                    sb.append(child.toMathML());
-                }
-                sb.append("</msup>");
-                return sb.toString();
+                sb.append("\n");
             }
             case MFRAC -> {
-                StringBuilder sb = new StringBuilder();
                 sb.append("<mfrac>");
                 for (Tree child : children) {
-                    sb.append("{");
                     sb.append(child.toMathML());
-                    sb.append("}");
                 }
                 sb.append("</mfrac>");
-                return sb.toString();
-            }
-            case MROOT -> {
-                StringBuilder sb = new StringBuilder();
-                sb.append("<mroot>");
-                for (Tree child : children) {
-                    sb.append(child.toMathML());
-                }
-                sb.append("</mroot>");
-                return sb.toString();
             }
             case MSQRT -> {
-                StringBuilder sb = new StringBuilder();
                 sb.append("<msqrt>");
                 for (Tree child : children) {
                     sb.append(child.toMathML());
                 }
                 sb.append("</msqrt>");
-                return sb.toString();
+            }
+            case MBRACE -> {
+                sb.append("<mfenced open=\"[\" close=\"]\">");
+                for (Tree child : children) {
+                    sb.append(child.toMathML());
+                }
+                sb.append("</mfenced>");
+            }
+            case MSQUARE -> {
+                sb.append("<mfenced open=\"{\" close=\"}\">");
+                for (Tree child : children) {
+                    sb.append(child.toMathML());
+                }
+                sb.append("</mfenced>");
+            }
+            case MPAREN -> {
+                sb.append("<mfenced open=\"(\" close=\")\">");
+                for (Tree child : children) {
+                    sb.append(child.toMathML());
+                }
+                sb.append("</mfenced>");
             }
             default -> {
                 return "";
             }
         }
+        return sb.toString();
+
     }
 }
